@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 
 function Home(){
     return (
-        <div>
+        <div className="w-4/5 max-w-7xl mx-auto">
 
            <Navbar />
            <Hero />
