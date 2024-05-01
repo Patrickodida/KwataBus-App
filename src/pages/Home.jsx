@@ -1,11 +1,22 @@
 import React from "react";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import TicketSteps from "../components/TicketSteps";
+import About from "../components/About";
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
 function Home(){
     return (
         <div>
-            <h1 className="text-dark-light mt-5 text-center md:text-xl lg:text-base xl:text-xl lg:text-left">
-        Home Page
-      </h1>
+
+           <Navbar />
+           <Hero />
+           <TicketSteps />
+           <About />
+           <Contact />
+           <Footer /> 
+
         </div>
     )
 }
