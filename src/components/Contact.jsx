@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 function Contact() {
   return (
     <div>
-      <section className="contact-section">
-        <h2 className="text-4xl text-center my-6">Contact Us</h2>
+      <section className="contact-section w-4/5 max-w-screen-xl m-auto">
+        <h2 className="text-4xl text-center my-6 font-bold">Contact Us</h2>
         <div>
-          <h3>Get In Touch</h3>
+          <h3 className="font-bold my-4">Get In Touch</h3>
           <p>
             Havea question, feedback or need assistance? We're here to help! Get
             in touch with us using the contact information below, and our
@@ -16,7 +16,7 @@ function Contact() {
         </div>
 
         <div>
-          <h3>Contact Information: Customer Support</h3>
+          <h3 className="font-bold my-4">Contact Information: Customer Support</h3>
           <ul>
             <li>
               <strong>Email:</strong>{" "}
@@ -33,7 +33,7 @@ function Contact() {
         </div>
 
         <div>
-          <h3>Business Inquiries</h3>
+          <h3 className="font-bold my-4">Business Inquiries</h3>
           <ul>
             <li>
               <strong>Email:</strong>{" "}
@@ -49,7 +49,7 @@ function Contact() {
         </div>
 
         <div>
-          <h3>Connect With Us</h3>
+          <h3 className="font-bold my-4">Connect With Us</h3>
           <p>
             Stay updated on the latest news, promotions, and travel tips by
             following us on social media:
@@ -77,7 +77,7 @@ function Contact() {
         </div>
 
         <div>
-          <h3>Visit Us:</h3>
+          <h3 className="font-bold my-4">Visit Us:</h3>
           <p>
             If you prefer face-to-face interactions, you can also visit our
             office:
@@ -89,12 +89,13 @@ function Contact() {
             Uganda
           </address>
         </div>
-
+        <br />
         <div>
           <p>
             Our friendly staff will be happy to assist you with any inquiries in
             person.
           </p>
+          <br/>
           <p>
             Thank you for choosing KwataBus for your travel needs. We look
             forward to hearing from you!
