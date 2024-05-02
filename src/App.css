@@ -75,14 +75,13 @@ button {
 
 .hero-content {
     position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1;
-        color: #ffffff;
-        padding: 1.325em;
-        display: flex;
-        align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
 }
 
 input[type="text"]::placeholder,
