@@ -3,7 +3,7 @@ import React from "react";
 function About(){
     return (
         <div>
-            <section className="about-section w-4/5 max-w-screen-xl m-auto mb-12">
+            <section className="about-section w-4/5 max-w-screen-xl m-auto mb-12 text-center">
                 <h2 className="text-4xl text-center my-6 font-bold">About</h2>
                 <p className="mb-4 text-base">Welcome to KwataBus – your go-to platform for hassle-free bus booking experiences! We're thrilled to have you aboard.</p>
                 <p className="mb-4 text-base">At KwataBus, we understand the importance of seamless travel. Whether you're commuting for work, embarking on an adventure, or simply exploring new destinations, we believe that every journey should be comfortable, convenient, and memorable. That's why we've crafted a user-friendly platform that puts your travel needs first.</p>
