@@ -93,6 +93,10 @@ input[type="date"]::placeholder{
     color: rgb(6, 31, 119);
 }
 
+/* About section */
+.about-section {
+  color: var(--clr-primary-navy-blue);
+}
 /* Ticket steps section */
 .card{
     margin-bottom: 1em;
