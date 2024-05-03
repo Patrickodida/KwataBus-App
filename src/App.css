@@ -117,3 +117,8 @@ input[type="date"]::placeholder{
 .ticket-section{
     color: var(--clr-primary-navy-blue);
 }
+
+/* Contact Section */
+.contact-section {
+    color: var(--clr-primary-navy-blue);
+}
