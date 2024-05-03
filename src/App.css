@@ -1,3 +1,6 @@
+:root{
+    --clr-primary-navy-blue: rgb(6, 31, 119);
+}
 *,
 *::before,
 *::after {
@@ -75,14 +78,13 @@ button {
 
 .hero-content {
     position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1;
-        color: #ffffff;
-        padding: 1.325em;
-        display: flex;
-        align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
 }
 
 input[type="text"]::placeholder,
@@ -91,6 +93,7 @@ input[type="date"]::placeholder{
     color: rgb(6, 31, 119);
 }
 
+feat/ticket-steps
 /* Ticket steps section */
 .card{
     margin-bottom: 1em;
@@ -106,4 +109,9 @@ input[type="date"]::placeholder{
 
 .text-container{
     width: 50%;
+=======
+/* Contact Section */
+.contact-section {
+    color: var(--clr-primary-navy-blue);
+  develop
 }
