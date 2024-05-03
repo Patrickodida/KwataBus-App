@@ -3,8 +3,8 @@ import React from "react";
 function TicketSteps(){
     return (
         <div>
-            <section className="w-4/5 max-w-screen-xl m-auto">
-        <h2 className="text-4xl text-center my-6">Get Your Tickets with Just 3 Steps</h2>
+            <section className="ticket-section w-4/5 max-w-screen-xl m-auto">
+        <h2 className="text-4xl text-center my-6 font-bold">Get Your Tickets with Just 3 Steps</h2>
         <div className="card flex justify-between items-center gap-10  ">
           <div className="icons-container border rounded-lg">
             <h4>1</h4>
