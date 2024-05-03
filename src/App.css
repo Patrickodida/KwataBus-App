@@ -1,3 +1,6 @@
+:root{
+    --clr-primary-navy-blue: rgb(6, 31, 119);
+}
 *,
 *::before,
 *::after {
@@ -88,4 +91,9 @@ input[type="text"]::placeholder,
 input[type="date"]::placeholder{
     font-weight: 700;
     color: rgb(6, 31, 119);
+}
+
+/* Contact Section */
+.contact-section {
+    color: var(--clr-primary-navy-blue);
 }
