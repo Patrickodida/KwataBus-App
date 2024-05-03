@@ -92,13 +92,3 @@ input[type="date"]::placeholder{
     font-weight: 700;
     color: rgb(6, 31, 119);
 }
-
-/* Contact Section */
-.contact-section {
-    color: var(--clr-primary-navy-blue);
-}
-
-/* About section */
-.about-section {
-    color: var(--clr-primary-navy-blue);
-}
