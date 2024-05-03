@@ -93,7 +93,25 @@ input[type="date"]::placeholder{
     color: rgb(6, 31, 119);
 }
 
+feat/ticket-steps
+/* Ticket steps section */
+.card{
+    margin-bottom: 1em;
+}
+.icon{
+    font-size: 4rem;
+    padding: 0.5em 0.75em;
+}
+
+.icons-container{
+    width: 50%;
+}
+
+.text-container{
+    width: 50%;
+=======
 /* Contact Section */
 .contact-section {
     color: var(--clr-primary-navy-blue);
+  develop
 }
