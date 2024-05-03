@@ -95,5 +95,25 @@ input[type="date"]::placeholder{
 
 /* About section */
 .about-section {
+  color: var(--clr-primary-navy-blue);
+}
+/* Ticket steps section */
+.card{
+    margin-bottom: 1em;
+}
+.icon{
+    font-size: 4rem;
+    padding: 0.5em 0.75em;
+}
+
+.icons-container{
+    width: 50%;
+}
+
+.text-container{
+    width: 50%;
+}
+
+.ticket-section{
     color: var(--clr-primary-navy-blue);
 }
