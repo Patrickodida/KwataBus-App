@@ -97,3 +97,8 @@ input[type="date"]::placeholder{
 .contact-section {
     color: var(--clr-primary-navy-blue);
 }
+
+/* About section */
+.about-section {
+    color: var(--clr-primary-navy-blue);
+}
