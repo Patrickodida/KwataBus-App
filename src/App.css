@@ -113,3 +113,15 @@ input[type="date"]::placeholder{
 .ticket-section{
     color: var(--clr-primary-navy-blue);
 }
+
+#footer {
+    background-color: rgb(6, 31, 119);
+}
+
+#list {
+    list-style: none;
+}
+
+#h1 {
+    color: rgb(227, 191, 0);
+}
