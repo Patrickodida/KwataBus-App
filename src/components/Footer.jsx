@@ -4,14 +4,17 @@ import { Link } from "react-router-dom";
 function Footer() {
     return (
         <div className="footer-section flex justify-around bg-blue-800 text-white mt-20">
-            <section id="companyLogoMedia" className="p-8">
-                <h3 className="text-xl font-bold mb-2" >Kwata<span style={{ color: "#e3bf00" }}>Bus</span></h3>
+            <section id="companyLogoMedia" className="p-8 flex items-center">
+                <div className="flex flex-col items-center">
+                    <h3 className="text-xl font-bold mb-2" >Kwata<span style={{ color: "#e3bf00" }}>Bus</span></h3>
 
                 <ul className="flex justify-around">
                     <li><i className='bx bxl-facebook-circle text-2xl social-icons'></i></li>
-                    <li><i className='bx bxl-twitter text-2xl social-icons'></i></li>
-                    <li><i className='bx bxl-linkedin-square text-2xl social-icons'></i></li>
+                    <li><i className='bx bxl-twitter text-2xl social-icons pl-4'></i></li>
+                    <li><i className='bx bxl-linkedin-square text-2xl social-icons pl-4'></i></li>
                 </ul>
+                </div>
+                
             </section>
             <section id="usefulLinks" className="p-8 text-center">
                 <h4 id="h4" className="text-xl font-medium">Useful Links</h4>
