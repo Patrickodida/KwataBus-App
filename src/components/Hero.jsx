@@ -3,7 +3,7 @@ import React from "react";
 function Hero() {
   return (
     <div>
-      <section className=" hero-section my-20">
+      <section className=" hero-section my-10">
         <div className="hero-over-lay">
         </div>
         <div className="hero-content justify-center gap-10 w-4/5 max-w-7xl mx-auto">
