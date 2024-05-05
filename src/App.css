@@ -1,6 +1,7 @@
 :root{
     --clr-primary-navy-blue: rgb(6, 31, 119);
     --clr-secondary-gold: rgb(227, 191, 0);
+    --clr-white: #f2f2f2;
 }
 *,
 *::before,
@@ -15,6 +16,12 @@ body{
 /* Navbar section */
 .nav-links:hover{
     color: var(--clr-secondary-gold);
+}
+
+.button-link{
+    background-color: var(--clr-primary-navy-blue);
+    color: var(--clr-white);
+    padding: 0.25em 0.875em;
 }
 
 .button-link:hover{
