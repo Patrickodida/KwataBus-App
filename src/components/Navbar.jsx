@@ -7,7 +7,7 @@ function Navbar() {
       <section className="bg-white text-blue-900 fixed top-0 left-0 right-0 z-50 w-full">
         <div className="flex items-center justify-between m-auto w-4/5 max-w-screen-xl py-4">
           <Link href="/" className="site-title font-bold text-2xl">
-          Kwata<span style={{color:'#e3bf00'}}>Bus</span>
+          Kwata<span>Bus</span>
         </Link>
         <nav className="flex items-center w-full">
         <ul className="flex m-auto font-bold ">
