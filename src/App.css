@@ -1,5 +1,6 @@
 :root{
     --clr-primary-navy-blue: rgb(6, 31, 119);
+    --clr-secondary-gold: rgb(227, 191, 0);
 }
 *,
 *::before,
@@ -9,6 +10,16 @@
 
 body{
     font-family: "Poppins", sans-serif;
+}
+
+/* Navbar section */
+.nav-links:hover{
+    color: var(--clr-secondary-gold);
+}
+
+.button-link:hover{
+    color: var(--clr-primary-navy-blue);
+    background: var(--clr-secondary-gold);
 }
 
 input[type="text"],
