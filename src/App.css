@@ -65,6 +65,7 @@ button {
     background-image: url(./images/Bus-Image.png);
     background-size: cover;
     background-position: center;
+    margin-top: 3.75em;
 }
 
 .hero-over-lay {
@@ -93,6 +94,10 @@ input[type="date"]::placeholder{
     color: rgb(6, 31, 119);
 }
 
+/* About section */
+.about-section {
+  color: var(--clr-primary-navy-blue);
+}
 /* Ticket steps section */
 .card{
     margin-bottom: 1em;
@@ -114,6 +119,7 @@ input[type="date"]::placeholder{
     color: var(--clr-primary-navy-blue);
 }
 
+
 #footer {
     background-color: rgb(6, 31, 119);
 }
@@ -125,3 +131,9 @@ input[type="date"]::placeholder{
 #h1 {
     color: rgb(227, 191, 0);
 }
+
+/* Contact Section */
+.contact-section {
+    color: var(--clr-primary-navy-blue);
+}
+
