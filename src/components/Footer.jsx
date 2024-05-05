@@ -3,34 +3,39 @@ import { Link } from "react-router-dom";
 
 function Footer() {
     return (
-        <div className="flex justify-around bg-blue-800 text-white">
+        <div className="footer-section flex justify-around bg-blue-800 text-white mt-20">
             <section id="companyLogoMedia" className="p-8">
-                <h1 className="text-xl" >Kwata<span id="h1">Bus</span></h1>
+                <h3 className="text-xl font-bold mb-2" >Kwata<span style={{ color: "#e3bf00" }}>Bus</span></h3>
 
                 <ul className="flex justify-around">
-                    <li><i className='bx bxl-facebook-circle'></i></li>
-                    <li><i className='bx bxl-twitter'></i></li>
-                    <li><i className='bx bxl-linkedin-square'></i></li>
+                    <li><i className='bx bxl-facebook-circle text-2xl social-icons'></i></li>
+                    <li><i className='bx bxl-twitter text-2xl social-icons'></i></li>
+                    <li><i className='bx bxl-linkedin-square text-2xl social-icons'></i></li>
                 </ul>
             </section>
-            <section id="usefulLinks" className="p-8">
-                <h1 id="h1" className="text-xl ">Useful Links</h1>
-                <ul>
+            <section id="usefulLinks" className="p-8 text-center">
+                <h4 id="h4" className="text-xl font-medium">Useful Links</h4>
+                <div className="footer-links-primary text-center">
+                    <ul>
                     <li>
-                        <Link href="/">Home</Link>
+                        <Link to="/" className="footer-links">Home</Link>
                     </li>
                     <li>
-                        <Link href="about">About</Link>
+                        <Link to="about" className="footer-links">About</Link>
                     </li>
                     <li>
-                        <Link href="contact">Contact</Link>
+                        <Link to="contact" className="footer-links">Contact</Link>
                     </li>
                 </ul>
-
-                <p>© KwataBus { new Date().getFullYear()}</p>
+                <div className="copyright mt-6">
+                    <p>© KwataBus { new Date().getFullYear()}</p>
+                </div>
+                </div>
+                
+                
             </section>
-            <section id="contact" className="p-8">
-                <h1 id="h1" className="text-xl ">Contact Info</h1>
+            <section id="contact" className="p-8 text-right">
+                <h4 className="text-xl font-medium">Contact Info</h4>
                 <p>Plot 155, Dembe Towers</p>
                 <p>+256393280823</p>
                 <p>info@kwatabus.com</p>

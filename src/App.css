@@ -146,12 +146,24 @@ input[type="date"]::placeholder{
     list-style: none;
 }
 
-#h1 {
+h4 {
     color: rgb(227, 191, 0);
 }
 
 /* Contact Section */
 .contact-section {
     color: var(--clr-primary-navy-blue);
+}
+
+/* Footer section */
+.footer-section{
+    background-color: var(--clr-primary-navy-blue);
+}
+
+.footer-links:hover{
+    color: var(--clr-secondary-gold);
+}
+.social-icons:hover{
+    color: var(--clr-secondary-gold);
 }
 

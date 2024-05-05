@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 function Contact() {
   return (
     <div>
-      <section className="contact-section w-4/5 max-w-screen-xl m-auto text-center">
-        <h2 className="text-4xl text-center my-6 font-bold">Contact Us</h2>
+      <section className="contact-section w-4/5 max-w-screen-xl m-auto text-center my-20">
+        <h2 className="text-4xl text-center mb-6 font-bold">Contact Us</h2>
         <div>
           <h3 className="font-bold my-4">Get In Touch</h3>
           <p>
