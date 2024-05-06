@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function Footer() {
     return (
-        <div className="footer-section flex justify-around bg-blue-800 text-white mt-20">
-            <section id="companyLogoMedia" className="p-8 flex items-center">
+        <div className="footer-section lg:flex lg:justify-around bg-blue-800 text-white mt-20">
+            <section id="companyLogoMedia" className="p-8 lg:flex lg:items-center">
                 <div className="flex flex-col items-center">
                     <h3 className="text-xl font-bold mb-2" >Kwata<span style={{ color: "#e3bf00" }}>Bus</span></h3>
 
@@ -37,7 +37,7 @@ function Footer() {
                 
                 
             </section>
-            <section id="contact" className="p-8 text-right">
+            <section id="contact" className="p-8 text-center lg:text-right">
                 <h4 className="text-xl font-medium">Contact Info</h4>
                 <p>Plot 155, Dembe Towers</p>
                 <p>+256393280823</p>
