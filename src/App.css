@@ -119,21 +119,7 @@ input[type="date"]::placeholder{
     color: var(--clr-primary-navy-blue);
 }
 
-<<<<<<< HEAD
-#footer {
-    background-color: rgb(6, 31, 119);
-}
-
-#list {
-    list-style: none;
-}
-
-#h1 {
-    color: rgb(227, 191, 0);
-}
-=======
 /* Contact Section */
 .contact-section {
     color: var(--clr-primary-navy-blue);
 }
->>>>>>> 6064d7a6745303b1057742b578f62c3fa0277549
