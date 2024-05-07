@@ -12,7 +12,7 @@ function Contact() {
           <div className="form">
             <input className="w-full text-blue-900 rounded p-[0.425em] mb-[24px] border border-gray-300 text- [#061f77] focus:outline-none" type="text" placeholder="Your Name" />
             <input className="w-full text-blue-900 rounded p-[0.425em] mb-[24px] border border-gray-300 text-[#061f77] focus:outline-none" type="text" placeholder="Your Email" />
-            <textarea id="" rows="6" cols="50" className="w-full text-blue-900 rounded p-[0.425em] mb-[24px] border border-gray-300 text-[#061f77] focus:outline-none"></textarea>
+            <textarea id="" rows="6" cols="50" className="w-full text-blue-900 rounded p-[0.425em] mb-[24px] border border-gray-300 text-[#061f77] focus:outline-none" placeholder="Your Message"></textarea>
             <button className="w-full rounded">Send</button>
           </div>
           </div>
