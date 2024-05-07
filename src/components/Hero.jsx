@@ -18,17 +18,17 @@ function Hero() {
                 <input
                   type="text"
                   placeholder="From"
-                  className="mb-1 text-blue-900 rounded"
+                  className="mb-[24px] text-blue-900 rounded w-[50%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none"
                 />
 
                 <input
                   type="text"
                   placeholder="To"
-                  className="text-blue-900 rounded"
+                  className="mb-[24px] text-blue-900 rounded w-[50%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none"
                 />
               </div>
 
-              <input type="date" className="text-blue-900 rounded" />
+              <input type="date" className="mb-[24px] text-blue-900 rounded w-[100%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none" />
 
               <button type="submit" className="bg-blue-900 rounded-lg">
                 Find Ticket
