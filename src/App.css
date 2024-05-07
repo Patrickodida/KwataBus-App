@@ -1,5 +1,7 @@
 :root{
     --clr-primary-navy-blue: rgb(6, 31, 119);
+    --clr-secondary-gold: rgb(227, 191, 0);
+    --clr-white: #f2f2f2;
 }
 *,
 *::before,
@@ -9,6 +11,22 @@
 
 body{
     font-family: "Poppins", sans-serif;
+}
+
+/* Navbar section */
+.nav-links:hover{
+    color: var(--clr-secondary-gold);
+}
+
+.button-link{
+    background-color: var(--clr-primary-navy-blue);
+    color: var(--clr-white);
+    padding: 0.25em 0.875em;
+}
+
+.button-link:hover{
+    color: var(--clr-primary-navy-blue);
+    background: var(--clr-secondary-gold);
 }
 
 input[type="text"],
@@ -61,7 +79,8 @@ button {
 /* Adding an Overlay */
 .hero-section {
     position: relative;
-    height:75vh;
+    min-height: 400px;
+    height: 75vh;
     background-image: url(./images/Bus-Image.png);
     background-size: cover;
     background-position: center;
@@ -119,7 +138,33 @@ input[type="date"]::placeholder{
     color: var(--clr-primary-navy-blue);
 }
 
+
+#footer {
+    background-color: rgb(6, 31, 119);
+}
+
+#list {
+    list-style: none;
+}
+
+h4 {
+    color: rgb(227, 191, 0);
+}
+
 /* Contact Section */
 .contact-section {
     color: var(--clr-primary-navy-blue);
 }
+
+/* Footer section */
+.footer-section{
+    background-color: var(--clr-primary-navy-blue);
+}
+
+.footer-links:hover{
+    color: var(--clr-secondary-gold);
+}
+.social-icons:hover{
+    color: var(--clr-secondary-gold);
+}
+
