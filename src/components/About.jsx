@@ -1,6 +1,6 @@
 import React from "react";
-import SvgSmartphone from "./SvgSmartphone";
-import SvgPeople from "./SvgPeople";
+import SvgSmartphone from '../images/smartphone.svg'
+import SvgPeople from '../images/bookSeat.svg'
 
 function About() {
   return (
@@ -9,7 +9,7 @@ function About() {
         <h2 className="text-4xl text-center mb-6 font-bold">About</h2>
         <div className="section-1 flex justify-center items-center gap-[10%] ">
           <div className="image w-1/2 h-auto flex justify-center">
-            <SvgSmartphone className="w-1/4 h-auto" />
+            <img src={SvgSmartphone} className="w-1/2 h-auto" />
           </div>
           <div className="text w-1/2 text-left">
             <p>
@@ -60,7 +60,7 @@ function About() {
             </p>
           </div>
           <div className="image w-1/2 h-auto flex justify-center">
-            <SvgPeople className="w-1/4 h-auto" />
+            <img src={SvgPeople} className="w-1/2 h-auto" />
           </div>
         </div>
       </section>
