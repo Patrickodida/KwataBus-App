@@ -28,7 +28,10 @@ function Hero() {
                 />
               </div>
 
-              <input type="date" className="mb-[24px] text-blue-900 rounded w-[100%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none" />
+              <input
+                type="date"
+                className="mb-[24px] text-blue-900 rounded w-[100%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none"
+              />
 
               <button type="submit" className="bg-blue-900 rounded-lg">
                 Find Ticket
