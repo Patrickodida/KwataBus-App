@@ -7,57 +7,23 @@ function About() {
     <div>
       <section className="about about-section w-4/5 max-w-screen-xl m-auto text-center my-20">
         <h2 className="text-4xl text-center mb-6 font-bold">About</h2>
-        <div className="section-1 flex justify-center items-center gap-[10%] ">
+        <div className="section-1 flex justify-center items-center gap-[10%] mb-12 ">
           <div className="image w-1/2 h-auto flex justify-center">
             <img src={SvgSmartphone} className="w-1/2 h-auto" />
           </div>
           <div className="text w-1/2 text-left">
             <p>
-              Welcome to KwataBus – your go-to platform for hassle-free bus
-              booking experiences! We're thrilled to have you aboard.
+              Welcome to KwataBus – your hassle-free platform for bus bookings! At KwataBus, we prioritize seamless travel experiences. Whether for work or adventure, we believe every journey should be comfortable and memorable. Our user-friendly platform prioritizes your needs. Founded on reliability and efficiency, KwataBus revolutionizes bus ticket booking. Easily compare schedules, select routes, and secure seats from home or on-the-go with our mobile app.
             </p>
-            <p>
-              At KwataBus, we understand the importance of seamless travel.
-              Whether you're commuting for work, embarking on an adventure, or
-              simply exploring new destinations, we believe that every journey
-              should be comfortable, convenient, and memorable. That's why we've
-              crafted a user-friendly platform that puts your travel needs
-              first.
-            </p>
-            <p>
-              Founded on the principles of reliability, efficiency, and customer
-              satisfaction, KwataBus aims to revolutionize the way you book bus
-              tickets. With just a few clicks, you can easily compare schedules,
-              select your preferred routes, and secure your seats – all from the
-              comfort of your home or on-the-go via our mobile app.
-            </p>
+            
           </div>
         </div>
-        <div className="section-2 flex justify-center items-center gap-[10%]">
+        <div className="section-2 flex justify-center items-center gap-[10%] mb-4">
           <div className="text w-1/2 text-left">
             <p>
-              But KwataBus is more than just a booking platform – we're your
-              trusted travel companion. Our dedicated team works tirelessly to
-              ensure that every aspect of your journey is taken care of, from
-              reservation to arrival. Whether you have questions about your
-              booking, need assistance during your trip, or simply want travel
-              tips and recommendations, our customer support team is always here
-              to help.
+              At KwataBus, we're more than a booking platform – we're your trusted travel companion. Our dedicated team ensures every aspect of your journey is covered, from reservation to arrival. Need assistance or travel tips? Our customer support team is here for you. Safety is paramount; we partner with reputable operators and prioritize your well-being with well-maintained vehicles and experienced drivers. Committed to sustainability, we promote bus travel as an eco-friendly choice for a greener future.
             </p>
-            <p>
-              Safety is our top priority at KwataBus. We partner with reputable
-              bus operators who adhere to strict safety standards, so you can
-              rest assured knowing that you're in good hands every step of the
-              way. From well-maintained vehicles to experienced drivers, we go
-              above and beyond to prioritize your well-being.
-            </p>
-            <p>
-              As passionate advocates for sustainable travel, we're committed to
-              minimizing our environmental footprint. By promoting bus travel as
-              an eco-friendly alternative to other modes of transportation,
-              we're doing our part to create a greener, more sustainable future
-              for generations to come.
-            </p>
+            
           </div>
           <div className="image w-1/2 h-auto flex justify-center">
             <img src={SvgPeople} className="w-1/2 h-auto" />
