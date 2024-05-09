@@ -2,6 +2,11 @@ import React from "react";
 
 
 function Login() {
+  return (
+    <div>
+      <h1>Log In</h1>
+    </div>
+  );
     return (
         <div className="bg-white px-10 py-20 rounded 3xl border-x-8 border-y-8 border-[#061f77] w-[80%] m-auto">
           <h1 className="text-5xl font-semibold text-center text-[#061f77]">Sign In</h1>
