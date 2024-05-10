@@ -150,3 +150,47 @@ h4 {
     color: var(--clr-secondary-gold);
 }
 
+.BookingArea-section {
+    position: relative;
+    min-height: 100px;
+    height: 15vh;
+    background-size: cover;
+    background-position: center;
+    margin-top: 3.75em;
+    margin-left: 1.5em;
+}
+
+.BookingArea-content {
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: 1; 
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+
+.BookingArea-button {
+    width: 10%;
+    padding: 0em;
+    margin-bottom: 0em;
+    margin-left: 1em;
+    outline: none;
+    display: inline-block;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 0;
+    color: #fff;
+    background:rgb(6, 31, 119);
+}
+
+label {
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 0.5em;
+}
+
+#firstLabel {
+    margin-left: 0em;
+}
