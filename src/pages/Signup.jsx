@@ -28,12 +28,15 @@ function Signup() {
       });
   }
   return (
-    <section className="bg-[#061f77] ">
-      <div className="bg-white rounded 3xl border-[#061f77] w-[50%] m-auto pt-[4em] pb-[4em]">
-      <h1 className="text-center text-4xl font-semibold text-[#061f77]">
+    <section className="bg-[#061f77]">
+      <div className="bg-white rounded 3xl border-[#061f77] w-[50%] m-auto pt-[2em] pb-[2em]">
+        <h1 className="font-bold text-4xl text-[#061f77] text-center mb-[1em]">
+          Kwata<span className="text-[#e3bf00]">Bus</span>
+        </h1>
+      <h2 className="text-center text-3xl font-bold text-[#061f77]">
         Sign Up
-      </h1>
-      <form onSubmit={submitHandler} className="mt-8 ">
+      </h2>
+      <form onSubmit={submitHandler} className="mt-4 ">
       
           <div className="flex w-[80%] m-auto justify-center">
             <label for="email" className="text-lg m-[0] font-normal" />
