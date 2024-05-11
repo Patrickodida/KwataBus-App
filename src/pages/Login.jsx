@@ -31,8 +31,8 @@ function Login() {
       </h2>
       <div className="mt-4">
         <form onSubmit={handleSubmit}>
-          <div className="w-full m-auto flex justify-center">
-            <label for="email" className="text-lg font medium" />
+          <div className="flex w-[80%] m-auto justify-center">
+            <label for="email" className="text-lg m-[0] font-normal" />
             <input
               id="email"
               type="email"
@@ -44,8 +44,8 @@ function Login() {
               value={input.email}
             />
           </div>
-          <div className="w-full m-auto flex justify-center">
-            <label for="password" className="text-lg font medium" />
+          <div className="flex w-[80%] m-auto justify-center">
+            <label for="password" className="text-lg m-[0] font-normal" />
             <input
               id="password"
               type="password"
