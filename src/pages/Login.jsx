@@ -21,18 +21,22 @@ function Login() {
       });
   }
   return (
-    <div className="bg-white px-10 py-20 rounded 3xl border-x-8 border-y-8 border-[#061f77] w-[80%] m-auto">
-      <h1 className="text-5xl font-semibold text-center text-[#061f77]">
+    <section className="bg-[#061f77]">
+      <div className="bg-white rounded-2xl border-[#061f77] w-[50%] m-auto pt-[2em] pb-[2em] border-8">
+      <h1 className="font-bold text-4xl text-[#061f77] text-center mb-[1em]">
+          Kwata<span className="text-[#e3bf00]">Bus</span>
+        </h1>
+      <h2 className="text-center text-3xl font-bold text-[#061f77]">
         Sign In
-      </h1>
-      <div className="mt-8">
+      </h2>
+      <div className="mt-4">
         <form onSubmit={handleSubmit}>
           <div className="w-full m-auto flex justify-center">
             <label for="email" className="text-lg font medium" />
             <input
               id="email"
               type="email"
-              className="w-4/5  border-2 rounded-none p-4 mt-4 placeholder-[#061f77]"
+              className="w-4/5  border-2 rounded-none p-2 mt-4 placeholder-[#061f77]"
               placeholder="Email"
               onChange={(e) => {
                 setInput({ ...input, email: e.target.value });
@@ -45,7 +49,7 @@ function Login() {
             <input
               id="password"
               type="password"
-              className="w-4/5 border-2 rounded-none p-4 mt-4 placeholder-[#061f77]"
+              className="w-4/5  border-2 rounded-none p-2 mt-4 placeholder-[#061f77]"
               placeholder="Password"
               onChange={(e) => {
                 setInput({ ...input, password: e.target.value });
@@ -59,7 +63,7 @@ function Login() {
               <p className="text-center text-[#e3bf00]">Forgot password?</p>
             </div>
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center m-auto w-[80%]">
             <button type="submit" className="mt-4 w-4/5 font-medium text-base">
               Sign in
             </button>
@@ -73,19 +77,21 @@ function Login() {
         </div>
         <div className="mt-8 flex-col gap-y-4">
           <p className="text-[#061f77] text-center">Or</p>
-          <div className="flex justify-center">
-            <button className="flex w-4/5 rounded-none py-3 mt-4 border-2 items-center justify-center gap-2 active:scale-[.98] hover:scale-[1.01] transition-all py-3 rounded-none bg-white text-[#061f77] text-lg font-bold">
+          <div className="flex justify-center m-auto w-[80%]">
+            <button className="mt-4 font-medium text-base w-4/5">
               <i class="bx bxl-google"></i>Sign in with Google
             </button>
           </div>
-          <div className="flex justify-center">
-            <button className="flex w-4/5 rounded-none py-3 mt-4 border-2 items-center justify-center gap-2 active:scale-[.98] hover:scale-[1.01] transition-all py-3 rounded-none bg-white text-[#061f77] text-lg font-bold">
+          <div className="flex justify-center m-auto w-[80%]">
+            <button className="mt-4 font-medium text-base w-4/5">
               <i class="bx bxl-facebook-circle"></i>Sign in with Facebook
             </button>
           </div>
         </div>
       </div>
     </div>
+    </section>
+    
   );
 }
 
