@@ -12,29 +12,37 @@ function Help() {
     }
     return (
         <div>
-            <div className="flex justify-between p-8 m-auto items-center  font-bold bg-[#061f77]">
-                <Link href="/" className="site-title font-bold text-2xl">
+            <div className="nav-section bg-[#fefefe]">
+                <div className="flex justify-between p-4 m-auto items-center  font-bold  text-[#061f77] w-[90%] m-auto">
+                <Link href="/" className="site-title font-bold text-2xl ">
                     Kwata<span style={{ color: "#e3bf00" }}>Bus</span>
                 </Link>
 
                 <Link
-                    className="nav-links"
+                    className="nav-links "
                     to="/login"
                     style={{ whiteSpace: "nowrap" }}
                 >
                     Log In
                 </Link>
             </div>
-
-            <div className="header p-8  w-full bg-[#e3bf00]">
-                <Link className="text-white text-2xl" to="/help">
+            <div className="header p-4  w-full bg-[#061f77] ">
+                <div className="w-[90%] m-auto">
+                    <Link className="text-white text-2xl font-bold w-[90%] m-auto" to="/help">
                     Help
                 </Link>
+                <span className="text-[#fefefe] text-[1.5rem] ml-[2em]">|</span>
+                </div>
+                
+            </div>
             </div>
             
-            <form action="" className="h-[100vh] text-center">
-                <h1 className="text-center p-8 m-auto text-[#061f77] font-bold text-3xl">FREQUENTLY ASKED QUESTIONS (FAQS)</h1>
-                <select value={selectedValue} onChange={handleChange} className="p-6 m-auto w-4/5 max-w-screen-xl text-center border-4 rounded-lg">
+
+            
+            <div className="faq-section w-[70%] m-auto">
+                <form action="" className="mt-[3em] text-center ">
+                <h1 className="text-center p-2 text-[#061f77] font-bold text-2xl w-full">FREQUENTLY ASKED QUESTIONS (FAQS)</h1>
+                <select value={selectedValue} onChange={handleChange} className="p-4 text-center border-4 rounded-lg w-full">
                     <option value="question1">HOW DO I BUY TICKETS?</option>
                     <option value="question2">Lorem ipsum dolor, sit amet consectetur adipisicing elit?</option>
                     <option value="question3">Lorem ipsum dolor, sit amet consectetur adipisicing elit?</option>
@@ -44,7 +52,7 @@ function Help() {
                 <br />
                 <br />
 
-                <select value={selectedValue} onChange={handleChange} className="p-6 m-auto w-4/5 max-w-screen-xl text-center border-4 rounded-lg">
+                <select value={selectedValue} onChange={handleChange} className="p-4 text-center border-4 rounded-lg w-full">
                     <option value="question1">CAN THE TICKET BE SENT TO ME VIA SMS?</option>
                     <option value="question2">Lorem ipsum dolor, sit amet consectetur adipisicing elit?</option>
                     <option value="question3">Lorem ipsum dolor, sit amet consectetur adipisicing elit?</option>
@@ -54,7 +62,7 @@ function Help() {
                 <br />
                 <br />
 
-                <select value={selectedValue} onChange={handleChange} className="p-6 m-auto w-4/5 max-w-screen-xl  text-center border-4 rounded-lg">
+                <select value={selectedValue} onChange={handleChange} className="p-4  text-center border-4 rounded-lg w-full">
                     <option value="question1">I HAVE PURCHASED A TICKET BUT HAVE NOT RECEIVED A MESSAGE?</option>
                     <option value="question2">Lorem ipsum dolor, sit amet consectetur adipisicing elit?</option>
                     <option value="question3">Lorem ipsum dolor, sit amet consectetur adipisicing elit?</option>
@@ -62,6 +70,8 @@ function Help() {
                 </select>
  
             </form>
+            </div>
+            
 
             <Footer />
         </div>
@@ -69,7 +79,3 @@ function Help() {
 }
 
 export default Help;
-
-
-
-<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis dolorum error iusto illum distinctio earum officiis? Excepturi aliquam ad saepe quidem, in sed. Officiis ab ad veritatis tempora, quisquam eius?</p>
