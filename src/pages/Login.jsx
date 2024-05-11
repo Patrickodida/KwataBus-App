@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios'
 
 function Login() {
   const [input, setInput] = useState({
@@ -9,6 +10,14 @@ function Login() {
 
   function handleSubmit(e){
     e.preventDefault();
+    axios.post("http://localhost:1337/api/users", input)
+    .then(response => {
+      console.log(response)
+    })
+    .catch((error) => {
+      setError("Not logged in, Try again")
+      console.log(error)
+    });
 
   }
   return (
@@ -19,17 +28,25 @@ function Login() {
       <div className="mt-8">
         <form onSubmit={handleSubmit}>
           <div className="w-full m-auto flex justify-center">
-          <label className="text-lg font medium" />
+          <label for="email" className="text-lg font medium" />
           <input
+            id="email"
+            type="email"
             className="w-4/5  border-2 rounded-none p-4 mt-4 placeholder-[#061f77]"
             placeholder="Email"
+            onChange={(e) => {setInput({...input, email: e.target.value})}}
+            value={input.email}
           />
         </div>
         <div className="w-full m-auto flex justify-center">
-          <label className="text-lg font medium" />
+          <label for="password" className="text-lg font medium" />
           <input
+            id="password"
+            type="password"
             className="w-4/5 border-2 rounded-none p-4 mt-4 placeholder-[#061f77]"
             placeholder="Password"
+            onChange={(e) => {setInput({...input, password: e.target.value})}}
+            value={input.password}
           />
         </div>
         
