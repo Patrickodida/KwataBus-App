@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 function Hero() {
+  const [input, setInput] = useState({
+    from: "",
+    to: "",
+  });
+  const [error, setError] = useState("");
+
+  function handleTicketSubmission(e) {
+    e.preventDefault();
+    axios
+      .post("http://localhost:1337/api/users", input)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        setError("Ticket not Submitted, Try Again!");
+        console.log(error);
+      });
+  }
   return (
     <div>
       <section className=" hero-section my-10">
@@ -13,18 +32,31 @@ function Hero() {
             <h2 className="lg:text-left text-center  pb-2.5 font-bold">
               Choose Your Ticket
             </h2>
-            <form className="p-5 form-center bg-white rounded-lg">
+            <form
+              onSubmit={handleTicketSubmission}
+              className="p-5 form-center bg-white rounded-lg"
+            >
               <div className="form-row sm:w-full">
                 <input
+                  id="from"
                   type="text"
                   placeholder="From"
                   className="mb-[24px] text-blue-900 rounded w-[50%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none"
+                  onChange={(e) => {
+                    setInput({ ...input, from: e.target.value });
+                  }}
+                  value={input.from}
                 />
 
                 <input
+                  id="to"
                   type="text"
                   placeholder="To"
                   className="mb-[24px] text-blue-900 rounded w-[50%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none"
+                  onChange={(e) => {
+                    setInput({ ...input, to: e.target.value });
+                  }}
+                  value={input.to}
                 />
               </div>
 
