@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Login() {
+  const [input, setInput] = useState({
+    email:"",
+    password:""
+  });
+  const [error, setError] = useState("");
+
+  function handleSubmit(e){
+    e.preventDefault();
+
+  }
   return (
     <div className="bg-white px-10 py-20 rounded 3xl border-x-8 border-y-8 border-[#061f77] w-[80%] m-auto">
       <h1 className="text-5xl font-semibold text-center text-[#061f77]">
         Sign In
       </h1>
       <div className="mt-8">
-        <div className="w-full m-auto flex justify-center">
+        <form onSubmit={handleSubmit}>
+          <div className="w-full m-auto flex justify-center">
           <label className="text-lg font medium" />
           <input
             className="w-4/5  border-2 rounded-none p-4 mt-4 placeholder-[#061f77]"
@@ -21,14 +32,16 @@ function Login() {
             placeholder="Password"
           />
         </div>
+        
         <div className="mt-8 flex justify-center">
           <div>
             <p className="text-center text-[#e3bf00]">Forgot password?</p>
           </div>
         </div>
         <div className="flex justify-center">
-          <button className="mt-4 w-4/5 font-medium text-base">Sign in</button>
+          <button type="submit" className="mt-4 w-4/5 font-medium text-base">Sign in</button>
         </div>
+        </form>
         <div>
           <p className="mt-4 text-[#061f77] text-center">
             Don't have an account?{" "}
