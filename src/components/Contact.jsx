@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios'
 
 function Contact() {
+  const [input, setInput] = useState({
+    name:"",
+    email:"",
+    message:""
+  })
+  const [error, setError] = useState("")
+
+  function handleSendMessage(e){
+    e.preventDefault();
+
+    axios.post("http://localhost:1337/api/users", input)
+    .then((response) => {
+      console.log(response)
+    })
+    .catch((error) => {
+      setError("Message not sent, Try Again");
+      console.log(error)
+    })
+  }
   return (
     <div>
       <section className="contact-section w-[80%] m-auto">
@@ -9,26 +29,35 @@ function Contact() {
         <div className="contact-container text-center md:flex md:justify-around md:items-center md:gap-10">
           <div className="form-section w-full mb-[3em] md:w-[50%]">
             <h3 className="mb-[24px] font-bold">Get In Touch</h3>
-            <div className="form">
+            <form onSubmit={handleSendMessage} className="contact-form">
               <input
                 className="w-full text-blue-900 rounded p-[0.425em] mb-[24px] border border-gray-300 text- [#061f77] focus:outline-none"
                 type="text"
+                id="name"
                 placeholder="Your Name"
+                onChange={(e) => {setInput({...input, name: e.target.value})}}
+                value={input.name}
               />
               <input
                 className="w-full text-blue-900 rounded p-[0.425em] mb-[24px] border border-gray-300 text-[#061f77] focus:outline-none"
                 type="text"
+                id="email"
                 placeholder="Your Email"
+                onChange={(e) => {setInput({...input, email: e.target.value})}}
+                value={input.email}
               />
               <textarea
-                id=""
+                id="message"
+                type="message"
                 rows="6"
                 cols="50"
                 className="w-full text-blue-900 rounded p-[0.425em] mb-[24px] border border-gray-300 text-[#061f77] focus:outline-none"
                 placeholder="Your Message"
+                onChange={(e) => {setInput({...input, message: e.target.value})}}
+                value={input.message}
               ></textarea>
               <button className="w-full rounded">Send</button>
-            </div>
+            </form>
           </div>
 
           <div className="address md:text-left text-center">
