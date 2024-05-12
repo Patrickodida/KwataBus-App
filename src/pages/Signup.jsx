@@ -39,11 +39,11 @@ function Signup() {
       <form onSubmit={submitHandler} className="mt-4 ">
       
           <div className="flex w-[80%] m-auto justify-center">
-            <label for="email" className="text-lg m-[0] font-normal" />
+            <label for="email" className="text-lg m-[0]" />
           <input
             id="email"
             type="email"
-            className="w-4/5  border-2 rounded-none p-2 mt-4 placeholder-[#061f77]"
+            className="w-4/5 rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
             placeholder="Email"
             onChange={(e) => {
               setInput({ ...input, email: e.target.value });
@@ -58,7 +58,7 @@ function Signup() {
           <input
             id="mobileNumber"
             type="text"
-            className="w-4/5  border-2 rounded-none p-2 mt-4 placeholder-[#061f77] font-normal"
+            className="w-4/5 rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
             placeholder="Mobile Number"
             onChange={(e) => {
               setInput({ ...input, mobileNumber: e.target.value });
@@ -67,11 +67,11 @@ function Signup() {
           />
         </div>
         <div className="flex w-[80%] m-auto justify-center">
-          <label for="firstName" className="text-lg m-[0] font-normal" />
+          <label for="firstName" className="text-lg m-[0]" />
           <input
             id="firstName"
             type="text"
-            className="w-4/5  border-2 rounded-none p-2 mt-4 placeholder-[#061f77]"
+            className="w-4/5 rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
             placeholder="First Name"
             onChange={(e) => {
               setInput({ ...input, firstName: e.target.value });
@@ -80,11 +80,11 @@ function Signup() {
           />
         </div>
         <div className="flex w-[80%] m-auto justify-center">
-          <label for="lastName" className="text-lg m-[0] font-normal" />
+          <label for="lastName" className="text-lg m-[0]" />
           <input
             id="lastName"
             type="text"
-            className="w-4/5  border-2  rounded-none p-2 mt-4 placeholder-[#061f77]"
+            className="w-4/5 rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
             placeholder="Last Name"
             onChange={(e) => {
               setInput({ ...input, lastName: e.target.value });
@@ -93,11 +93,11 @@ function Signup() {
           />
         </div>
         <div className="flex w-[80%] m-auto justify-center">
-          <label for="userName" className="text-lg m-[0] font-normal" />
+          <label for="userName" className="text-lg m-[0]" />
           <input
             id="userName"
             type="text"
-            className="w-4/5  border-2 rounded-none p-2 mt-4 placeholder-[#061f77]"
+            className="w-4/5 rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
             placeholder="Username"
             onChange={(e) => {
               setInput({ ...input, userName: e.target.value });
@@ -110,14 +110,14 @@ function Signup() {
           <input
             id="password"
             type="password"
-            className="w-4/5 border-2 rounded-none p-2 mt-4 placeholder-[#061f77]"
+            className="w-4/5 rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
             placeholder="Create password"
             onChange={(e) => {
               setInput({ ...input, password: e.target.value });
             }}
             value={input.password}
           />
-          <span className="absolute top-[55%] transform -translate-y-1/4 right-[15%]">
+          <span className="absolute top-[55%] transform -translate-y-1/4 right-[15%] text-[#061f77] text-[20px]">
             <i class="bx bx-low-vision"></i>
           </span>
         </div>
@@ -126,38 +126,38 @@ function Signup() {
           <input
             id="confirmPassword"
             type="password"
-            className="w-4/5 border-2 rounded-none p-2 mt-4 placeholder-[#061f77]"
+            className="w-4/5 rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
             placeholder="Confirm password"
             onChange={(e) => {
               setInput({ ...input, confirmPassword: e.target.value });
             }}
             value={input.confirmPassword}
           />
-          <span className="absolute top-[55%] transform -translate-y-1/4 right-[15%]">
+          <span className="absolute top-[55%] transform -translate-y-1/4 right-[15%] text-[#061f77] text-[20px]">
             <i class="bx bx-low-vision"></i>
           </span>
         </div>
         <div className="mt-8 flex justify-center"></div>
         <div className="flex justify-center m-auto w-[80%]">
-          <button type="submit" className="mt-4 font-medium text-base w-4/5">
+          <button type="submit" className="mt-4 font-medium text-base w-4/5 rounded py-2 font-bold">
             Sign up
           </button>
         </div>
         <div>
           <p className="text-center mt-4 text-[#061f77]">
             Already have an account?{" "}
-            <span className="text-[#e3bf00]">Sign in</span>
+            <span className="text-[#e3bf00] font-bold">Sign in</span>
           </p>
         </div>
         <div className="mt-8 flex-col gap-y-4">
           <p className="text-center text-[#061f77]">Or</p>
           <div className="flex justify-center m-auto w-[80%]">
-            <button className="flex w-4/5 rounded-none py-2 mt-4 border-2 items-center justify-center gap-2 active:scale-[.98] hover:scale-[1.01] transition-all py-2 rounded-none bg-white text-[#061f77] text-lg font-bold">
+            <button className="flex w-4/5 py-2 mt-4 items-center justify-center gap-2 active:scale-[.98] hover:scale-[1.01] transition-all rounded bg-[#061f77] text-white text-lg font-bold border border-gray-300 text-[#061f77] focus:outline-none">
               <i className="bx bxl-google "></i> Sign up with Google
             </button>
           </div>
           <div className="flex justify-center m-auto w-[80%]">
-            <button className="flex w-4/5 rounded-none py-2 mt-4 border-2 items-center justify-center gap-2 active:scale-[.98] hover:scale-[1.01] transition-all py-2 rounded-none bg-white text-[#061f77] text-lg font-bold">
+            <button className="flex w-4/5 py-2 mt-4 items-center justify-center gap-2 active:scale-[.98] hover:scale-[1.01] transition-all rounded bg-[#061f77] text-white text-lg font-bold border border-gray-300 text-[#061f77] focus:outline-none">
               <i class="bx bxl-facebook-circle"></i>Sign up with Facebook
             </button>
           </div>
