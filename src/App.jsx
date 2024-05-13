@@ -8,6 +8,7 @@ import './index.css'
 import Booking from './pages/Booking'
 import BusSeat from './pages/ExecBusSeat'
 import ExecBusSeat from './pages/ExecBusSeat'
+import OrdBusSeat from './pages/OrdBusSeat'
 
 function App(){
     return (
@@ -18,6 +19,7 @@ function App(){
                 <Route path="/Help" element={<Help />} />
                 <Route path="/Booking" element={<Booking />}/>
                 <Route path="/ExecBusSeat" element={<ExecBusSeat />} />
+                <Route path="/OrdBusSeat" element={<OrdBusSeat />} />
             </Routes>
     )
 }
