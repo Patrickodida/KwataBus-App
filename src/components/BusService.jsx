@@ -14,7 +14,7 @@ function BusService(){
                 <div className="flex items-end">
                     <p className="ml-8">Departure time: 8:00 AM</p>
                     <p className="ml-8"> Cost: 40,000</p>
-                    <Link className="ml-8 bg-[#061f77] rounded-lg text-white py-2 px-16 text-center">Select Seat</Link>
+                    <Link className="ml-8 bg-[#061f77] rounded-lg text-white py-2 px-10 text-center" style={{ whiteSpace: "nowrap" }}>Select Seat</Link>
                 </div>
             </section>
         </div>

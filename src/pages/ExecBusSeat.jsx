@@ -1,8 +1,14 @@
 import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Hero from "../components/Hero";
 
 function ExecBusSeat() {
   return (
-    <div className="flex justify-center flex-col md:flex-row gap-[10%] m-auto w-[80%] mt-[4em] mb-[4em]">
+    <div>
+      <Navbar />
+      <Hero />
+      <div className="flex justify-center flex-col md:flex-row gap-[10%] m-auto w-[80%] mt-[4em] mb-[4em]">
       <section className="text-[#061f77] font-bold text-[1.25rem] md:w-full md:m-auto mb-[4em]">
         <form className="border border-gray-300 shadow-md p-16">
           <div className="relative flex flex-col flex-start mb-4">
@@ -294,6 +300,9 @@ function ExecBusSeat() {
     </section>
         
     </div>
+      <Footer />
+    </div>
+    
   );
 }
 

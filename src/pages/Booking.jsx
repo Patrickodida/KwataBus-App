@@ -1,40 +1,45 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BusService from "../components/BusService";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Hero from "../components/Hero";
 
 function Booking() {
   return (
     <div>
-      
-      <section className="BookingArea-section my-4">
-        <div className="w-[80%] m-auto">
+      <Navbar />
+      <Hero />
+      <div className="my-20 w-[80%] m-auto">
+        <section className="BookingArea-section">
+        <div className="">
           <form className=" form-center bg-white rounded-lg">
             <div className="form-row sm:w-full">
               <label className="text-[#061f77] font-bold"id="firstLabel">From</label>
               <input
                 type="text"
                 placeholder="Kampala"
-                className="mb-[24px] text-[#061f77] rounded w-[18%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none"
+                className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
               />
               <label className="text-[#061f77] font-bold">To</label>
               <input
                 type="text"
                 placeholder="Arua"
-                className="mb-[24px] text-[#061f77] rounded w-[18%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none"
+                className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
               />
 
-              <label className="text-[#061f77] font-bold">Departure Date</label>
-              <input type="date" className="mb-[24px] text-[#061f77] rounded w-[15%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none" />
-
-              <Link className="ml-4 mb-[24px] bg-[#061f77] rounded-lg text-white py-2 px-16 text-center">Find Ticket</Link>
+              <label className="text-[#061f77] font-bold">Date</label>
+              <input type="date" className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none" />
+                <Link className="ml-4 mb-[24px] bg-[#061f77] rounded-lg text-white py-2 px-10 text-center" style={{ whiteSpace: "nowrap" }}>Find Ticket</Link>
+              
 
             </div>
           </form>
         </div>
 
       </section>
-      <div className="flex m-auto w-[80%] justify-center" >
-      <section className="bg-slate-100 text-[#061f77] rounded-lg p-4">
+      <div className="flex justify-center" >
+      <section className="bg-slate-100 text-[#061f77] rounded-lg p-4 mr-8">
         <div className="flex mb-8">
           <div className="font-bold"><h1>FILTER</h1></div>
           <div className="pl-8 font-bold"><h2>Reset All</h2></div>
@@ -61,8 +66,10 @@ function Booking() {
 
       </section>
       
-<BusService className="flex items-end" />
-</div>
+    <BusService className="flex items-end" />
+      </div>
+      </div>
+      <Footer />
     </div>
   )
 }
