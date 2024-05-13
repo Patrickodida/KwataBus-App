@@ -1,6 +1,6 @@
 import React from "react";
 
-function BusSeat() {
+function ExecBusSeat() {
   return (
     <div className="flex justify-center flex-col md:flex-row gap-[10%] m-auto w-[80%] mt-[4em] mb-[4em]">
       <section className="text-[#061f77] font-bold text-[1.25rem] md:w-full md:m-auto mb-[4em]">
@@ -274,4 +274,4 @@ function BusSeat() {
   );
 }
 
-export default BusSeat;
+export default ExecBusSeat;
