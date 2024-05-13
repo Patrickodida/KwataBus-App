@@ -68,7 +68,7 @@ function OrdBusSeat() {
           Click on Seat to select or deselect
         </h1>
         <div className="seat-section border border-gray-300 shadow-md p-6">
-          <div className="flex justify-center gap-20 text-[text] text-[#061f77] text-[1.5rem] ">
+          <div className="flex justify-center gap-10 text-[text] text-[#061f77] text-[1.25rem] ">
             <div className="left-row">
               <div className="row flex gap-5 mb-4">
                 <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
