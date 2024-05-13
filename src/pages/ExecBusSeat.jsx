@@ -5,13 +5,16 @@ function ExecBusSeat() {
     <div className="flex justify-center flex-col md:flex-row gap-[10%] m-auto w-[80%] mt-[4em] mb-[4em]">
       <section className="text-[#061f77] font-bold text-[1.25rem] md:w-full md:m-auto mb-[4em]">
         <form className="border border-gray-300 shadow-md p-16">
-          <div className="flex flex-col flex-start mb-4">
+          <div className="relative flex flex-col flex-start mb-4">
             <label htmlFor="date" className="m-[0]">Journey Date</label>
             <input
               type="text"
               id="date"
               className="rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
             />
+            <span className="absolute top-[80%] transform -translate-y-1/2 left-[5%] text-[#061f77] text-[16px] ">
+              <i class='bx bxs-calendar'></i>
+            </span>
           </div>
           <div className="relative flex flex-col flex-start mb-4">
             <label htmlFor="date">From</label>
