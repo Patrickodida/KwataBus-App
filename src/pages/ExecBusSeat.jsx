@@ -62,212 +62,232 @@ function ExecBusSeat() {
         
           <div className="flex justify-center gap-20 text-[text] text-[#061f77] text-[1.5rem] ">
             <div className="left-row">
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   1
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   2
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   3
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   4
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   7
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   8
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
+              <div className="row flex gap-5 mb-4">
                 <div className="font-bold">Door</div>
                 <div className=""></div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   S
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   S
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   15
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   16
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   19
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   20
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   23
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   24
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   27
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   28
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   31
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   32
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   35
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   36
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   39
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   40
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   43
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   44
                 </div>
               </div>
             </div>
 
             <div className="right-row">
-              <div className="row flex gap-10 mb-4">
+              <div className="row flex gap-5 mb-4">
                 <div className=""></div>
                 <div className="font-bold">Driver</div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   5
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   6
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   9
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   10
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   11
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   12
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   13
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   14
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   17
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   18
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   21
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   22
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   25
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   26
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   29
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   30
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   33
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   34
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   37
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   38
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   41
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   42
                 </div>
               </div>
-              <div className="row flex gap-10 mb-4">
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+              <div className="row flex gap-5 mb-4">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   45
                 </div>
-                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">
+                <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
                   46
                 </div>
               </div>
             </div>
           </div>
+          
       </div>
+      <div className="mt-6">
+      <div className="sort-seats flex gap-5 mb-2">
+            <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center"></div>
+            <div>Available seats</div>
+          </div>
+          <div className="sort-seats flex gap-5 mb-2">
+            <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center bg-[#069306]"></div>
+            <div>Selected by You</div>
+          </div>
+          <div className="sort-seats flex gap-5 mb-2">
+            <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center bg-gray-500"></div>
+            <div>Booked by Others</div>
+          </div>
+          <div className="sort-seats flex gap-5 mb-2">
+            <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2.25em] text-center">s</div>
+            <div>Staff seat</div>
+          </div>
+      </div>
+      
     </section>
         
     </div>
