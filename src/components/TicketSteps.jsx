@@ -35,7 +35,7 @@ function TicketSteps() {
         </div>
 
         <div className="card md:flex md:justify-center md:items-center md:gap-[10%] mb-12 border md:border-none shadow-md md:shadow-none">
-          <div className="icons-container w-1/2 h-auto flex justify-center text-[#061f77]  rounded-lg p-4 w-full m-auto md:border md:shadow-md">
+          <div className="icons-container w-1/2 h-auto flex justify-center text-[#061f77]  rounded-lg p-8 w-full m-auto md:border md:shadow-md">
             <span className="md:flex md:justify-center font-bold text-[#061f77] pb-[30px] hidden text-[2.5rem] ">3</span>
             <img src={PayTicket} className=""/>
           </div>
