@@ -8,8 +8,8 @@ function About() {
       <section className="about about-section w-4/5 max-w-screen-xl m-auto text-center my-20">
         <h2 className="text-4xl text-center mb-6 font-bold">About</h2>
         <div className="section-1 flex justify-center items-center gap-[10%] mb-12 ">
-          <div className="image w-1/2 h-auto flex justify-center">
-            <img src={SvgSmartphone} className="w-1/2 h-auto" />
+          <div className="image w-1/2 h-auto flex justify-center border-2 rounded-lg p-4 shadow:xl">
+            <img src={SvgSmartphone} className="" />
           </div>
           <div className="text w-1/2 text-left">
             <p>
@@ -25,8 +25,8 @@ function About() {
             </p>
             
           </div>
-          <div className="image w-1/2 h-auto flex justify-center">
-            <img src={SvgPeople} className="w-1/2 h-auto" />
+          <div className="image w-1/2 h-auto flex justify-center border-2 rounded-lg p-4 shadow:md">
+            <img src={SvgPeople} className="" />
           </div>
         </div>
       </section>
