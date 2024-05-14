@@ -14,33 +14,39 @@ function Booking() {
         <section className="BookingArea-section">
         <div className="">
           <form className=" form-center bg-white rounded-lg">
-            <div className="form-row sm:w-full">
-              <label className="text-[#061f77] font-bold"id="firstLabel">From</label>
+            <div className="form-row flex flex-col md:flex-row gap-5 items-center justify-center w-full ">
+              <div className="from flex">
+                <label className="text-[#061f77] font-bold"id="firstLabel">From</label>
               <input
                 type="text"
                 placeholder="Kampala"
-                className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
+                className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none "
               />
-              <label className="text-[#061f77] font-bold">To</label>
+              </div>
+              <div className="to flex">
+                <label className="text-[#061f77] font-bold">To</label>
               <input
                 type="text"
                 placeholder="Arua"
                 className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
               />
-
-              <label className="text-[#061f77] font-bold">Date</label>
+              </div>
+              <div className="date flex">
+                <label className="text-[#061f77] font-bold">Date</label>
               <input type="date" className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none" />
+              </div>
+              <div className="ticket flex">
                 <Link className="ml-4 mb-[24px] bg-[#061f77] rounded-lg text-white py-2 px-10 text-center" style={{ whiteSpace: "nowrap" }}>Find Ticket</Link>
-              
-
+              </div>
+                
             </div>
           </form>
         </div>
 
       </section>
-      <div className="flex justify-center" >
-      <section className="bg-slate-100 text-[#061f77] rounded-lg p-4 mr-8">
-        <div className="flex mb-8">
+      <div className="md:flex md:justify-center items-start flex-col md:flex-row md:items-end" >
+      <section className="bg-slate-100 text-[#061f77] rounded-lg p-4 md:mr-8 md:mb-20 mt-60 mb-10 text-center w-20% md:mt-5">
+        <div className="flex mb-8 justify-center">
           <div className="font-bold"><h1>FILTER</h1></div>
           <div className="pl-8 font-bold"><h2>Reset All</h2></div>
         </div>
@@ -66,7 +72,7 @@ function Booking() {
 
       </section>
       
-    <BusService className="flex items-end" />
+    <BusService className="flex justify-center " />
       </div>
       </div>
       <Footer />
