@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import BusService from "../components/BusService";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Hero from "../components/Hero";
+import Banner from "../components/Banner";
 
 function Booking() {
   return (
     <div>
       <Navbar />
-      <Hero />
-      <div className="my-20 w-[80%] m-auto">
+      <Banner />
+      <div className="mt-2 mb-2 w-[80%] m-auto">
         <section className="BookingArea-section">
         <div className="">
           <form className=" form-center bg-white rounded-lg">

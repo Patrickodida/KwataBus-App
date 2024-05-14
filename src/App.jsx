@@ -15,7 +15,6 @@ function Layout({children}){
     return (
         <>
         <Navbar />
-        <Hero />
         {children}
         <Footer />
         </>
