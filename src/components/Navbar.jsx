@@ -2,27 +2,40 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  // scroll to element function
+  function ScrollToElement(id){
+    const element = document.getElementById(id);
+    if(element){
+      element.scrollIntoView({
+        behaviour: 'smooth'
+      })
+    }
+  }
+
+  const handleNavigation = (id) => {
+    ScrollToElement(id);
+  }
   return (
     <div>
       <section className="bg-white text-blue-900 fixed top-0 left-0 right-0 z-50 w-full">
         <div className="flex items-center justify-between m-auto w-[80%] max-w-screen-xl py-4">
-          <Link href="/" className="site-title font-bold text-2xl">
-            Kwata<span style={{ color: "#e3bf00" }}>Bus</span>
+          <Link onClick={() => handleNavigation('home')} className="site-title font-bold text-2xl">
+            Kwata<span className="text-[#e3bf00]">Bus</span>
           </Link>
           <nav className="flex items-center w-full">
             <ul className="flex m-auto font-bold ">
               <li>
-                <Link className="nav-links" to="/">
+                <Link onClick={() => handleNavigation('home')} className="nav-links">
                   HOME
                 </Link>
               </li>
               <li className="mx-8">
-                <Link className="nav-links" to="/about">
+                <Link onClick={() => handleNavigation('about')} >
                   ABOUT
                 </Link>
               </li>
               <li>
-                <Link className="nav-links" to="/contact">
+                <Link onClick={() => handleNavigation('contact')} >
                   CONTACT
                 </Link>
               </li>

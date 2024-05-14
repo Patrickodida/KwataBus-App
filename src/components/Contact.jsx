@@ -24,7 +24,7 @@ function Contact() {
   }
   return (
     <div>
-      <section className="contact-section w-[80%] m-auto">
+      <section id="id" className="contact-section w-[80%] m-auto pt-20">
         <h2 className="text-4xl text-center mb-6 font-bold">Contact Us</h2>
         <div className="contact-container text-center md:flex md:justify-around md:items-center md:gap-10">
           <div className="form-section w-full mb-[3em] md:w-[50%]">

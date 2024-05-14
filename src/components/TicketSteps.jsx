@@ -6,7 +6,7 @@ import PayTicket from '../images/payticket.svg'
 function TicketSteps() {
   return (
     <div>
-      <section className="ticket-section w-4/5 max-w-screen-xl m-auto text-[#061f77]">
+      <section className="ticket-section w-4/5 max-w-screen-xl m-auto text-[#061f77] pt-5">
         <h2 className="text-4xl text-center my-6 font-bold">
           Get Your Tickets with Just 3 Steps
         </h2>

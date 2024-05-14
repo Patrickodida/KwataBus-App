@@ -5,7 +5,7 @@ import SvgPeople from '../images/bookSeat.svg'
 function About() {
   return (
     <div>
-      <section className="about about-section w-4/5 max-w-screen-xl m-auto text-center my-20">
+      <section id="about" className="about about-section w-4/5 max-w-screen-xl m-auto text-center pt-20">
         <h2 className="text-4xl text-center mb-6 font-bold">About</h2>
         <div className="section-1 flex justify-center items-center gap-[10%] mb-12 ">
           <div className="image w-1/2 h-auto flex justify-center border-2 rounded-lg p-4 shadow:xl">
