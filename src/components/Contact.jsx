@@ -15,42 +15,59 @@ function Contact() {
     message:""
   })
 
+  // Validate name
+  function validateName(name){
+    if(!name.trim()){
+      setError({...error, name: "Please enter your name"})
+      return false;
+    }
+    // Regexp to allow only letters and spaces
+    const nameFormat = /^[a-zA-Z\s]*$/;
+    if(!nameFormat.test(name)){
+      setError({...error, name: "Please enter your name"})
+      return false;
+    }
+    setError({...error, name: ""})
+    return true;
+  }
+  //validate Email
+  function validateEmail(email){
+    if(!validator.isEmail(email)){
+      setError({...error, email: "Invalid email"})
+      return false;
+    }
+    setError({...error, email: ""})
+    return true;
+  }
+  // validate Message
+  function validateMessage(message){
+    if(!message.trim()){
+      setError({...error, message: "Please enter the message"})
+      return false;
+    }
+    const messageFormat = /^[a-zA-Z\s]*$/;
+    if(messageFormat.test(message)){
+       setError({...error, message: "Please enter the message"})
+       return false;
+    }
+    setError({...error, message: ""})
+    return true;
+  }
+
   function handleSendMessage(e){
     e.preventDefault();
-    // reset the error messages
-    setError({
-      name: "",
-      email: "",
-      message: ""
-    })
-    // validate input fields
-    let valid = true;
-    if(!input.name.trim()){
-      setError({...error, name: "Enter a valid name"});
-      valid = false;
-    }
-    if(!input.email.trim() || !validator.isEmail(input.email)){
-      setError({...error, email: "Please enter a valid input"})
-      valid = false;
-    }
-    if(!valid){
-      return;
-    }
-
-    axios.post("http://localhost:1337/api/users", input)
+    const isNameValid = validateName(input.name);
+    if(isNameValid){
+      axios.post("http://localhost:1337/api/users", input)
     .then((response) => {
       console.log(response)
-      // Reset the input field after submission
-      setInput({
-        name: "",
-        email: "",
-        message: ""
-      })
     })
     .catch((error) => {
       setError({...error, message: "Message not sent, Try Again"});
       console.log(error)
     })
+    }
+    
   }
   return (
     <div>
@@ -74,8 +91,9 @@ function Contact() {
                 type="text"
                 id="email"
                 placeholder="Your Email"
-                onChange={(e) => {setInput({...input, email: e.target.value})}}
-                value={input.email}
+                onChange={(e) => {setInput({...input, email: e.target.value})
+                validateEmail(e.target.value)
+              }}
                 
               />
               {error.email && <p className="text-red-500">{error.email}</p>}
