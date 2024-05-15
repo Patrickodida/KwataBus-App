@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom'
 import axios from "axios";
 
 function Login() {
@@ -57,7 +58,7 @@ function Login() {
               value={input.password}
             />
             <span className="absolute top-[55%] transform -translate-y-1/4 right-[15%] text-[#061f77] text-[20px]">
-            <i class="bx bx-low-vision"></i>
+            <i className="bx bx-low-vision"></i>
           </span>
           </div>
 
@@ -75,19 +76,19 @@ function Login() {
         <div>
           <p className="mt-4 text-[#061f77] text-center">
             Don't have an account?{" "}
-            <span className="text-[#e3bf00]">Sign up</span>
+            <Link to="/signup" className="text-[#e3bf00]">Sign up</Link>
           </p>
         </div>
         <div className="mt-8 flex-col gap-y-4">
           <p className="text-[#061f77] text-center">Or</p>
           <div className="flex justify-center m-auto w-[80%]">
             <button className="flex w-4/5 py-2 mt-4 items-center justify-center gap-2 active:scale-[.98] hover:scale-[1.01] transition-all rounded bg-[#061f77] text-white text-lg font-bold border border-gray-300 text-[#061f77] focus:outline-none">
-              <i class="bx bxl-google"></i>Sign in with Google
+              <i className="bx bxl-google"></i>Sign in with Google
             </button>
           </div>
           <div className="flex justify-center m-auto w-[80%]">
             <button className="flex w-4/5 py-2 mt-4 items-center justify-center gap-2 active:scale-[.98] hover:scale-[1.01] transition-all rounded bg-[#061f77] text-white text-lg font-bold border border-gray-300 text-[#061f77] focus:outline-none">
-              <i class="bx bxl-facebook-circle"></i>Sign in with Facebook
+              <i className="bx bxl-facebook-circle"></i>Sign in with Facebook
             </button>
           </div>
         </div>

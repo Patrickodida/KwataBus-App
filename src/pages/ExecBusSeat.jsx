@@ -19,7 +19,7 @@ function ExecBusSeat() {
               className="rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
             />
             <span className="absolute top-[80%] transform -translate-y-1/2 left-[5%] text-[#061f77] text-[16px] ">
-              <i class='bx bxs-calendar'></i>
+              <i className='bx bxs-calendar'></i>
             </span>
           </div>
           <div className="relative flex flex-col flex-start mb-4">
@@ -40,7 +40,7 @@ function ExecBusSeat() {
               id="date"
               className="rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
             />
-                <span className="absolute top-[80%] transform -translate-y-1/2 right-[5%] text-[#061f77] text-[16px] "><i class='bx bxs-down-arrow'></i></span>
+                <span className="absolute top-[80%] transform -translate-y-1/2 right-[5%] text-[#061f77] text-[16px] "><i className='bx bxs-down-arrow'></i></span>
           </div>
 
           <div className="relative flex flex-col flex-start mb-4">
@@ -51,7 +51,7 @@ function ExecBusSeat() {
               placeholder="Executive"
               className="rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
             />
-                <span className="absolute top-[80%] transform -translate-y-1/2 right-[5%] text-[#061f77] text-[16px] "><i class='bx bxs-down-arrow'></i></span>
+                <span className="absolute top-[80%] transform -translate-y-1/2 right-[5%] text-[#061f77] text-[16px] "><i className='bx bxs-down-arrow'></i></span>
           </div>
             <div className="block">
                 <button

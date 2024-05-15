@@ -40,7 +40,7 @@ function Help() {
 
             
             <div className="faq-section w-[70%] m-auto">
-                <form action="" className="mt-[3em] text-center ">
+                <form action="" className="mt-[3em] text-center mb-[3em] ">
                 <h1 className="text-center p-2 text-[#061f77] font-bold text-2xl w-full">FREQUENTLY ASKED QUESTIONS (FAQS)</h1>
                 <select value={selectedValue} onChange={handleChange} className="p-4 text-center border-4 rounded-lg w-full">
                     <option value="question1">HOW DO I BUY TICKETS?</option>

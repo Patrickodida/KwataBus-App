@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom'
 import axios from "axios";
 
 function Signup() {
@@ -118,7 +119,7 @@ function Signup() {
             value={input.password}
           />
           <span className="absolute top-[55%] transform -translate-y-1/4 right-[15%] text-[#061f77] text-[20px]">
-            <i class="bx bx-low-vision"></i>
+            <i className="bx bx-low-vision"></i>
           </span>
         </div>
         <div className="relative flex w-[80%] m-auto justify-center">
@@ -134,7 +135,7 @@ function Signup() {
             value={input.confirmPassword}
           />
           <span className="absolute top-[55%] transform -translate-y-1/4 right-[15%] text-[#061f77] text-[20px]">
-            <i class="bx bx-low-vision"></i>
+            <i className="bx bx-low-vision"></i>
           </span>
         </div>
         <div className="mt-8 flex justify-center"></div>
@@ -146,7 +147,7 @@ function Signup() {
         <div>
           <p className="text-center mt-4 text-[#061f77]">
             Already have an account?{" "}
-            <span className="text-[#e3bf00] font-bold">Sign in</span>
+            <Link to="/login" className="text-[#e3bf00] font-bold">Sign in</Link>
           </p>
         </div>
         <div className="mt-8 flex-col gap-y-4">
@@ -158,7 +159,7 @@ function Signup() {
           </div>
           <div className="flex justify-center m-auto w-[80%]">
             <button className="flex w-4/5 py-2 mt-4 items-center justify-center gap-2 active:scale-[.98] hover:scale-[1.01] transition-all rounded bg-[#061f77] text-white text-lg font-bold border border-gray-300 text-[#061f77] focus:outline-none">
-              <i class="bx bxl-facebook-circle"></i>Sign up with Facebook
+              <i className="bx bxl-facebook-circle"></i>Sign up with Facebook
             </button>
           </div>
         </div>
