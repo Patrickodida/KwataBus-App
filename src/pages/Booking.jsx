@@ -1,11 +1,54 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import BusService from "../components/BusService";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
 
 function Booking() {
+
+  const [input, setInput] = useState({
+    from: "",
+    to:""
+  });
+  const [error, setError] = useState({
+    from: "",
+    to:""
+  })
+
+  function validateFrom(from) {
+    if (from.length < 4) {
+      setError({ ...error, from: "Invalid input" });
+      return false;
+    }
+    setError({ ...error, from: "" });
+    return true;
+  }
+  
+  function validateTo(to) {
+    if (to.length < 4) {
+      setError({ ...error, to: "Invalid input" });
+      return false;
+    }
+    setError({ ...error, to: "" });
+    return true;
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateFrom(input.from) && validateTo(input.to)) {
+      axios
+        .post("http://localhost:1337/api/users", input)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          setError({ ...error, general: "Login failed. Please try again." });
+          console.error(error);
+        });
+    }
+  };
   return (
     <div>
       <Navbar />
@@ -13,24 +56,42 @@ function Booking() {
       <div className="mt-2 mb-2 w-[80%] m-auto">
         <section className="BookingArea-section">
         <div className="">
-          <form className=" form-center bg-white rounded-lg">
+          <form onSubmit={handleSubmit} className=" form-center bg-white rounded-lg">
             <div className="form-row flex flex-col md:flex-row gap-5 items-center justify-center w-full ">
               <div className="from flex">
                 <label className="text-[#061f77] font-bold"id="firstLabel">From</label>
               <input
-                type="text"
-                placeholder="Kampala"
-                className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none "
+                    type="text"
+                    id="from"
+                    value={input.from}
+                    placeholder="Kampala"
+                    className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none "
+                    onChange={(e) => {
+                      setInput({ ...input, from: e.target.value });
+                      validateFrom(e.target.value);
+                    }}
               />
               </div>
+                {error.from && (
+                  <p className="text-center text-red-500">{error.from}</p>
+                )}
               <div className="to flex">
                 <label className="text-[#061f77] font-bold">To</label>
               <input
-                type="text"
-                placeholder="Arua"
-                className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
+                    type="text"
+                    id="to"
+                    value={input.to}
+                    placeholder="Arua"
+                    className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
+                    onChange={(e) => {
+                      setInput({ ...input, to: e.target.value });
+                      validateTo(e.target.value);
+                    }}
               />
               </div>
+                {error.to && (
+                  <p className="text-center text-red-500">{error.to}</p>
+                )}
               <div className="date flex">
                 <label className="text-[#061f77] font-bold">Date</label>
               <input type="date" className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none" />
