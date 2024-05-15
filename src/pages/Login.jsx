@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom'
 import axios from "axios";
 import validator from "validator";
 
@@ -113,7 +114,7 @@ function Login() {
           <div>
             <p className="mt-4 text-[#061f77] text-center">
               Don't have an account?{" "}
-              <span className="text-[#e3bf00]">Sign up</span>
+              <Link to="/signup" className="text-[#e3bf00]">Sign up</Link>
             </p>
           </div>
           <div className="mt-8 flex-col gap-y-4">

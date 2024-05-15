@@ -4,16 +4,46 @@ import axios from "axios";
 function Hero() {
   const [input, setInput] = useState({
     from: "",
-    to: "",
+    to: ""
   });
-  const [error, setError] = useState("");
+  const [error, setError] = useState({
+    from: "",
+    to: ""
+  });
+
+
 
   function handleTicketSubmission(e) {
     e.preventDefault();
+    // reset the error messages
+    setError({
+      from: "",
+      to: ""
+    });
+    // validate input fields
+    let valid = true;
+    if(!input.from.trim()){
+      setError({...error, from: "Please enter a valid location"})
+      valid = false;
+    }
+    if(!input.to.trim()){
+      setError({...error, to: "Please enter a valid location"})
+      valid = false;
+    }
+    // If form is not valid do not proceed with the submission
+    if(!valid){
+      return;
+    }
+    // axios post request for a valid form
     axios
       .post("http://localhost:1337/api/users", input)
       .then((response) => {
         console.log(response);
+        // Reset input fields after submitting successfully
+        setInput({
+          from: "",
+          to: ""
+        })
       })
       .catch((error) => {
         setError("Ticket not Submitted, Try Again!");
@@ -47,7 +77,7 @@ function Hero() {
                   }}
                   value={input.from}
                 />
-
+                  {error.from && <p className="text-center text-red-500">{error.from}</p>}
                 <input
                   id="to"
                   type="text"
@@ -58,6 +88,7 @@ function Hero() {
                   }}
                   value={input.to}
                 />
+                {error.to && <p className="text-center text-red-500 w-full">{error.to}</p>}
               </div>
 
               <input
