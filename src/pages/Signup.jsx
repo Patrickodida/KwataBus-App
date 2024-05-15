@@ -34,7 +34,7 @@ function Signup() {
   }
   // validate mobileNumber
   function validateMobileNumber(mobileNumber) {
-    if (!mobileNumber.length === 10) {
+    if (mobileNumber.length !== 10) {
       setError({ ...error, mobileNumber: "Invalid Entry" });
       return false;
     }

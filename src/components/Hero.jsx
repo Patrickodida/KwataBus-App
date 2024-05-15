@@ -4,55 +4,73 @@ import axios from "axios";
 function Hero() {
   const [input, setInput] = useState({
     from: "",
-    to: ""
+    to: "",
+    travelDate: "",
   });
   const [error, setError] = useState({
     from: "",
-    to: ""
+    to: "",
+    travelDate: "",
   });
 
+  // Validate from input
+  // let valid = true;
+  function validateFrom(from) {
+    if (!from.trim()) {
+      setError({ ...error, from: "Please enter a valid location" });
+      return false;
+    }
+    setError({ ...error, from: "" });
+    return true;
+  }
 
+  // validate to input
+  function validateTo(to) {
+    if (!to.trim()) {
+      setError({ ...error, to: "Please enter a valid location" });
+      valid = false;
+    }
+    setError({ ...error, to: "" });
+    return true;
+  }
+
+  // validate date format
+  function validateDate(travelDate) {
+    const dateFormat = /^\d{4}-\d{2}-\d{2}$/;
+    if (!dateFormat.test(travelDate)) {
+      setError({ ...error, travelDate: "Date is Invalid" });
+      return false;
+    }
+    // check if its a valid date
+    const date = new Date(travelDate);
+    if (isNaN(date.getTime())) {
+      return false;
+    }
+    setError({ ...error, travelDate: "" });
+    return true;
+  }
 
   function handleTicketSubmission(e) {
     e.preventDefault();
-    // reset the error messages
-    setError({
-      from: "",
-      to: ""
-    });
-    // validate input fields
-    let valid = true;
-    if(!input.from.trim()){
-      setError({...error, from: "Please enter a valid location"})
-      valid = false;
-    }
-    if(!input.to.trim()){
-      setError({...error, to: "Please enter a valid location"})
-      valid = false;
-    }
-    // If form is not valid do not proceed with the submission
-    if(!valid){
-      return;
-    }
-    // axios post request for a valid form
-    axios
-      .post("http://localhost:1337/api/users", input)
-      .then((response) => {
-        console.log(response);
-        // Reset input fields after submitting successfully
-        setInput({
-          from: "",
-          to: ""
+    if (
+      validateFrom(input.from) &&
+      validateTo(input.to) &&
+      validateDate(input.travelDate)
+    ) {
+      axios
+        .post("http://localhost:1337/api/users", input)
+        .then((response) => {
+          console.log(response);
         })
-      })
-      .catch((error) => {
-        setError("Ticket not Submitted, Try Again!");
-        console.log(error);
-      });
+        .catch((error) => {
+          setError("Ticket not Submitted, Try Again!");
+          console.log(error);
+        });
+    }
   }
   return (
     <div>
-      <section id="home"  className=" hero-section pt-10">
+      <section id="home" className=" hero-section mt-20 md:pt-10">
         <div className="hero-over-lay"></div>
         <div className="hero-content justify-center gap-10 w-4/5 max-w-7xl mx-auto flex flex-col lg:flex-row justify-center">
           <div className="hero-text w-2/4 font-bold leading-tight text-3xl lg:text-5xl lg:text-left text-center">
@@ -77,7 +95,9 @@ function Hero() {
                   }}
                   value={input.from}
                 />
-                  {error.from && <p className="text-center text-red-500">{error.from}</p>}
+                {error.from && (
+                  <p className="text-center text-red-500">{error.from}</p>
+                )}
                 <input
                   id="to"
                   type="text"
@@ -88,14 +108,23 @@ function Hero() {
                   }}
                   value={input.to}
                 />
-                {error.to && <p className="text-center text-red-500 w-full">{error.to}</p>}
+                {error.to && (
+                  <p className="text-center text-red-500 w-full">{error.to}</p>
+                )}
               </div>
 
               <input
-                type="date"
+                type="text"
+                placeholder="Date (YYYY-MM-DD)"
                 className="mb-[24px] text-blue-900 rounded w-[100%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none"
+                onChange={(e) => {
+                  setInput({ ...input, travelDate: e.target.value });
+                }}
+                value={input.travelDate}
               />
-
+              {error.travelDate && (
+                <p className="text-center text-red-500">{error.travelDate}</p>
+              )}
               <button type="submit" className="bg-blue-900 rounded-lg">
                 Find Ticket
               </button>
