@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import validator from "validator";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [input, setInput] = useState({
-    email: "",
+   email: "",
     mobileNumber: "",
     firstName: "",
     lastName: "",
-    userName: "",
+    username: "",
     password: "",
-    confirmPassword: "",
+    role: "Public",
+    confirmed: true,
+    blocked: false,
+    confirmPassword: ""
   });
   const [error, setError] = useState({
     email: "",
@@ -94,7 +98,22 @@ function Signup() {
     return true;
   }
 
-  function submitHandler(e) {
+  const navigate = useNavigate();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    axios
+      .post("https://big-chicken-57890d4fdf.strapiapp.com/api/auth/local/register", input)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        setError("Not Signed Up, Try again!");
+        console.log(error);
+      });
+  }
+
+  /* const submitHandler = async (e) => {
     e.preventDefault();
     if (
       validateEmail(input.email) &&
@@ -105,17 +124,33 @@ function Signup() {
       validatePassword(input.password) &&
       validateConfirmPassword(input.confirmPassword)
     ) {
-      axios
-        .post("http://localhost:1337/api/users", input)
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          setError("Invalid Input, Try again!");
-          console.log(error);
-        });
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          
+
+"data": {
+            "userName": input.userName,
+            "email": input.email,
+            "password": input.password,
+            "confirmed": true,
+            "blocked": false,
+            "FirstName": input.firstName,
+            "LastName": input.lastName,
+            "role": "Public",
+            "MobileNumber": input.mobileNumber,
+               }
+        }),
+      };
+      fetch(
+        "https://big-chicken-57890d4fdf.strapiapp.com/api/auth/local/register",
+        requestOptions
+      ).then((response) => response.json());
+      console.log(response.json())
+      //navigate("/login");
     }
-  }
+  }; */
   return (
     <section className="bg-[#061f77]">
       <div className="bg-white rounded-2xl border-[#061f77] w-full md:w-[50%] m-auto pt-[2em] pb-[2em] border-8">
@@ -141,8 +176,8 @@ function Signup() {
             />
           </div>
           {error.email && (
-              <p className="text-center text-red-500">{error.email}</p>
-            )}
+            <p className="text-center text-red-500">{error.email}</p>
+          )}
 
           <div className="flex w-[80%] m-auto justify-center ">
             <label for="mobileNumber" className="text-lg m-[0] font-normal" />
@@ -159,8 +194,8 @@ function Signup() {
             />
           </div>
           {error.mobileNumber && (
-              <p className="text-center text-red-500">{error.mobileNumber}</p>
-            )}
+            <p className="text-center text-red-500">{error.mobileNumber}</p>
+          )}
           <div className="flex w-[80%] m-auto justify-center">
             <label for="firstName" className="text-lg m-[0]" />
             <input
@@ -176,8 +211,8 @@ function Signup() {
             />
           </div>
           {error.firstName && (
-              <p className="text-center text-red-500">{error.firstName}</p>
-            )}
+            <p className="text-center text-red-500">{error.firstName}</p>
+          )}
           <div className="flex w-[80%] m-auto justify-center">
             <label for="lastName" className="text-lg m-[0]" />
             <input
@@ -193,8 +228,8 @@ function Signup() {
             />
           </div>
           {error.lastName && (
-              <p className="text-center text-red-500">{error.lastName}</p>
-            )}
+            <p className="text-center text-red-500">{error.lastName}</p>
+          )}
           <div className="flex w-[80%] m-auto justify-center">
             <label for="userName" className="text-lg m-[0]" />
             <input
@@ -210,8 +245,8 @@ function Signup() {
             />
           </div>
           {error.userName && (
-              <p className="text-center text-red-500">{error.userName}</p>
-            )}
+            <p className="text-center text-red-500">{error.userName}</p>
+          )}
           <div className="relative flex w-[80%] m-auto justify-center">
             <label for="password" className="text-lg m-[0] font-normal" />
             <input
@@ -230,8 +265,8 @@ function Signup() {
             </span>
           </div>
           {error.password && (
-              <p className="text-center text-red-500">{error.password}</p>
-            )}
+            <p className="text-center text-red-500">{error.password}</p>
+          )}
           <div className="relative flex w-[80%] m-auto justify-center">
             <label
               for="confirmPassword"
@@ -253,8 +288,8 @@ function Signup() {
             </span>
           </div>
           {error.confirmPassword && (
-              <p className="text-center text-red-500">{error.confirmPassword}</p>
-            )}
+            <p className="text-center text-red-500">{error.confirmPassword}</p>
+          )}
           <div className="mt-8 flex justify-center"></div>
           <div className="flex justify-center m-auto w-[80%]">
             <button
