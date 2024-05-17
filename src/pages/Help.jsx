@@ -69,7 +69,7 @@ function Help() {
                         <li>
                             <Link
                     className="nav-links button-link rounded-2xl ml-8 font-normal "
-                    to="/login"
+                    to="/login" 
                     style={{ whiteSpace: "nowrap" }}
                 >
                     Sign Up
