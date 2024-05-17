@@ -52,7 +52,7 @@ function Booking() {
   return (
     <div>
       <Navbar />
-      <Banner />
+      <Banner title={"kampala To Arua"} />
       <div className="mt-2 mb-2 w-[80%] m-auto">
         <section className="BookingArea-section">
         <div className="">

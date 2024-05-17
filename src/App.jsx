@@ -10,6 +10,7 @@ import ExecBusSeat from './pages/ExecBusSeat'
 import OrdBusSeat from './pages/OrdBusSeat'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import AboutPage from './pages/AboutPage'
 
 function Layout({children}){
     return (
@@ -32,7 +33,7 @@ function App(){
                 <Route path="/Booking" element={<Booking />}/>
                 <Route path="/ExecBusSeat" element={<ExecBusSeat />} />
                 <Route path="/OrdBusSeat" element={<OrdBusSeat />} />
-                
+                <Route path="/about" element={<AboutPage />} />
             </Routes>
     )
 }
