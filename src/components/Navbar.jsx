@@ -16,6 +16,7 @@ function Navbar() {
   }, []);
 
   const handleLogout = () => {
+    localStorage.removeItem("user");
     storeUser({});
     setIsLoggedIn(false);
     setUsername("");
