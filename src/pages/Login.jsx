@@ -1,24 +1,25 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import axios from "axios";
 import validator from "validator";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [input, setInput] = useState({
-    email: "",
+    identifier: "",
     password: "",
   });
   const [errors, setErrors] = useState({
-    email: "",
+    identifier: "",
     password: "",
   });
 
-  const validateEmail = (email) => {
-    if (!validator.isEmail(email)) {
-      setErrors({ ...errors, email: "Invalid email format." });
+  const validateEmail = (identifier) => {
+    if (!validator.isEmail(identifier)) {
+      setErrors({ ...errors, identifier: "Invalid email format." });
       return false;
     }
-    setErrors({ ...errors, email: "" });
+    setErrors({ ...errors, identifier: "" });
     return true;
   };
 
@@ -34,19 +35,33 @@ function Login() {
     return true;
   };
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validate email and password before submitting
-    if (validateEmail(input.email) && validatePassword(input.password)) {
-      axios
-        .post("http://localhost:1337/api/users", input)
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          setErrors({ ...errors, general: "Login failed. Please try again." });
-          console.error(error);
+
+    const isValid =
+      validateEmail(input.identifier) && validatePassword(input.password);
+    if (!isValid) {
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "https://big-chicken-57890d4fdf.strapiapp.com/api/auth/local",
+        input
+      );
+
+      if (!response.data.jwt) {
+        setErrors({
+          ...errors,
+          identifier: "Invalid email password combination.",
         });
+        throw new Error("Invalid email password combination.");
+      }
+      navigate("/Booking");
+      console.log("Login successful!");
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -64,18 +79,20 @@ function Login() {
             <div className="flex w-[80%] m-auto justify-center">
               <label htmlFor="email" className="text-lg m-[0] font-normal" />
               <input
-                id="email"
+                id="identifier"
                 type="email"
                 className="w-4/5 rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
                 placeholder="Email"
                 onChange={(e) => {
-                  setInput({ ...input, email: e.target.value });
+                  setInput({ ...input, identifier: e.target.value });
                   validateEmail(e.target.value);
                 }}
-                value={input.email}
+                value={input.identifier}
               />
             </div>
-            {errors.email && <p className="text-center text-red-500">{errors.email}</p>}
+            {errors.identifier && (
+              <p className="text-center text-red-500">{errors.identifier}</p>
+            )}
             <div className="relative flex w-[80%] m-auto justify-center">
               <label htmlFor="password" className="text-lg m-[0] font-normal" />
               <input
@@ -114,7 +131,9 @@ function Login() {
           <div>
             <p className="mt-4 text-[#061f77] text-center">
               Don't have an account?{" "}
-              <Link to="/signup" className="text-[#e3bf00]">Sign up</Link>
+              <Link to="/signup" className="text-[#e3bf00]">
+                Sign up
+              </Link>
             </p>
           </div>
           <div className="mt-8 flex-col gap-y-4">
