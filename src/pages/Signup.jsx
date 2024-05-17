@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [input, setInput] = useState({
-   email: "",
+    email: "",
     mobileNumber: "",
     firstName: "",
     lastName: "",
@@ -15,14 +15,14 @@ function Signup() {
     role: "Public",
     confirmed: true,
     blocked: false,
-    confirmPassword: ""
+    confirmPassword: "",
   });
   const [error, setError] = useState({
     email: "",
     mobileNumber: "",
     firstName: "",
     lastName: "",
-    userName: "",
+    username: "",
     password: "",
     confirmPassword: "",
   });
@@ -68,13 +68,13 @@ function Signup() {
   }
 
   // Validate userName
-  function validateUserName(userName) {
+  function validateUserName(username) {
     let userNameRegexp = /^[a-zA-Z]+$/;
-    if (!userNameRegexp.test(userName)) {
-      setError({ ...error, userName: "Invalid UserName" });
+    if (!userNameRegexp.test(username)) {
+      setError({ ...error, username: "Invalid UserName" });
       return false;
     }
-    setError({ ...error, userName: "" });
+    setError({ ...error, username: "" });
     return true;
   }
 
@@ -103,7 +103,10 @@ function Signup() {
   const submitHandler = (e) => {
     e.preventDefault();
     axios
-      .post("https://big-chicken-57890d4fdf.strapiapp.com/api/auth/local/register", input)
+      .post(
+        "https://big-chicken-57890d4fdf.strapiapp.com/api/auth/local/register",
+        input
+      )
       .then((response) => {
         console.log(response);
       })
@@ -111,7 +114,7 @@ function Signup() {
         setError("Not Signed Up, Try again!");
         console.log(error);
       });
-  }
+  };
 
   /* const submitHandler = async (e) => {
     e.preventDefault();
@@ -238,14 +241,14 @@ function Signup() {
               className="w-4/5 rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
               placeholder="Username"
               onChange={(e) => {
-                setInput({ ...input, userName: e.target.value });
+                setInput({ ...input, username: e.target.value });
                 validateUserName(e.target.value);
               }}
-              value={input.userName}
+              value={input.username}
             />
           </div>
-          {error.userName && (
-            <p className="text-center text-red-500">{error.userName}</p>
+          {error.username && (
+            <p className="text-center text-red-500">{error.username}</p>
           )}
           <div className="relative flex w-[80%] m-auto justify-center">
             <label for="password" className="text-lg m-[0] font-normal" />
