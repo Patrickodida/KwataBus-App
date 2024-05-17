@@ -108,52 +108,13 @@ function Signup() {
         input
       )
       .then((response) => {
-        console.log(response);
+        navigate("/login");
       })
       .catch((error) => {
         setError("Not Signed Up, Try again!");
         console.log(error);
       });
   };
-
-  /* const submitHandler = async (e) => {
-    e.preventDefault();
-    if (
-      validateEmail(input.email) &&
-      validateMobileNumber(input.mobileNumber) &&
-      validateFirstName(input.firstName) &&
-      validateLastName(input.lastName) &&
-      validateUserName(input.userName) &&
-      validatePassword(input.password) &&
-      validateConfirmPassword(input.confirmPassword)
-    ) {
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          
-
-"data": {
-            "userName": input.userName,
-            "email": input.email,
-            "password": input.password,
-            "confirmed": true,
-            "blocked": false,
-            "FirstName": input.firstName,
-            "LastName": input.lastName,
-            "role": "Public",
-            "MobileNumber": input.mobileNumber,
-               }
-        }),
-      };
-      fetch(
-        "https://big-chicken-57890d4fdf.strapiapp.com/api/auth/local/register",
-        requestOptions
-      ).then((response) => response.json());
-      console.log(response.json())
-      //navigate("/login");
-    }
-  }; */
   return (
     <section className="bg-[#061f77]">
       <div className="bg-white rounded-2xl border-[#061f77] w-full md:w-[50%] m-auto pt-[2em] pb-[2em] border-8">
