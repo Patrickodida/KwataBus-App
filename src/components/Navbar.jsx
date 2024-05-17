@@ -71,6 +71,11 @@ function Navbar() {
             <ul className="flex items-center justify-center">
               {isLoggedIn ? (
                 <>
+                  <li>
+                <Link className="nav-links ml-8" to="/booking">
+                  Booking
+                </Link>
+              </li>
                   <li className="">
                     <span>
                       <i className="bx bx-user pr-2 font-bold"></i>

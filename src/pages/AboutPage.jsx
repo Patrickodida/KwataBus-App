@@ -8,7 +8,7 @@ function AboutPage() {
   return (
     <div>
         <Navbar />
-        <Banner />
+        <Banner title={"About"} />
         <About />
         <Footer />
     </div>
