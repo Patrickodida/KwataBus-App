@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 function Signup() {
   const [input, setInput] = useState({
     email: "",
-    mobileNumber: "",
-    firstName: "",
-    lastName: "",
+    MobileNumber: "",
+    FirstName: "",
+    LastName: "",
     username: "",
     password: "",
     role: "Public",
@@ -19,9 +19,9 @@ function Signup() {
   });
   const [error, setError] = useState({
     email: "",
-    mobileNumber: "",
-    firstName: "",
-    lastName: "",
+    MobileNumber: "",
+    FirstName: "",
+    LastName: "",
     username: "",
     password: "",
     confirmPassword: "",
@@ -36,34 +36,34 @@ function Signup() {
     setError({ ...error, email: "" });
     return true;
   }
-  // validate mobileNumber
-  function validateMobileNumber(mobileNumber) {
-    if (mobileNumber.length !== 10) {
-      setError({ ...error, mobileNumber: "Invalid Entry" });
+  // validate MobileNumber
+  function validateMobileNumber(MobileNumber) {
+    if (MobileNumber.length !== 10) {
+      setError({ ...error, MobileNumber: "Invalid Entry" });
       return false;
     }
-    setError({ ...error, mobileNumber: "" });
+    setError({ ...error, MobileNumber: "" });
     return true;
   }
-  // validate firstName
-  function validateFirstName(firstName) {
-    let firstNameRegexp = /^[a-zA-Z]+$/;
-    if (!firstNameRegexp.test(firstName)) {
-      setError({ ...error, firstName: "Invalid First Name" });
+  // validate FirstName
+  function validateFirstName(FirstName) {
+    let FirstNameRegexp = /^[a-zA-Z]+$/;
+    if (!FirstNameRegexp.test(FirstName)) {
+      setError({ ...error, FirstName: "Invalid First Name" });
       return false;
     }
-    setError({ ...error, firstName: "" });
+    setError({ ...error, FirstName: "" });
     return true;
   }
 
-  // validate lastName
-  function validateLastName(lastName) {
-    let lastNameRegexp = /^[a-zA-Z]+$/;
-    if (!lastNameRegexp.test(lastName)) {
-      setError({ ...error, lastName: "Invalid Last Name" });
+  // validate LastName
+  function validateLastName(LastName) {
+    let LastNameRegexp = /^[a-zA-Z]+$/;
+    if (!LastNameRegexp.test(LastName)) {
+      setError({ ...error, LastName: "Invalid Last Name" });
       return false;
     }
-    setError({ ...error, lastName: "" });
+    setError({ ...error, LastName: "" });
     return true;
   }
 
@@ -144,55 +144,55 @@ function Signup() {
           )}
 
           <div className="flex w-[80%] m-auto justify-center ">
-            <label for="mobileNumber" className="text-lg m-[0] font-normal" />
+            <label for="MobileNumber" className="text-lg m-[0] font-normal" />
             <input
-              id="mobileNumber"
+              id="MobileNumber"
               type="text"
               className="w-4/5 rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
               placeholder="Mobile Number"
               onChange={(e) => {
-                setInput({ ...input, mobileNumber: e.target.value });
+                setInput({ ...input, MobileNumber: e.target.value });
                 validateMobileNumber(e.target.value);
               }}
-              value={input.mobileNumber}
+              value={input.MobileNumber}
             />
           </div>
-          {error.mobileNumber && (
-            <p className="text-center text-red-500">{error.mobileNumber}</p>
+          {error.MobileNumber && (
+            <p className="text-center text-red-500">{error.MobileNumber}</p>
           )}
           <div className="flex w-[80%] m-auto justify-center">
-            <label for="firstName" className="text-lg m-[0]" />
+            <label for="FirstName" className="text-lg m-[0]" />
             <input
-              id="firstName"
+              id="FirstName"
               type="text"
               className="w-4/5 rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
               placeholder="First Name"
               onChange={(e) => {
-                setInput({ ...input, firstName: e.target.value });
+                setInput({ ...input, FirstName: e.target.value });
                 validateFirstName(e.target.value);
               }}
-              value={input.firstName}
+              value={input.FirstName}
             />
           </div>
-          {error.firstName && (
-            <p className="text-center text-red-500">{error.firstName}</p>
+          {error.FirstName && (
+            <p className="text-center text-red-500">{error.FirstName}</p>
           )}
           <div className="flex w-[80%] m-auto justify-center">
-            <label for="lastName" className="text-lg m-[0]" />
+            <label for="LastName" className="text-lg m-[0]" />
             <input
-              id="lastName"
+              id="LastName"
               type="text"
               className="w-4/5 rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
               placeholder="Last Name"
               onChange={(e) => {
-                setInput({ ...input, lastName: e.target.value });
+                setInput({ ...input, LastName: e.target.value });
                 validateLastName(e.target.value);
               }}
-              value={input.lastName}
+              value={input.LastName}
             />
           </div>
-          {error.lastName && (
-            <p className="text-center text-red-500">{error.lastName}</p>
+          {error.LastName && (
+            <p className="text-center text-red-500">{error.LastName}</p>
           )}
           <div className="flex w-[80%] m-auto justify-center">
             <label for="userName" className="text-lg m-[0]" />
