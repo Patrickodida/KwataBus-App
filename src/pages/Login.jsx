@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import validator from "validator";
 import { useNavigate } from "react-router-dom";
+import { storeUser } from "../UserHelper";
 
 function Login() {
   const [input, setInput] = useState({
@@ -36,6 +37,7 @@ function Login() {
   };
 
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -58,8 +60,8 @@ function Login() {
         });
         throw new Error("Invalid email password combination.");
       }
-      navigate("/Booking");
-      console.log("Login successful!");
+      storeUser(response.data);
+      navigate("/booking");
     } catch (error) {
       console.error(error);
     }
