@@ -16,7 +16,7 @@ function Navbar() {
   }, []);
 
   const handleLogout = () => {
-    storeUser({}); 
+    storeUser({});
     setIsLoggedIn(false);
     setUsername("");
     navigate("/login");
@@ -63,29 +63,32 @@ function Navbar() {
                 <Link onClick={() => handleNavigation("contact")}>CONTACT</Link>
               </li>
               <li>
-                    <Link className="nav-links ml-8" to="/help">
-                      Help
-                    </Link>
-                  </li>
+                <Link className="nav-links ml-8" to="/help">
+                  Help
+                </Link>
+              </li>
             </ul>
             <ul className="flex items-center justify-center">
               {isLoggedIn ? (
                 <>
                   <li className="">
+                    <span>
+                      <i className="bx bx-user pr-2 font-bold"></i>
+                    </span>
                     <span className="nav-links">{username}</span>
                   </li>
                   <li>
-                    <Link to="/"
+                    <Link
+                      to="/"
                       onClick={handleLogout}
                       className="button-link rounded-2xl ml-8 font-normal"
-                      >
+                    >
                       Logout
                     </Link>
                   </li>
                 </>
               ) : (
                 <>
-                  
                   <li className="active ml-8">
                     <Link
                       className="nav-links"
