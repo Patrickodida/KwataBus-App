@@ -1,11 +1,31 @@
-import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import { userData, storeUser } from "../UserHelper";
 
 
 
 function Help() {
     const [selectedValue, setselectedValue] = useState("");
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [username, setUsername] = useState("");
+    const navigate = useNavigate();
+
+    useEffect(() => {
+    const user = userData();
+    if (user && user.username) {
+      setIsLoggedIn(true);
+      setUsername(user.username);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    storeUser({});
+    setIsLoggedIn(false);
+    setUsername("");
+    navigate("/login");
+  };
 
     const handleChange = (e) => {
         setselectedValue(e.target.value)
@@ -14,17 +34,51 @@ function Help() {
         <div>
             <div className="nav-section bg-[#fefefe]">
                 <div className="flex justify-between p-4 m-auto items-center  font-bold  text-[#061f77] w-[90%] m-auto">
-                <Link href="/" className="site-title font-bold text-2xl ">
+                <Link to="/" className="site-title font-bold text-2xl ">
                     Kwata<span style={{ color: "#e3bf00" }}>Bus</span>
                 </Link>
-
-                <Link
+                {isLoggedIn ? (
+                    <ul className="flex">
+                        <li className="">
+                    <span>
+                      <i className="bx bx-user pr-2 font-bold"></i>
+                    </span>
+                    <span className="nav-links">{username}</span>
+                  </li>
+                  <li>
+                    <Link
+                      to="/"
+                      onClick={handleLogout}
+                      className="button-link rounded-2xl ml-8 font-normal"
+                    >
+                      Logout
+                    </Link>
+                  </li>
+                    </ul>
+                ) : (
+                    <ul className="flex">
+                        <li>
+                            <Link
                     className="nav-links "
                     to="/login"
                     style={{ whiteSpace: "nowrap" }}
                 >
                     Log In
                 </Link>
+                        </li>
+                        <li>
+                            <Link
+                    className="nav-links button-link rounded-2xl ml-8 font-normal "
+                    to="/login"
+                    style={{ whiteSpace: "nowrap" }}
+                >
+                    Sign Up
+                </Link>
+                        </li>
+                    </ul>
+                )
+                }
+                
             </div>
             <div className="header p-4  w-full bg-[#061f77] ">
                 <div className="w-[90%] m-auto">
