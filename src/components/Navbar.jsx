@@ -72,10 +72,10 @@ function Navbar() {
               {isLoggedIn ? (
                 <>
                   <li className="">
-                    <span className="nav-links">Hi, {username}</span>
+                    <span className="nav-links">{username}</span>
                   </li>
                   <li>
-                    <Link to="/login"
+                    <Link to="/"
                       onClick={handleLogout}
                       className="button-link rounded-2xl ml-8 font-normal"
                       >
