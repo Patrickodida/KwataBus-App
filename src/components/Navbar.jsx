@@ -62,29 +62,30 @@ function Navbar() {
               <li>
                 <Link onClick={() => handleNavigation("contact")}>CONTACT</Link>
               </li>
+              <li>
+                    <Link className="nav-links ml-8" to="/help">
+                      Help
+                    </Link>
+                  </li>
             </ul>
-            <ul className="flex items-center">
+            <ul className="flex items-center justify-center">
               {isLoggedIn ? (
                 <>
-                  <li className="mr-8">
+                  <li className="">
                     <span className="nav-links">Hi, {username}</span>
                   </li>
                   <li>
-                    <button
+                    <Link to="/login"
                       onClick={handleLogout}
-                      className="button-link rounded-2xl ml-12 font-normal"
+                      className="button-link rounded-2xl ml-8 font-normal"
                       >
                       Logout
-                    </button>
+                    </Link>
                   </li>
                 </>
               ) : (
                 <>
-                  <li>
-                    <Link className="nav-links" to="/help">
-                      Help
-                    </Link>
-                  </li>
+                  
                   <li className="active ml-8">
                     <Link
                       className="nav-links"
