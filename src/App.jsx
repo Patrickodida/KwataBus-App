@@ -11,6 +11,7 @@ import OrdBusSeat from './pages/OrdBusSeat'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import AboutPage from './pages/AboutPage'
+import ContactPage from './pages/ContactPage'
 
 function Layout({children}){
     return (
@@ -34,6 +35,7 @@ function App(){
                 <Route path="/ExecBusSeat" element={<ExecBusSeat />} />
                 <Route path="/OrdBusSeat" element={<OrdBusSeat />} />
                 <Route path="/about" element={<AboutPage />} />
+                <Route path="/contact" element={<ContactPage />} />
             </Routes>
     )
 }

@@ -64,7 +64,7 @@ function Navbar() {
               </li>
               <li>
                 <Link className="nav-links ml-8" to="/help">
-                  Help
+                  HELP
                 </Link>
               </li>
             </ul>
@@ -72,7 +72,7 @@ function Navbar() {
               {isLoggedIn ? (
                 <>
                   <li>
-                <Link className="nav-links ml-8" to="/booking">
+                <Link className="nav-links mr-8 font-bold" to="/booking">
                   Booking
                 </Link>
               </li>
