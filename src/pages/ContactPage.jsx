@@ -9,12 +9,12 @@ import Footer from "../components/Footer";
 
 function ContactPage(){
     return (
-        <>
+        <div id="contact">
         <Navbar />
         <Banner title={"Contact Us"} />
         <Contact />
         <Footer />
-        </>
+        </div>
     )
 }
 export default ContactPage;

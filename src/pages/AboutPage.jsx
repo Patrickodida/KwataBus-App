@@ -6,7 +6,7 @@ import About from "../components/About";
 
 function AboutPage() {
   return (
-    <div>
+    <div id="about">
         <Navbar />
         <Banner title={"About"} />
         <About />
