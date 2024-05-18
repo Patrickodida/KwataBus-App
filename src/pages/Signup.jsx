@@ -126,7 +126,7 @@ function Signup() {
         </h2>
         <form onSubmit={submitHandler} className="mt-4 ">
           <div className="flex w-[80%] m-auto justify-center">
-            <label for="email" className="text-lg m-[0]" />
+            <label htmlFor="email" className="text-lg m-[0]" />
             <input
               id="email"
               type="email"
@@ -144,7 +144,7 @@ function Signup() {
           )}
 
           <div className="flex w-[80%] m-auto justify-center ">
-            <label for="MobileNumber" className="text-lg m-[0] font-normal" />
+            <label htmlFor="MobileNumber" className="text-lg m-[0] font-normal" />
             <input
               id="MobileNumber"
               type="text"
@@ -161,7 +161,7 @@ function Signup() {
             <p className="text-center text-red-500">{error.MobileNumber}</p>
           )}
           <div className="flex w-[80%] m-auto justify-center">
-            <label for="FirstName" className="text-lg m-[0]" />
+            <label htmlFor="FirstName" className="text-lg m-[0]" />
             <input
               id="FirstName"
               type="text"
@@ -178,7 +178,7 @@ function Signup() {
             <p className="text-center text-red-500">{error.FirstName}</p>
           )}
           <div className="flex w-[80%] m-auto justify-center">
-            <label for="LastName" className="text-lg m-[0]" />
+            <label htmlFor="LastName" className="text-lg m-[0]" />
             <input
               id="LastName"
               type="text"
@@ -195,7 +195,7 @@ function Signup() {
             <p className="text-center text-red-500">{error.LastName}</p>
           )}
           <div className="flex w-[80%] m-auto justify-center">
-            <label for="userName" className="text-lg m-[0]" />
+            <label htmlFor="userName" className="text-lg m-[0]" />
             <input
               id="userName"
               type="text"
@@ -212,7 +212,7 @@ function Signup() {
             <p className="text-center text-red-500">{error.username}</p>
           )}
           <div className="relative flex w-[80%] m-auto justify-center">
-            <label for="password" className="text-lg m-[0] font-normal" />
+            <label htmlFor="password" className="text-lg m-[0] font-normal" />
             <input
               id="password"
               type="password"
@@ -233,7 +233,7 @@ function Signup() {
           )}
           <div className="relative flex w-[80%] m-auto justify-center">
             <label
-              for="confirmPassword"
+              htmlFor="confirmPassword"
               className="text-lg m-[0] font medium"
             />
             <input
