@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import BusService from "../components/BusService";
@@ -16,6 +16,23 @@ function Booking() {
     from: "",
     to:""
   })
+
+  let [route, setRoute] = useState(null);
+
+  function fetchData(){
+    let apiurl = "https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes";
+    fetch(apiurl)
+    .then((response) => {
+      return response.json();
+    })
+    .then((dataObject) => {
+      let routeData = dataObject.data;
+      setRoute(routeData)
+    })
+  }
+  useEffect(() => {
+    fetchData();
+  }, [])
 
   function validateFrom(from) {
     if (from.length < 4) {
@@ -132,8 +149,24 @@ function Booking() {
         </div>
 
       </section>
-      
-    <BusService className="flex justify-center " />
+      {
+        route !== null ? (
+          route.map((row) => {
+            return (
+            <BusService className="flex justify-center" 
+                key = {row.id}
+                busCompany = {row.attributes.BusCompany}
+                departureTown = {row.attributes.DepartureTown}
+                arrivalTown = {row.attributes.ArrivalTown}
+                departureTime = {row.attributes.DepartureTime}
+                fare = {row.attributes.Fare}
+            />
+            );
+          })
+        ) : (
+          <p>Loading...</p>
+        )}
+    
       </div>
       </div>
       <Footer />

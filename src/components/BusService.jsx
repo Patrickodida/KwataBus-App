@@ -6,7 +6,7 @@ function BusService(props){
         <div className="m-auto w-[80%] text-[#061f77] mb-20 ">
             <section className="md:flex md:justify-center flex-col md:flex-row bg-slate-100 p-4 rounded-lg text-center">
                 <div>
-                    <h1 className="mb-4 font-bold">{props.buscompany}</h1>
+                    <h1 className="mb-4 font-bold">{props.busCompany}</h1>
                     <h2 className="mb-4">Ordinary</h2>
                     <p className="mb-4">From {props.departureTown} to {props.arrivalTown}</p>
                 </div>
