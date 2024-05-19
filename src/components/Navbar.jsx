@@ -30,17 +30,13 @@ function Navbar() {
     <div>
       <section className="bg-white text-blue-900 fixed top-0 left-0 right-0 z-50 w-full">
         <div className="flex items-center justify-between m-auto w-[80%] max-w-screen-xl py-4">
-          <Link to="/"
-            className="site-title font-bold text-2xl"
-          >
+          <Link to="/" className="site-title font-bold text-2xl">
             Kwata<span className="text-[#e3bf00]">Bus</span>
           </Link>
           <nav className="flex items-center w-full">
             <ul className="flex m-auto font-bold ">
               <li>
-                <Link to="/"
-                  className="nav-links"
-                >
+                <Link to="/" className="nav-links">
                   HOME
                 </Link>
               </li>
@@ -60,10 +56,10 @@ function Navbar() {
               {isLoggedIn ? (
                 <>
                   <li>
-                <Link className="nav-links mr-8 font-bold" to="/booking">
-                  Booking
-                </Link>
-              </li>
+                    <Link className="nav-links mr-8 font-bold" to="/booking">
+                      Booking
+                    </Link>
+                  </li>
                   <li className="">
                     <span>
                       <i className="bx bx-user pr-2 font-bold"></i>

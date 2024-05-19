@@ -1,7 +1,7 @@
 import React from "react";
-import SvgDest from '../images/destination.svg'
-import SvgChoose from '../images/chooseSeat.svg'
-import PayTicket from '../images/payticket.svg'
+import SvgDest from "../images/destination.svg";
+import SvgChoose from "../images/chooseSeat.svg";
+import PayTicket from "../images/payticket.svg";
 
 function TicketSteps() {
   return (
@@ -12,11 +12,12 @@ function TicketSteps() {
         </h2>
         <div className="card md:flex md:justify-center md:items-center md:gap-[10%] mb-12 border md:border-none shadow-md md:shadow-none ">
           <div className="icons-container w-1/2 h-auto flex justify-center text-[#061f77]  rounded-lg p-4 w-full m-auto md:border md:shadow-md">
-            <span className="md:flex md:justify-center font-bold text-[#061f77] pb-[30px] hidden text-[2.5rem] ">1</span>
-            <img src={SvgDest} className="w-1/2 h-auto"/>
+            <span className="md:flex md:justify-center font-bold text-[#061f77] pb-[30px] hidden text-[2.5rem] ">
+              1
+            </span>
+            <img src={SvgDest} className="w-1/2 h-auto" />
           </div>
           <div className="text-container w-2/4  rounded p-4 w-full m-auto text-center ">
-            
             <p>
               Choose your destination, origin, date, and then search for buses
             </p>
@@ -25,22 +26,24 @@ function TicketSteps() {
 
         <div className="card md:flex md:justify-center md:items-center md:gap-[10%] mb-12 border md:border-none shadow-md md:shadow-none">
           <div className="text-container w-2/4  rounded p-4 w-full m-auto text-center ">
-            
             <p>Select a seat and make a booking</p>
           </div>
           <div className="icons-container w-1/2 h-auto flex justify-center text-[#061f77]  rounded-lg p-4 w-full m-auto md:border md:shadow-md">
-            <span className="md:flex md:justify-center font-bold text-[#061f77] pb-[30px] hidden text-[2.5rem] ">2</span>
-            <img src={SvgChoose} className=""/>
+            <span className="md:flex md:justify-center font-bold text-[#061f77] pb-[30px] hidden text-[2.5rem] ">
+              2
+            </span>
+            <img src={SvgChoose} className="" />
           </div>
         </div>
 
         <div className="card md:flex md:justify-center md:items-center md:gap-[10%] mb-12 border md:border-none shadow-md md:shadow-none">
           <div className="icons-container w-1/2 h-auto flex justify-center text-[#061f77]  rounded-lg p-8 w-full m-auto md:border md:shadow-md">
-            <span className="md:flex md:justify-center font-bold text-[#061f77] pb-[30px] hidden text-[2.5rem] ">3</span>
-            <img src={PayTicket} className=""/>
+            <span className="md:flex md:justify-center font-bold text-[#061f77] pb-[30px] hidden text-[2.5rem] ">
+              3
+            </span>
+            <img src={PayTicket} className="" />
           </div>
           <div className="text-container w-2/4  rounded p-4 w-full m-auto text-center ">
-            
             <p>Pay for seat using payment options provided</p>
           </div>
         </div>

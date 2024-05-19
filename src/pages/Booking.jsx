@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import BusService from "../components/BusService";
@@ -7,32 +7,31 @@ import Footer from "../components/Footer";
 import Banner from "../components/Banner";
 
 function Booking() {
-
   const [input, setInput] = useState({
     from: "",
-    to:""
+    to: "",
   });
   const [error, setError] = useState({
     from: "",
-    to:""
-  })
+    to: "",
+  });
 
   let [route, setRoute] = useState(null);
 
-  function fetchData(){
+  function fetchData() {
     let apiurl = "https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes";
     fetch(apiurl)
-    .then((response) => {
-      return response.json();
-    })
-    .then((dataObject) => {
-      let routeData = dataObject.data;
-      setRoute(routeData)
-    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((dataObject) => {
+        let routeData = dataObject.data;
+        setRoute(routeData);
+      });
   }
   useEffect(() => {
     fetchData();
-  }, [])
+  }, []);
 
   function validateFrom(from) {
     if (from.length < 4) {
@@ -42,7 +41,7 @@ function Booking() {
     setError({ ...error, from: "" });
     return true;
   }
-  
+
   function validateTo(to) {
     if (to.length < 4) {
       setError({ ...error, to: "Invalid input" });
@@ -72,12 +71,17 @@ function Booking() {
       <Banner title={"kampala To Arua"} />
       <div className="mt-2 mb-2 w-[80%] m-auto">
         <section className="BookingArea-section">
-        <div className="">
-          <form onSubmit={handleSubmit} className=" form-center bg-white rounded-lg">
-            <div className="form-row flex flex-col md:flex-row gap-5 items-center justify-center w-full ">
-              <div className="from flex">
-                <label className="text-[#061f77] font-bold"id="firstLabel">From</label>
-              <input
+          <div className="">
+            <form
+              onSubmit={handleSubmit}
+              className=" form-center bg-white rounded-lg"
+            >
+              <div className="form-row flex flex-col md:flex-row gap-5 items-center justify-center w-full ">
+                <div className="from flex">
+                  <label className="text-[#061f77] font-bold" id="firstLabel">
+                    From
+                  </label>
+                  <input
                     type="text"
                     id="from"
                     value={input.from}
@@ -87,14 +91,14 @@ function Booking() {
                       setInput({ ...input, from: e.target.value });
                       validateFrom(e.target.value);
                     }}
-              />
-              </div>
+                  />
+                </div>
                 {error.from && (
                   <p className="text-center text-red-500">{error.from}</p>
                 )}
-              <div className="to flex">
-                <label className="text-[#061f77] font-bold">To</label>
-              <input
+                <div className="to flex">
+                  <label className="text-[#061f77] font-bold">To</label>
+                  <input
                     type="text"
                     id="to"
                     value={input.to}
@@ -104,74 +108,85 @@ function Booking() {
                       setInput({ ...input, to: e.target.value });
                       validateTo(e.target.value);
                     }}
-              />
-              </div>
+                  />
+                </div>
                 {error.to && (
                   <p className="text-center text-red-500">{error.to}</p>
                 )}
-              <div className="date flex">
-                <label className="text-[#061f77] font-bold">Date</label>
-              <input type="date" className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none" />
+                <div className="date flex">
+                  <label className="text-[#061f77] font-bold">Date</label>
+                  <input
+                    type="date"
+                    className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
+                  />
+                </div>
+                <div className="ticket flex">
+                  <Link
+                    className="ml-4 mb-[24px] bg-[#061f77] rounded-lg text-white py-2 px-10 text-center"
+                    style={{ whiteSpace: "nowrap" }}
+                  >
+                    Find Ticket
+                  </Link>
+                </div>
               </div>
-              <div className="ticket flex">
-                <Link className="ml-4 mb-[24px] bg-[#061f77] rounded-lg text-white py-2 px-10 text-center" style={{ whiteSpace: "nowrap" }}>Find Ticket</Link>
+            </form>
+          </div>
+        </section>
+        <div className="md:flex md:justify-center items-start flex-col md:flex-row md:items-end">
+          <section className="bg-slate-100 text-[#061f77] rounded-lg p-4 md:mr-8 md:mb-20 mt-60 mb-10 text-center w-20% md:mt-5">
+            <div className="flex mb-8 justify-center">
+              <div className="font-bold">
+                <h1>FILTER</h1>
               </div>
-                
+              <div className="pl-8 font-bold">
+                <h2>Reset All</h2>
+              </div>
             </div>
-          </form>
-        </div>
-
-      </section>
-      <div className="md:flex md:justify-center items-start flex-col md:flex-row md:items-end" >
-      <section className="bg-slate-100 text-[#061f77] rounded-lg p-4 md:mr-8 md:mb-20 mt-60 mb-10 text-center w-20% md:mt-5">
-        <div className="flex mb-8 justify-center">
-          <div className="font-bold"><h1>FILTER</h1></div>
-          <div className="pl-8 font-bold"><h2>Reset All</h2></div>
-        </div>
-        <div>
-          <h2 className="mb-4 font-bold">Bus Category</h2>
-          <div>
             <div>
-            <input className="mb-4" type={"checkbox"} /><label>Executive</label>
+              <h2 className="mb-4 font-bold">Bus Category</h2>
+              <div>
+                <div>
+                  <input className="mb-4" type={"checkbox"} />
+                  <label>Executive</label>
+                </div>
+                <input className="mb-4" type={"checkbox"} />
+                <label>Ordinary</label>
               </div>
-            <input className="mb-4" type={"checkbox"} /><label>Ordinary</label>
-          </div>
-          
+            </div>
+            <div>
+              <h2 className="mb-4 mt-8 font-bold">Departure time</h2>
+              <div>
+                <div className="mb-2">
+                  <input type={"checkbox"} />
+                  <label>8:00 AM</label>
+                </div>
+                <input type={"checkbox"} />
+                <label>9:00 AM</label>
+              </div>
+            </div>
+          </section>
+          {route !== null ? (
+            route.map((row) => {
+              return (
+                <BusService
+                  className="flex justify-center"
+                  key={row.id}
+                  busCompany={row.attributes.BusCompany}
+                  departureTown={row.attributes.DepartureTown}
+                  arrivalTown={row.attributes.ArrivalTown}
+                  departureTime={row.attributes.DepartureTime}
+                  fare={row.attributes.Fare}
+                />
+              );
+            })
+          ) : (
+            <p>Loading...</p>
+          )}
         </div>
-        <div>
-          <h2 className="mb-4 mt-8 font-bold">Departure time</h2>
-          <div>
-            <div className="mb-2"><input type={"checkbox"} /><label>8:00 AM</label></div>
-            <input type={"checkbox"} /><label>9:00 AM</label>
-            
-          </div>
-          
-        </div>
-
-      </section>
-      {
-        route !== null ? (
-          route.map((row) => {
-            return (
-            <BusService className="flex justify-center" 
-                key = {row.id}
-                busCompany = {row.attributes.BusCompany}
-                departureTown = {row.attributes.DepartureTown}
-                arrivalTown = {row.attributes.ArrivalTown}
-                departureTime = {row.attributes.DepartureTime}
-                fare = {row.attributes.Fare}
-            />
-            );
-          })
-        ) : (
-          <p>Loading...</p>
-        )}
-    
-      </div>
       </div>
       <Footer />
     </div>
-  )
+  );
 }
 
 export default Booking;
