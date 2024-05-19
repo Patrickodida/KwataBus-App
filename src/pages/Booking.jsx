@@ -132,8 +132,8 @@ function Booking() {
             </form>
           </div>
         </section>
-        <div className="md:flex md:justify-center items-start flex-col md:flex-row md:items-end">
-          <section className="bg-slate-100 text-[#061f77] rounded-lg p-4 md:mr-8 md:mb-20 mt-60 mb-10 text-center w-20% md:mt-5">
+        <div className="md:flex md:justify-center items-start flex-col md:flex-row ">
+          <section className="bg-slate-100 text-[#061f77] rounded-lg p-4 md:mr-10 md:mb-20 mt-60 mb-10 text-center w-20% md:mt-0">
             <div className="flex mb-8 justify-center">
               <div className="font-bold">
                 <h1>FILTER</h1>
@@ -165,11 +165,12 @@ function Booking() {
               </div>
             </div>
           </section>
+          <div>
           {route !== null ? (
             route.map((row) => {
               return (
-                <BusService
-                  className="flex justify-center"
+                  <BusService
+                  className=""
                   key={row.id}
                   busCompany={row.attributes.BusCompany}
                   departureTown={row.attributes.DepartureTown}
@@ -182,6 +183,7 @@ function Booking() {
           ) : (
             <p>Loading...</p>
           )}
+          </div>
         </div>
       </div>
       <Footer />
