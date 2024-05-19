@@ -102,13 +102,13 @@ function Help() {
           >
             <option value="question1">HOW DO I BUY TICKETS?</option>
             <option value="question2">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit?
+              Visit the official website of the tickecting platform, search for the journey and number of tickets to purchase.
             </option>
             <option value="question3">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit?
+              Add the tickets and your payment information and any required details.
             </option>
             <option value="question4">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit?
+              Review your order to ensure everything is correct. Complete the purchase and wait for a confirmation with your tickets
             </option>
           </select>
 
@@ -124,13 +124,13 @@ function Help() {
               CAN THE TICKET BE SENT TO ME VIA SMS?
             </option>
             <option value="question2">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit?
+              Yes, you could recieved your ticket or various tickets via SMS. 
             </option>
             <option value="question3">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit?
+              Follow the given payment instructions and fulfill all the required extra details asked for.
             </option>
             <option value="question4">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit?
+              Your tickects or ticket will be received on your mobile device as an SMS with confirmation of the payment. 
             </option>
           </select>
 
@@ -146,13 +146,13 @@ function Help() {
               I HAVE PURCHASED A TICKET BUT HAVE NOT RECEIVED A MESSAGE?
             </option>
             <option value="question2">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit?
+              I'm sorry to hear that you haven't received a message after purchasing the ticket. Have you checked your spam or junk folder?
             </option>
             <option value="question3">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit?
+              If you still haven't received it. Our recommendation is that you try reaching out or contacting the ticket providers directly.
             </option>
             <option value="question4">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit?
+              Inquire about the status of your ticket and ensure you receive it promptly.
             </option>
           </select>
         </form>
