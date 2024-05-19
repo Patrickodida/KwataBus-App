@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
 import BusService from "../components/BusService";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -15,20 +13,26 @@ function Booking() {
     from: "",
     to: "",
   });
-
-  let [route, setRoute] = useState(null);
+  const [filters, setFilters] = useState({
+    busCategory: [],
+    departureTime: [],
+  });
+  const [route, setRoute] = useState([]);
+  const [filteredRoute, setFilteredRoute] = useState([]);
 
   function fetchData() {
-    let apiurl = "https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes";
-    fetch(apiurl)
-      .then((response) => {
-        return response.json();
-      })
+    fetch("https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes")
+      .then((response) => response.json())
       .then((dataObject) => {
         let routeData = dataObject.data;
         setRoute(routeData);
+        setFilteredRoute(routeData);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
       });
   }
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -54,17 +58,59 @@ function Booking() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateFrom(input.from) && validateTo(input.to)) {
-      axios
-        .post("http://localhost:1337/api/users", input)
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          setError({ ...error, general: "Login failed. Please try again." });
-          console.error(error);
-        });
+      let filtered = route;
+
+      if (input.from) {
+        filtered = filtered.filter((item) =>
+          item.attributes.DepartureTown.toLowerCase().includes(
+            input.from.toLowerCase()
+          )
+        );
+      }
+
+      if (input.to) {
+        filtered = filtered.filter((item) =>
+          item.attributes.ArrivalTown.toLowerCase().includes(
+            input.to.toLowerCase()
+          )
+        );
+      }
+
+      setFilteredRoute(filtered);
     }
   };
+
+  const handleFilterChange = (filterType, value) => {
+    setFilters((prevFilters) => {
+      const updatedFilter = prevFilters[filterType].includes(value)
+        ? prevFilters[filterType].filter((item) => item !== value)
+        : [...prevFilters[filterType], value];
+
+      return { ...prevFilters, [filterType]: updatedFilter };
+    });
+  };
+
+  useEffect(() => {
+    let filtered = route;
+
+    if (filters.busCategory.length > 0) {
+      filtered = filtered.filter((item) =>
+        filters.busCategory.includes(item.attributes.BusCompany)
+      );
+    }
+
+    if (filters.departureTime.length > 0) {
+      filtered = filtered.filter((item) => {
+        const departureTime = item.attributes.DepartureTime.split(":");
+        const formattedTime = `${departureTime[0]}:00 ${
+          departureTime[0] >= 12 ? "PM" : "AM"
+        }`;
+        return filters.departureTime.includes(formattedTime);
+      });
+    }
+
+    setFilteredRoute(filtered);
+  }, [filters, route]);
   return (
     <div>
       <Navbar />
@@ -121,12 +167,13 @@ function Booking() {
                   />
                 </div>
                 <div className="ticket flex">
-                  <Link
+                  <button
+                    type="submit"
                     className="ml-4 mb-[24px] bg-[#061f77] rounded-lg text-white py-2 px-10 text-center"
-                    style={{ whiteSpace: "nowrap" }}
+                    style={{ whiteSpace: "nowrap", width: "100%" }}
                   >
                     Find Ticket
-                  </Link>
+                  </button>
                 </div>
               </div>
             </form>
@@ -139,50 +186,83 @@ function Booking() {
                 <h1>FILTER</h1>
               </div>
               <div className="pl-8 font-bold">
-                <h2>Reset All</h2>
+                <h2
+                  className="cursor-pointer"
+                  onClick={() =>
+                    setFilters({ busCategory: [], departureTime: [] })
+                  }
+                >
+                  Reset All
+                </h2>
               </div>
             </div>
             <div>
               <h2 className="mb-4 font-bold">Bus Category</h2>
               <div>
                 <div>
-                  <input className="mb-4" type={"checkbox"} />
-                  <label>Executive</label>
+                  <input
+                    className="mb-4"
+                    type={"checkbox"}
+                    onChange={(e) =>
+                      handleFilterChange("busCategory", "Nile Star")
+                    }
+                  />
+                  <label>Nile Star</label>
                 </div>
-                <input className="mb-4" type={"checkbox"} />
-                <label>Ordinary</label>
+                <div>
+                  <input
+                    className="mb-4"
+                    type={"checkbox"}
+                    onChange={(e) =>
+                      handleFilterChange("busCategory", "Global")
+                    }
+                  />
+                  <label>Global</label>
+                </div>
               </div>
             </div>
             <div>
-              <h2 className="mb-4 mt-8 font-bold">Departure time</h2>
+              <h2 className="mb-4 mt-8 font-bold">Departure Time</h2>
               <div>
                 <div className="mb-2">
-                  <input type={"checkbox"} />
-                  <label>8:00 AM</label>
+                  <input
+                    type={"checkbox"}
+                    onChange={(e) =>
+                      handleFilterChange("departureTime", "08:00 AM")
+                    }
+                  />
+                  <label>08:00 AM</label>
                 </div>
-                <input type={"checkbox"} />
-                <label>9:00 AM</label>
+                <div className="mb-2">
+                  <input
+                    type={"checkbox"}
+                    onChange={(e) =>
+                      handleFilterChange("departureTime", "09:00 AM")
+                    }
+                  />
+                  <label>09:00 AM</label>
+                </div>
               </div>
             </div>
           </section>
           <div>
-          {route !== null ? (
-            route.map((row) => {
-              return (
+            {filteredRoute !== null ? (
+              filteredRoute.map((row) => {
+                return (
                   <BusService
-                  className=""
-                  key={row.id}
-                  busCompany={row.attributes.BusCompany}
-                  departureTown={row.attributes.DepartureTown}
-                  arrivalTown={row.attributes.ArrivalTown}
-                  departureTime={row.attributes.DepartureTime}
-                  fare={row.attributes.Fare}
-                />
-              );
-            })
-          ) : (
-            <p>Loading...</p>
-          )}
+                    className=""
+                    key={row.id}
+                    busCompany={row.attributes.BusCompany}
+                    departureTown={row.attributes.DepartureTown}
+                    arrivalTown={row.attributes.ArrivalTown}
+                    departureTime={row.attributes.DepartureTime}
+                    fare={row.attributes.Fare}
+                  />
+                );
+              })
+            ) : (
+              <p>No Buses available ...</p>
+            )}
           </div>
         </div>
       </div>
