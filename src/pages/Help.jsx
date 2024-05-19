@@ -15,6 +15,7 @@ function Help() {
       setIsLoggedIn(true);
       setUsername(user.username);
     }
+    window.scrollTo(0, 0);
   }, []);
 
   const handleLogout = () => {

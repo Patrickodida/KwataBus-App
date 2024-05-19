@@ -12,6 +12,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
+import PageNotFound from './pages/PageNotFound'
 
 function Layout({children}){
     return (
@@ -36,6 +37,7 @@ function App(){
                 <Route path="/OrdBusSeat" element={<OrdBusSeat />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/contact" element={<ContactPage />} />
+                <Route path="*" element={<PageNotFound />} />
             </Routes>
     )
 }

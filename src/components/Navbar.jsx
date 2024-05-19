@@ -13,6 +13,7 @@ function Navbar() {
       setIsLoggedIn(true);
       setUsername(user.username);
     }
+    window.scrollTo(0, 0);
   }, []);
 
   const handleLogout = () => {
@@ -62,7 +63,7 @@ function Navbar() {
                   </li>
                   <li className="">
                     <span>
-                      <i className="bx bx-user pr-2 font-bold"></i>
+                      <i className="bx bx-user pr-2 font-bold text-[1.5rem]"></i>
                     </span>
                     <span className="nav-links">{username}</span>
                   </li>
