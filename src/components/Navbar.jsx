@@ -5,6 +5,7 @@ import { userData, storeUser } from "../UserHelper";
 function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,37 +24,43 @@ function Navbar() {
     setUsername("");
     navigate("/login");
   };
-  const handleNavigation = (id) => {
-    ScrollToElement(id);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
   return (
     <div>
       <section className="bg-white text-blue-900 fixed top-0 left-0 right-0 z-50 w-full">
-        <div className="flex items-center justify-between m-auto w-[80%] max-w-screen-xl py-4">
+        <div className="relative flex items-center justify-between m-auto w-[80%] max-w-screen-xl py-4">
           <Link to="/" className="site-title font-bold text-2xl">
             Kwata<span className="text-[#e3bf00]">Bus</span>
           </Link>
-          <nav className="flex items-center w-full">
-            <ul className="flex m-auto font-bold ">
+          <div className="flex items-center w-full justify-end md:hidden ">
+            <Link onClick={toggleMenu} className="text-3xl">
+              <i className={`bx ${menuOpen ? 'bx-x' : 'bx-menu'}`}></i>
+            </Link>
+          </div>
+          <nav className={`absolute flex flex-col md:flex-row md:items-center md:w-full top-10 md:top-5 right-0 left-0  pt-10 md:pt-0 ${menuOpen ? 'block' : 'hidden'} md:flex`}>
+            <ul className="flex flex-col md:flex-row m-auto font-bold text-center  ">
               <li>
                 <Link to="/" className="nav-links">
                   HOME
                 </Link>
               </li>
-              <li className="mx-8">
+              <li className="my-4 md:my-0 md:mx-8">
                 <Link to="/about">ABOUT</Link>
               </li>
               <li>
                 <Link to="/contact">CONTACT</Link>
               </li>
-              <li>
-                <Link className="nav-links ml-8" to="/help">
+              <li className="my-4 md:my-0 md:ml-8">
+                <Link className="nav-links" to="/help">
                   HELP
                 </Link>
               </li>
             </ul>
-            <ul className="flex items-center justify-center">
+            <ul className="flex flex-col md:flex-row items-center justify-center">
               {isLoggedIn ? (
                 <>
                   <li>
@@ -61,7 +68,7 @@ function Navbar() {
                       Booking
                     </Link>
                   </li>
-                  <li className="">
+                  <li className="my-4 md:my-0">
                     <span>
                       <i className="bx bx-user pr-2 font-bold text-[1.5rem]"></i>
                     </span>
@@ -79,7 +86,7 @@ function Navbar() {
                 </>
               ) : (
                 <>
-                  <li className="active ml-8">
+                  <li className="active my-4 md:my-0 md:ml-8">
                     <Link
                       className="nav-links"
                       to="/login"
@@ -88,12 +95,14 @@ function Navbar() {
                       Log In
                     </Link>
                   </li>
-                  <Link
-                    to="/signup"
-                    className="button-link rounded-2xl ml-8 font-normal"
-                  >
-                    Sign Up
-                  </Link>
+                  <li className="my-4 md:my-0 md:ml-8">
+                    <Link
+                      to="/signup"
+                      className="button-link rounded-2xl font-normal"
+                    >
+                      Sign Up
+                    </Link>
+                  </li>
                 </>
               )}
             </ul>
