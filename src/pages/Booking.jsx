@@ -3,8 +3,16 @@ import BusService from "../components/BusService";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
+import { userData } from "../UserHelper";
+import { useNavigate } from "react-router-dom";
 
 function Booking() {
+  const user = userData();
+  const navigate = useNavigate();
+
+  if (!user.jwt) {
+    navigate("/login");
+  }
   const [input, setInput] = useState({
     from: "",
     to: "",
