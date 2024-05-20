@@ -44,41 +44,41 @@ function Navbar() {
           <nav className={`absolute md:relative md:left-auto md:top-auto bg-[#e3bf00] md:bg-transparent block md:flex flex-col md:flex-row md:items-center md:w-full top-10 md:top-5 right-0 left-0  pt-20 md:pt-0 pb-20 md:pb-0 mt-5 md:mt-0 ${menuOpen ? 'block' : 'hidden'} md:flex transition-transform duration-300 ${menuOpen ? 'translate-x-0' : 'translate-x-full'} md:translate-x-0 `} >
             <ul className="flex flex-col md:flex-row m-auto font-bold text-center  ">
               <li>
-                <Link to="/" className="nav-links">
+                <Link to="/" className="hover:text-[white] md:hover:text-[#e3bf00]">
                   HOME
                 </Link>
               </li>
-              <li className="my-4 md:my-0 md:mx-8">
+              <li className="hover:text-[white] md:hover:text-[#e3bf00] my-4 md:my-0 md:mx-8">
                 <Link to="/about">ABOUT</Link>
               </li>
-              <li>
+              <li className="hover:text-[white] md:hover:text-[#e3bf00]">
                 <Link to="/contact">CONTACT</Link>
               </li>
-              <li className="my-4 md:my-0 md:ml-8">
-                <Link className="nav-links" to="/help">
+              <li className="hover:text-[white] md:hover:text-[#e3bf00] my-4 md:my-0 md:ml-8">
+                <Link className="" to="/help">
                   HELP
                 </Link>
               </li>
             </ul>
-            <ul className="flex flex-col md:flex-row items-center justify-center">
+            <ul className="flex flex-col md:flex-row items-center justify-center mt-8 md:mt-0">
               {isLoggedIn ? (
                 <>
-                  <li>
-                    <Link className="nav-links mr-8 font-bold" to="/booking">
+                  <li className="hover:text-[white] md:hover:text-[#e3bf00] ">
+                    <Link className="md:mr-8 font-bold cursor-pointer" to="/booking">
                       Booking
                     </Link>
                   </li>
-                  <li className="my-4 md:my-0">
+                  <li className="hover:text-[white] md:hover:text-[#e3bf00] my-4 md:my-0 cursor-pointer">
                     <span>
-                      <i className="bx bx-user pr-2 font-bold text-[1.5rem]"></i>
+                      <i className="bx bx-user md:pr-2 font-bold text-[1.5rem]"></i>
                     </span>
                     <span className="nav-links">{username}</span>
                   </li>
-                  <li>
+                  <li className="hover:text-[white] md:hover:text-[#e3bf00]">
                     <Link
                       to="/"
                       onClick={handleLogout}
-                      className="button-link rounded-2xl ml-8 font-normal"
+                      className="text-[#f2f2f2] bg-[#061f77] py-[0.25em] px-[0.875em] text:hover-[#061f77] bg:hover-[#fefefe] md:bg:hover-[#e3bf00] md:text:hover-[#061f77] md:text-[#fefefe] rounded-2xl md:ml-8 font-normal"
                     >
                       Logout
                     </Link>
@@ -86,19 +86,19 @@ function Navbar() {
                 </>
               ) : (
                 <>
-                  <li className="active my-4 md:my-0 md:ml-0">
+                  <li className="hover:text-[white] md:hover:text-[#e3bf00] active my-4 md:my-0 md:ml-0">
                     <Link
-                      className="nav-links"
+                      className=""
                       to="/login"
                       style={{ whiteSpace: "nowrap" }}
                     >
                       Log In
                     </Link>
                   </li>
-                  <li className="my-4 md:my-0 md:ml-8">
+                  <li className="hover:text-[white] md:hover:text-[#e3bf00]  my-4 md:my-0 md:ml-8">
                     <Link
                       to="/signup"
-                      className="button-link rounded-2xl font-normal"
+                      className="text-[#f2f2f2] bg-[#061f77] py-[0.25em] px-[0.875em] text:hover-[#061f77] bg:hover-[#fefefe] md:bg:hover-[#e3bf00] md:text:hover-[#061f77] md:text-[#fefefe] rounded-2xl font-normal"
                     >
                       Sign Up
                     </Link>

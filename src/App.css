@@ -19,7 +19,7 @@ body{
     color: var(--clr-secondary-gold);
 }
 
-.button-link{
+/* .button-link{
     background-color: var(--clr-primary-navy-blue);
     color: var(--clr-white);
     padding: 0.25em 0.875em;
@@ -28,7 +28,7 @@ body{
 .button-link:hover{
     color: var(--clr-primary-navy-blue);
     background: var(--clr-secondary-gold);
-}
+} */
 
 .form-row {
     display: flex;
