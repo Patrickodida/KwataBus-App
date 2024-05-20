@@ -16,7 +16,7 @@ function BusService(props) {
         <div className="md:flex md:justify-center flex-col md:flex-row md:items-end">
           <p className="md:ml-8 mb-4">Departure time:{props.departureTime}</p>
           <p className="md:ml-8 mb-4">Cost:{props.fare}</p>
-          <Link
+          <Link id=""
             className="ml-8 mb-2 bg-[#061f77] rounded-lg text-white py-2 px-10 text-center flex justify-center"
             style={{ whiteSpace: "nowrap" }}
           >

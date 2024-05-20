@@ -91,14 +91,14 @@ function Help() {
       </div>
 
       <div className="faq-section w-[70%] m-auto">
-        <form action="" className="mt-[3em] text-center mb-[3em] ">
+        <form action="" className="mt-[4em] text-center mb-[4em] ">
           <h1 className="text-center p-2 text-[#061f77] font-bold text-2xl w-full">
             FREQUENTLY ASKED QUESTIONS (FAQS)
           </h1>
           <select
             value={selectedValue}
             onChange={handleChange}
-            className="p-4 text-center border-4 rounded-lg w-full"
+            className="p-4 text-center border-2 rounded-lg w-full"
           >
             <option value="question1">HOW DO I BUY TICKETS?</option>
             <option value="question2">
@@ -118,7 +118,7 @@ function Help() {
           <select
             value={selectedValue}
             onChange={handleChange}
-            className="p-4 text-center border-4 rounded-lg w-full"
+            className="p-4 text-center border-2 rounded-lg w-full"
           >
             <option value="question1">
               CAN THE TICKET BE SENT TO ME VIA SMS?
@@ -140,7 +140,7 @@ function Help() {
           <select
             value={selectedValue}
             onChange={handleChange}
-            className="p-4  text-center border-4 rounded-lg w-full"
+            className="p-4  text-center border-2 rounded-lg w-full"
           >
             <option value="question1">
               I HAVE PURCHASED A TICKET BUT HAVE NOT RECEIVED A MESSAGE?
