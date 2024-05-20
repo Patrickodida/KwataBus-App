@@ -95,10 +95,10 @@ function Navbar() {
                       Log In
                     </Link>
                   </li>
-                  <li className="hover:text-[white] md:hover:text-[#e3bf00]  my-4 md:my-0 md:ml-8">
+                  <li className="hover:text-[white] md:hover:text-[#e3bf00] my-4 md:my-0 md:ml-8">
                     <Link
                       to="/signup"
-                      className="text-[#f2f2f2] bg-[#061f77] py-[0.25em] px-[0.875em] text:hover-[#061f77] bg:hover-[#fefefe] md:bg:hover-[#e3bf00] md:text:hover-[#061f77] md:text-[#fefefe] rounded-2xl font-normal"
+                      className="text-[#f2f2f2] bg-[#061f77] py-[0.25em] px-[0.875em] hover:text-[#061f77] hover:bg-[#fefefe] md:hover:bg-[#e3bf00] md:hover:text-[#061f77] md:text-[#fefefe] rounded-2xl font-normal"
                     >
                       Sign Up
                     </Link>
