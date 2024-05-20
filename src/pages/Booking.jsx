@@ -269,6 +269,7 @@ function Booking() {
                   <BusService
                     className=""
                     key={row.id}
+                    id = {row.id}
                     busCompany={row.attributes.BusCompany}
                     departureTown={row.attributes.DepartureTown}
                     arrivalTown={row.attributes.ArrivalTown}
