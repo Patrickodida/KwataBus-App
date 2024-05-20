@@ -1,13 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
 
 function OrdBusSeat() {
+  const { id } = useParams();
+  const [busService, setBusService] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [selectedSeats, setSelectedSeats] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setBusService(data.data.attributes);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching bus service data:", error);
+        setLoading(false);
+      });
+  }, [id]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!busService) {
+    return <div>Error loading bus service data</div>;
+  }
+
+  const handleSeatClick = (seatNumber) => {
+    const newSelectedSeats = [...selectedSeats];
+    const seatIndex = newSelectedSeats.indexOf(seatNumber);
+
+    if (seatIndex !== -1) {
+      newSelectedSeats.splice(seatIndex, 1);
+    } else {
+      newSelectedSeats.push(seatNumber);
+    }
+
+    setSelectedSeats(newSelectedSeats);
+  };
+
   return (
     <div>
       <Navbar />
-      <Banner />
+      <Banner title="Select Your Seat" />
       <div className="flex justify-center flex-col md:flex-row gap-[10%] m-auto w-[80%] mt-[2em] mb-[2em]">
         <section className="text-[#061f77] font-bold text-[1.25rem] md:w-full md:m-auto mb-[4em]">
           <form className="border border-gray-300 shadow-md p-16">
@@ -16,19 +56,21 @@ function OrdBusSeat() {
                 Journey Date
               </label>
               <input
-                type="date"
+                type="text"
                 id="date"
                 className="rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
               />
               <span className="absolute top-[80%] transform -translate-y-1/2 left-[5%] text-[#061f77] text-[16px] ">
-                {/* <i className="bx bxs-calendar"></i> */}
+                <i className="bx bxs-calendar"></i>
               </span>
             </div>
             <div className="relative flex flex-col flex-start mb-4">
-              <label htmlFor="date">From</label>
+              <label htmlFor="from">From</label>
               <input
                 type="text"
-                id="date"
+                id="from"
+                value={busService.DepartureTown}
+                readOnly
                 className="rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
               />
               <span className="absolute top-[80%] transform -translate-y-1/2 right-[5%] text-[#061f77] text-[16px] ">
@@ -37,10 +79,12 @@ function OrdBusSeat() {
             </div>
 
             <div className="relative flex flex-col flex-start mb-4">
-              <label htmlFor="date">To</label>
+              <label htmlFor="to">To</label>
               <input
                 type="text"
-                id="date"
+                id="to"
+                value={busService.ArrivalTown}
+                readOnly
                 className="rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
               />
               <span className="absolute top-[80%] transform -translate-y-1/2 right-[5%] text-[#061f77] text-[16px] ">
@@ -49,11 +93,12 @@ function OrdBusSeat() {
             </div>
 
             <div className="relative flex flex-col flex-start mb-4">
-              <label htmlFor="date">Bus Category</label>
+              <label htmlFor="busCategory">Bus Category</label>
               <input
                 type="text"
-                id="date"
-                placeholder="Ordinary"
+                id="busCategory"
+                value={busService.BusCompany}
+                readOnly
                 className="rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
               />
               <span className="absolute top-[80%] transform -translate-y-1/2 right-[5%] text-[#061f77] text-[16px] ">
