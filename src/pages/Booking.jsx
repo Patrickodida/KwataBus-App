@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Banner from "../components/Banner";
 import { userData } from "../UserHelper";
 import { useNavigate } from "react-router-dom";
+import SvgPeople from "../images/bookSeat.svg";
 
 function Booking() {
   const user = userData();
@@ -27,6 +28,7 @@ function Booking() {
   });
   const [route, setRoute] = useState([]);
   const [filteredRoute, setFilteredRoute] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   function fetchData() {
     fetch("https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes")
@@ -35,9 +37,11 @@ function Booking() {
         let routeData = dataObject.data;
         setRoute(routeData);
         setFilteredRoute(routeData);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
+        setLoading(false);
       });
   }
 
@@ -254,7 +258,12 @@ function Booking() {
             </div>
           </section>
           <div>
-            {filteredRoute !== null ? (
+            {loading ? (
+              <div className="image md:w-100 w-full h-auto flex justify-center border-2 rounded-lg p-4 shadow:md order-1 md:order-2 ">
+                <img src={SvgPeople} className="" />
+              </div>
+            ) :
+            filteredRoute !== null ? (
               filteredRoute.map((row) => {
                 return (
                   <BusService
