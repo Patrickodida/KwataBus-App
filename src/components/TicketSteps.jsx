@@ -1,7 +1,7 @@
 import React from "react";
-import SvgDest from "../images/destination.svg";
-import SvgChoose from "../images/chooseSeat.svg";
-import PayTicket from "../images/payticket.svg";
+import SvgDest from "../images/travel-together.svg";
+import SvgChoose from "../images/select-seat.svg";
+import PayTicket from "../images/stripe-payment.svg";
 
 function TicketSteps() {
   return (

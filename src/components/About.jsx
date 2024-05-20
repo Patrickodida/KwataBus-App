@@ -1,6 +1,6 @@
 import React from "react";
-import SvgSmartphone from "../images/smartphone.svg";
-import SvgPeople from "../images/bookSeat.svg";
+import SvgSmartphone from "../images/order-car.svg";
+import SvgPeople from "../images/online-payment.svg";
 
 function About() {
   return (
