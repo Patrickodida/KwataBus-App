@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import BusService from "../components/BusService";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
 import { userData } from "../UserHelper";
-import { useNavigate } from "react-router-dom";
 import SvgPeople from "../images/bookSeat.svg";
 
 function Booking() {
@@ -14,21 +14,34 @@ function Booking() {
   if (!user.jwt) {
     navigate("/login");
   }
+
   const [input, setInput] = useState({
     from: "",
     to: "",
   });
+
   const [error, setError] = useState({
     from: "",
     to: "",
   });
+
   const [filters, setFilters] = useState({
     busCategory: [],
     departureTime: [],
   });
+
   const [route, setRoute] = useState([]);
   const [filteredRoute, setFilteredRoute] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const data = localStorage.getItem("ticketData");
+    if (data) {
+      setInput(JSON.parse(data));
+    }
+
+    fetchData();
+  }, []);
 
   function fetchData() {
     fetch("https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes")
@@ -45,25 +58,21 @@ function Booking() {
       });
   }
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   function validateFrom(from) {
     if (from.length < 4) {
-      setError({ ...error, from: "Invalid input" });
+      setError((prevError) => ({ ...prevError, from: "Invalid input" }));
       return false;
     }
-    setError({ ...error, from: "" });
+    setError((prevError) => ({ ...prevError, from: "" }));
     return true;
   }
 
   function validateTo(to) {
     if (to.length < 4) {
-      setError({ ...error, to: "Invalid input" });
+      setError((prevError) => ({ ...prevError, to: "Invalid input" }));
       return false;
     }
-    setError({ ...error, to: "" });
+    setError((prevError) => ({ ...prevError, to: "" }));
     return true;
   }
 
@@ -123,18 +132,19 @@ function Booking() {
 
     setFilteredRoute(filtered);
   }, [filters, route]);
+
   return (
     <div>
       <Navbar />
       <Banner title={"Book Your Bus"} />
       <div className="mt-2 mb-2 w-[80%] m-auto">
         <section className="BookingArea-section">
-          <div className="">
+          <div>
             <form
               onSubmit={handleSubmit}
-              className=" form-center bg-white rounded-lg"
+              className="form-center bg-white rounded-lg"
             >
-              <div className="form-row flex flex-col md:flex-row gap-5 items-center justify-center w-full ">
+              <div className="form-row flex flex-col md:flex-row gap-5 items-center justify-center w-full">
                 <div className="from flex">
                   <label className="text-[#061f77] font-bold" id="firstLabel">
                     From
@@ -144,7 +154,7 @@ function Booking() {
                     id="from"
                     value={input.from}
                     placeholder="Kampala"
-                    className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none "
+                    className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
                     onChange={(e) => {
                       setInput({ ...input, from: e.target.value });
                       validateFrom(e.target.value);
@@ -171,13 +181,6 @@ function Booking() {
                 {error.to && (
                   <p className="text-center text-red-500">{error.to}</p>
                 )}
-                <div className="date flex">
-                  <label className="text-[#061f77] font-bold">Date</label>
-                  <input
-                    type="date"
-                    className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
-                  />
-                </div>
                 <div className="ticket flex">
                   <button
                     type="submit"
@@ -191,7 +194,7 @@ function Booking() {
             </form>
           </div>
         </section>
-        <div className="md:flex md:justify-center items-start flex-col md:flex-row ">
+        <div className="md:flex md:justify-center items-start flex-col md:flex-row">
           <section className="bg-slate-100 text-[#061f77] rounded-lg p-4 md:mr-10 md:mb-20 mt-60 mb-10 text-center w-20% md:mt-0">
             <div className="flex mb-8 justify-center">
               <div className="font-bold">
@@ -214,7 +217,7 @@ function Booking() {
                 <div>
                   <input
                     className="mb-4"
-                    type={"checkbox"}
+                    type="checkbox"
                     onChange={(e) =>
                       handleFilterChange("busCategory", "Nile Star")
                     }
@@ -224,7 +227,7 @@ function Booking() {
                 <div>
                   <input
                     className="mb-4"
-                    type={"checkbox"}
+                    type="checkbox"
                     onChange={(e) =>
                       handleFilterChange("busCategory", "Global")
                     }
@@ -238,7 +241,7 @@ function Booking() {
               <div>
                 <div className="mb-2">
                   <input
-                    type={"checkbox"}
+                    type="checkbox"
                     onChange={(e) =>
                       handleFilterChange("departureTime", "08:00 AM")
                     }
@@ -247,7 +250,7 @@ function Booking() {
                 </div>
                 <div className="mb-2">
                   <input
-                    type={"checkbox"}
+                    type="checkbox"
                     onChange={(e) =>
                       handleFilterChange("departureTime", "09:00 AM")
                     }
@@ -259,25 +262,22 @@ function Booking() {
           </section>
           <div>
             {loading ? (
-              <div className="image md:w-100 w-full h-auto flex justify-center border-2 rounded-lg p-4 shadow:md order-1 md:order-2 ">
+              <div className="image md:w-100 w-full h-auto flex justify-center border-2 rounded-lg p-4 shadow:md order-1 md:order-2">
                 <img src={SvgPeople} className="" />
               </div>
-            ) :
-            filteredRoute !== null ? (
-              filteredRoute.map((row) => {
-                return (
-                  <BusService
-                    className=""
-                    key={row.id}
-                    id = {row.id}
-                    busCompany={row.attributes.BusCompany}
-                    departureTown={row.attributes.DepartureTown}
-                    arrivalTown={row.attributes.ArrivalTown}
-                    departureTime={row.attributes.DepartureTime}
-                    fare={row.attributes.Fare}
-                  />
-                );
-              })
+            ) : filteredRoute.length > 0 ? (
+              filteredRoute.map((row) => (
+                <BusService
+                  className=""
+                  key={row.id}
+                  id={row.id}
+                  busCompany={row.attributes.BusCompany}
+                  departureTown={row.attributes.DepartureTown}
+                  arrivalTown={row.attributes.ArrivalTown}
+                  departureTime={row.attributes.DepartureTime}
+                  fare={row.attributes.Fare}
+                />
+              ))
             ) : (
               <p>No Buses available ...</p>
             )}
