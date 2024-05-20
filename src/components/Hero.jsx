@@ -1,83 +1,59 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Hero() {
   const [input, setInput] = useState({
     from: "",
     to: "",
-    travelDate: "",
   });
   const [error, setError] = useState({
     from: "",
     to: "",
-    travelDate: "",
   });
+  const navigate = useNavigate();
 
-  // Validate from input
-  // let valid = true;
   function validateFrom(from) {
     if (!from.trim()) {
-      setError({ ...error, from: "Please enter a valid location" });
+      setError((prevError) => ({
+        ...prevError,
+        from: "Please enter a valid location",
+      }));
       return false;
     }
-    setError({ ...error, from: "" });
+    setError((prevError) => ({ ...prevError, from: "" }));
     return true;
   }
 
-  // validate to input
   function validateTo(to) {
     if (!to.trim()) {
-      setError({ ...error, to: "Please enter a valid location" });
-      valid = false;
-    }
-    setError({ ...error, to: "" });
-    return true;
-  }
-
-  // validate date format
-  function validateDate(travelDate) {
-    const dateFormat = /^\d{4}-\d{2}-\d{2}$/;
-    if (!dateFormat.test(travelDate)) {
-      setError({ ...error, travelDate: "Date is Invalid" });
+      setError((prevError) => ({
+        ...prevError,
+        to: "Please enter a valid location",
+      }));
       return false;
     }
-    // check if its a valid date
-    const date = new Date(travelDate);
-    if (isNaN(date.getTime())) {
-      return false;
-    }
-    setError({ ...error, travelDate: "" });
+    setError((prevError) => ({ ...prevError, to: "" }));
     return true;
   }
 
   function handleTicketSubmission(e) {
     e.preventDefault();
-    if (
-      validateFrom(input.from) &&
-      validateTo(input.to) &&
-      validateDate(input.travelDate)
-    ) {
-      axios
-        .post("http://localhost:1337/api/users", input)
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          setError("Ticket not Submitted, Try Again!");
-          console.log(error);
-        });
+    if (validateFrom(input.from) && validateTo(input.to)) {
+      localStorage.setItem("ticketData", JSON.stringify(input));
+      navigate("/booking");
     }
   }
+
   return (
     <div>
-      <section id="home" className=" hero-section mt-20 md:pt-10">
+      <section id="home" className="hero-section mt-20 md:pt-10">
         <div className="hero-over-lay"></div>
         <div className="hero-content justify-center gap-10 w-4/5 max-w-7xl mx-auto flex flex-col lg:flex-row justify-center">
           <div className="hero-text w-2/4 font-bold leading-tight text-3xl lg:text-5xl lg:text-left text-center">
             <h1>Get Your Ticket Online Easy and Safely</h1>
           </div>
           <div className="hero-form w-full lg:w-2/4">
-            <h2 className="lg:text-left text-center  pb-2.5 font-bold">
+            <h2 className="lg:text-left text-center pb-2.5 font-bold">
               Choose Your Ticket
             </h2>
             <form
@@ -112,19 +88,6 @@ function Hero() {
                   <p className="text-center text-red-500 w-full">{error.to}</p>
                 )}
               </div>
-
-              <input
-                type="date"
-                placeholder="Date (YYYY-MM-DD)"
-                className="mb-[24px] text-blue-900 rounded w-[100%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none"
-                onChange={(e) => {
-                  setInput({ ...input, travelDate: e.target.value });
-                }}
-                value={input.travelDate}
-              />
-              {error.travelDate && (
-                <p className="text-center text-red-500">{error.travelDate}</p>
-              )}
               <button type="submit" className="bg-blue-900 rounded-lg">
                 Find Ticket
               </button>
