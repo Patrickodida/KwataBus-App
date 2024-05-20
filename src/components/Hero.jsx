@@ -114,7 +114,7 @@ function Hero() {
               </div>
 
               <input
-                type="text"
+                type="date"
                 placeholder="Date (YYYY-MM-DD)"
                 className="mb-[24px] text-blue-900 rounded w-[100%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none"
                 onChange={(e) => {
