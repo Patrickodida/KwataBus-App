@@ -9,18 +9,20 @@ function OrdBusSeat() {
   const [busService, setBusService] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const bookedSeats = [5, 10, 15];
+  const specialSeats = ["S", "Driver"];
 
   useEffect(() => {
     fetch(`https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        setBusService(data.data.attributes);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching bus service data:", error);
-        setLoading(false);
-      });
+          setBusService(data.data.attributes);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error fetching bus service data:", error);
+          setLoading(false);
+        });
   }, [id]);
 
   if (loading) {
@@ -32,17 +34,46 @@ function OrdBusSeat() {
   }
 
   const handleSeatClick = (seatNumber) => {
-    const newSelectedSeats = [...selectedSeats];
-    const seatIndex = newSelectedSeats.indexOf(seatNumber);
-
-    if (seatIndex !== -1) {
-      newSelectedSeats.splice(seatIndex, 1);
-    } else {
-      newSelectedSeats.push(seatNumber);
+    if (
+      !bookedSeats.includes(seatNumber) &&
+      !specialSeats.includes(seatNumber)
+    ) {
+      setSelectedSeats((prevSelectedSeats) =>
+        prevSelectedSeats.includes(seatNumber)
+          ? prevSelectedSeats.filter((seat) => seat !== seatNumber)
+          : [...prevSelectedSeats, seatNumber]
+      );
     }
-
-    setSelectedSeats(newSelectedSeats);
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const journeyDetails = {
+      journeyDate: event.target.date.value,
+      from: event.target.from.value,
+      to: event.target.to.value,
+      busCategory: event.target.busCategory.value,
+      selectedSeats: selectedSeats,
+    };
+    console.log(journeyDetails);
+  };
+
+  const renderSeat = (seatNumber, index) => (
+    <div
+      key={index}
+      className={`seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center ${selectedSeats.includes(seatNumber)
+          ? "bg-[#069306]"
+          : bookedSeats.includes(seatNumber)
+            ? "bg-gray-500"
+            : specialSeats.includes(seatNumber)
+              ? ""
+              : ""
+        } ${!bookedSeats.includes(seatNumber) ? "cursor-pointer" : ""}`}
+      onClick={() => handleSeatClick(seatNumber)}
+    >
+      {seatNumber}
+    </div>
+  );
 
   return (
     <div>
@@ -50,7 +81,10 @@ function OrdBusSeat() {
       <Banner title="Select Your Seat" />
       <div className="flex justify-center flex-col md:flex-row gap-[10%] m-auto w-[80%] mt-[2em] mb-[2em]">
         <section className="text-[#061f77] font-bold text-[1.25rem] md:w-full md:m-auto mb-[4em]">
-          <form className="border border-gray-300 shadow-md p-16">
+          <form
+            className="border border-gray-300 shadow-md p-16"
+            onSubmit={handleSubmit}
+          >
             <div className="relative flex flex-col flex-start mb-4">
               <label htmlFor="date" className="m-[0]">
                 Journey Date
@@ -123,264 +157,49 @@ function OrdBusSeat() {
           <div className="seat-section border border-gray-300 shadow-md p-6">
             <div className="flex justify-center gap-10 text-[text] text-[#061f77] text-[1.25rem] ">
               <div className="left-row">
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    1
+                {[
+                  [1, 2],
+                  [3, 4],
+                  [8, 9],
+                  ["Door", ""],
+                  ["S", "S"],
+                  [19, 20],
+                  [24, 25],
+                  [29, 30],
+                  [34, 35],
+                  [39, 40],
+                  [44, 45],
+                  [49, 50],
+                  [54, 55],
+                  [59, 60],
+                ].map((row, rowIndex) => (
+                  <div key={rowIndex} className="row flex gap-5 mb-4">
+                    {row.map((seat, index) => renderSeat(seat, index))}
                   </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    2
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    3
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    4
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    8
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    9
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="font-bold">Door</div>
-                  <div className=""></div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    S
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    S
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    19
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    20
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    24
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    25
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    29
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    30
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    34
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    35
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    39
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    40
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    44
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    45
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    49
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    50
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    54
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    55
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    59
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    60
-                  </div>
-                </div>
+                ))}
               </div>
 
               <div className="right-row">
-                <div className="row flex gap-5 mb-4">
-                  <div className=""></div>
-                  <div className="font-bold pl-20">Driver</div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    5
+                {[
+                  ["", "Driver"],
+                  [5, 6, 7],
+                  [10, 11, 12],
+                  [13, 14, 15],
+                  [16, 17, 18],
+                  [21, 22, 23],
+                  [26, 27, 28],
+                  [31, 32, 33],
+                  [36, 37, 38],
+                  [41, 42, 43],
+                  [46, 47, 48],
+                  [51, 52, 53],
+                  [56, 57, 58],
+                  [61, 62, 63],
+                ].map((row, rowIndex) => (
+                  <div key={rowIndex} className="row flex gap-5 mb-4">
+                    {row.map((seat, index) => renderSeat(seat, index))}
                   </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    6
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    7
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    10
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    11
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    12
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    13
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    14
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    15
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    16
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    17
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    18
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    21
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    22
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    23
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    26
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    27
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    28
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    31
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    32
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    33
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    36
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    37
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    38
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    41
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    42
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    43
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    46
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    47
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    48
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    51
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    52
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    53
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    56
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    57
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    58
-                  </div>
-                </div>
-                <div className="row flex gap-5 mb-4">
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    61
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    62
-                  </div>
-                  <div className="seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center">
-                    63
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

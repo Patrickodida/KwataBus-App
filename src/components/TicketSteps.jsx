@@ -44,7 +44,7 @@ function TicketSteps() {
             <img src={PayTicket} className="" />
           </div>
           <div className="text-container w-2/4  rounded p-4 w-full m-auto text-center ">
-            <p>Pay for seat using payment options provided</p>
+            <p>Pay for your seat using payment options provided</p>
           </div>
         </div>
       </section>
