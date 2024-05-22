@@ -16,13 +16,13 @@ function OrdBusSeat() {
     fetch(`https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes/${id}`)
       .then((response) => response.json())
       .then((data) => {
-          setBusService(data.data.attributes);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error("Error fetching bus service data:", error);
-          setLoading(false);
-        });
+        setBusService(data.data.attributes);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching bus service data:", error);
+        setLoading(false);
+      });
   }, [id]);
 
   if (loading) {
@@ -61,14 +61,15 @@ function OrdBusSeat() {
   const renderSeat = (seatNumber, index) => (
     <div
       key={index}
-      className={`seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center ${selectedSeats.includes(seatNumber)
+      className={`seat border-2 border-[#061f77] py-[0.125em] px-[0.325em] w-[2em] text-center ${
+        selectedSeats.includes(seatNumber)
           ? "bg-[#069306]"
           : bookedSeats.includes(seatNumber)
-            ? "bg-gray-500"
-            : specialSeats.includes(seatNumber)
-              ? ""
-              : ""
-        } ${!bookedSeats.includes(seatNumber) ? "cursor-pointer" : ""}`}
+          ? "bg-gray-500"
+          : specialSeats.includes(seatNumber)
+          ? ""
+          : ""
+      } ${!bookedSeats.includes(seatNumber) ? "cursor-pointer" : ""}`}
       onClick={() => handleSeatClick(seatNumber)}
     >
       {seatNumber}
@@ -172,11 +173,26 @@ function OrdBusSeat() {
                   [49, 50],
                   [54, 55],
                   [59, 60],
-                ].map((row, rowIndex) => (
-                  <div key={rowIndex} className="row flex gap-5 mb-4">
-                    {row.map((seat, index) => renderSeat(seat, index))}
-                  </div>
-                ))}
+                ].map((row, rowIndex) => {
+                  if (row[0] === "Door" && row[1] === "") {
+                    return (
+                      <div
+                        key={rowIndex}
+                        className="row flex gap-5 mb-4 font-bold"
+                      >
+                        <div className="door flex flex-col justify-center">
+                          <span>Door</span>
+                        </div>
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div key={rowIndex} className="row flex gap-5 mb-4">
+                        {row.map((seat, index) => renderSeat(seat, index))}
+                      </div>
+                    );
+                  }
+                })}
               </div>
 
               <div className="right-row">
@@ -195,11 +211,26 @@ function OrdBusSeat() {
                   [51, 52, 53],
                   [56, 57, 58],
                   [61, 62, 63],
-                ].map((row, rowIndex) => (
-                  <div key={rowIndex} className="row flex gap-5 mb-4">
-                    {row.map((seat, index) => renderSeat(seat, index))}
-                  </div>
-                ))}
+                ].map((row, rowIndex) => {
+                  if (row[1] === "Driver" && row[0] === "") {
+                    return (
+                      <div
+                        key={rowIndex}
+                        className="row flex gap-5 mb-4 ml-[64%] font-bold"
+                      >
+                        <div className="driver flex flex-col justify-center">
+                          <span>Driver</span>
+                        </div>
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div key={rowIndex} className="row flex gap-5 mb-4">
+                        {row.map((seat, index) => renderSeat(seat, index))}
+                      </div>
+                    );
+                  }
+                })}
               </div>
             </div>
           </div>
