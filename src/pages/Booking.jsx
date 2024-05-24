@@ -212,7 +212,7 @@ function Booking() {
               </div>
             </div>
             <div>
-              <h2 className="mb-4 font-bold">Bus Category</h2>
+              <h2 className="mb-4 font-bold">Bus Service</h2>
               <div>
                 <div>
                   <input

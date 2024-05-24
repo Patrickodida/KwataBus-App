@@ -21,7 +21,7 @@ function BusService(props) {
       <section className="flex md:justify-center flex-col md:flex-row bg-slate-100 p-4 rounded-lg text-center">
         <div className="text-center md:text-left">
           <h1 className="mb-4 font-bold">{props.busCompany}</h1>
-          <h2 className="mb-4">Ordinary</h2>
+          {/* <h2 className="mb-4">Ordinary</h2> */}
           <p className="mb-4">
             <span className="font-bold">From</span> {props.departureTown}{" "}
             <span className="font-bold">To</span> {props.arrivalTown}
