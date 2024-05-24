@@ -87,7 +87,7 @@ function Contact() {
             <h3 className="mb-[24px] font-bold">Get In Touch</h3>
             <form onSubmit={handleSendMessage} className="contact-form">
               <input
-                className="w-full text-blue-900 rounded p-[0.425em] mb-[24px] border border-gray-300 text-[#061f77] focus:outline-none"
+                className="w-full text-[#061f77] rounded p-[0.425em] mb-[24px] border border-gray-400 focus:outline-none "
                 type="text"
                 id="name"
                 placeholder="Your Name"
@@ -98,7 +98,7 @@ function Contact() {
               />
               {error.name && <p className="text-red-500">{error.name}</p>}
               <input
-                className="w-full text-blue-900 rounded p-[0.425em] mb-[24px] border border-gray-300 text-[#061f77] focus:outline-none"
+                className="w-full text-[#061f77] rounded p-[0.425em] mb-[24px] border border-gray-400 focus:outline-none"
                 type="text"
                 id="email"
                 placeholder="Your Email"
@@ -114,7 +114,7 @@ function Contact() {
                 type="message"
                 rows="6"
                 cols="50"
-                className="w-full text-blue-900 rounded p-[0.425em] mb-[24px] border border-gray-300 text-[#061f77] focus:outline-none"
+                className="w-full rounded p-[0.425em] mb-[24px] border border-gray-400 text-[#061f77] focus:outline-none placeholder:text-[#061f77]"
                 placeholder="Your Message"
                 onChange={(e) => {
                   setInput({ ...input, message: e.target.value });
