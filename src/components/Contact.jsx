@@ -84,7 +84,7 @@ function Contact() {
         <h2 className="text-4xl text-center mb-6 font-bold">Contact Us</h2>
         <div className="contact-container text-center md:flex md:justify-around md:items-center md:gap-10">
           <div className="form-section w-full mb-[3em] md:w-[50%]">
-            <h3 className="mb-[24px] font-bold">Get In Touch</h3>
+            <h3 className="mb-[24px] font-bold text-center md:text-left">Get In Touch</h3>
             <form onSubmit={handleSendMessage} className="contact-form">
               <input
                 className="w-full text-[#061f77] rounded p-[0.425em] mb-[24px] border border-gray-400 focus:outline-none "
