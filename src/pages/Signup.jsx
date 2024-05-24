@@ -280,14 +280,14 @@ function Signup() {
           <div className="mt-8 flex-col gap-y-4">
             <p className="text-center text-[#061f77]">Or</p>
             <div className="flex justify-center m-auto w-[80%]">
-              <button className="flex w-4/5 py-2 mt-4 items-center justify-center gap-2 active:scale-[.98] hover:scale-[1.01] transition-all rounded bg-[#061f77] text-white text-lg font-bold border border-gray-300 text-[#061f77] focus:outline-none">
-                <i className="bx bxl-google "></i> Sign up with Google
-              </button>
+              <Link className="flex w-4/5 py-2 mt-4 items-center justify-center gap-2 active:scale-[.98] hover:scale-[1.01] transition-all rounded bg-[#061f77] text-white text-lg font-bold border border-gray-300 text-[#061f77] focus:outline-none">
+                <i className="bx bxl-google mr-2"></i> Sign up with Google
+              </Link>
             </div>
             <div className="flex justify-center m-auto w-[80%]">
-              <button className="flex w-4/5 py-2 mt-4 items-center justify-center gap-2 active:scale-[.98] hover:scale-[1.01] transition-all rounded bg-[#061f77] text-white text-lg font-bold border border-gray-300 text-[#061f77] focus:outline-none">
-                <i className="bx bxl-facebook-circle"></i>Sign up with Facebook
-              </button>
+              <Link className="flex w-4/5 py-2 mt-4 items-center justify-center gap-2 active:scale-[.98] hover:scale-[1.01] transition-all rounded bg-[#061f77] text-white text-lg font-bold border border-gray-300 text-[#061f77] focus:outline-none">
+                <i className="bx bxl-facebook-circle mr-2"></i>Sign up with Facebook
+              </Link>
             </div>
           </div>
         </form>
