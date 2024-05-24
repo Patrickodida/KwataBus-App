@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import validator from "validator";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function Signup() {
   const [input, setInput] = useState({
@@ -116,7 +118,9 @@ function Signup() {
       });
   };
   return (
-    <section className="bg-[#061f77]">
+    <div>
+    <Navbar/>
+    <section className="p-8 mt-20">
       <div className="bg-white rounded-2xl border-[#061f77] w-full md:w-[50%] m-auto pt-[2em] pb-[2em] border-8">
         <Link to="/">
           <h1 className="font-bold text-4xl text-[#061f77] text-center mb-[1em]">
@@ -289,6 +293,8 @@ function Signup() {
         </form>
       </div>
     </section>
+    <Footer/>
+    </div>
   );
 }
 
