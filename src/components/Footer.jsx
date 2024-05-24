@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="footer-section lg:flex lg:justify-around bg-blue-800 text-white mt-20 pt-5 pb-5">
+    <div className="footer-section lg:flex lg:justify-around bg-[#061f77] text-white mt-20 pt-5 pb-5">
       <section id="companyLogoMedia" className="p-8 lg:flex lg:items-center">
         <div className="flex flex-col items-center">
           <Link to="/">
