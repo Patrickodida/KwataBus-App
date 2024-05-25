@@ -11,7 +11,7 @@ function About() {
       >
         <h2 className="text-4xl text-center mb-6 font-bold">About</h2>
         <div className="section-1 md:flex flex-col md:flex-row md:justify-center items-center gap-[10%] mb-16 ">
-          <div className="image md:w-1/2 h-auto flex justify-center border-2 rounded-lg p-4 shadow:xl w-full mb-8">
+          <div className="image md:w-1/2 h-auto flex justify-center rounded-lg p-4 shadow-2xl w-full mb-8">
             <img src={SvgSmartphone} className="" />
           </div>
           <div className="text md:w-1/2 text-left w-full">
@@ -40,7 +40,7 @@ function About() {
               travel as an eco-friendly choice for a greener future.
             </p>
           </div>
-          <div className="image md:w-1/2 w-full h-auto flex justify-center border-2 rounded-lg p-4 shadow:md order-1 md:order-2 ">
+          <div className="image md:w-1/2 w-full h-auto flex justify-center rounded-lg p-4 shadow-2xl order-1 md:order-2 ">
             <img src={SvgPeople} className="" />
           </div>
         </div>
