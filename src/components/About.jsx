@@ -14,7 +14,7 @@ function About() {
           <div className="image md:w-1/2 h-auto flex justify-center rounded-lg p-4 shadow-2xl w-full mb-8">
             <img src={SvgSmartphone} className="" />
           </div>
-          <div className="text md:w-1/2 text-left w-full">
+          <div className="text md:w-1/2 text-center md:text-left w-full">
             <p>
               Welcome to KwataBus – your hassle-free platform for bus bookings!
               At KwataBus, we prioritize seamless travel experiences. Whether
@@ -28,7 +28,7 @@ function About() {
           </div>
         </div>
         <div className="section-2 md:flex flex-col md:flex-row md:justify-center md:items-center gap-[10%] mb-4">
-          <div className="text md:w-1/2 w-full text-left mb-8 order-2 md:order-1">
+          <div className="text md:w-1/2 w-full text-center md:text-left mb-8 order-2 md:order-1">
             <p>
               At KwataBus, we're more than a booking platform – we're your
               trusted travel companion. Our dedicated team ensures every aspect
