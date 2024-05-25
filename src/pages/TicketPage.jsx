@@ -1,78 +1,102 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function TicketPage() {
   return (
-    <div class="bg-white rounded-lg shadow-lg px-8 py-10 max-w-xl mx-auto ">
-    <div class="flex items-center justify-between mb-8 ">
-        <div class="flex items-center">
-            <img class="h-8 w-8 mr-2" src="https://tailwindflex.com/public/images/logos/favicon-32x32.png"
-                alt="Logo" />
-            <div class="font-semibold text-lg text-[#061f77]">Kwata<span className="text-[#e3bf00]">Bus</span></div>
+    <div>
+      <Navbar />
+      <div class="bg-white rounded-lg shadow-2xl px-8 py-10 max-w-xl mx-auto mt-20">
+        <div class="flex items-center justify-between mb-8">
+          <div class="flex items-center">
+            <div class="font-semibold text-[1.75rem] text-[#061f77]">
+              Kwata<span class="text-[#e3bf00]">Bus</span>
+            </div>
+          </div>
+          <div class="text-right text-[#061f77]">
+            <div class="font-bold text-xl mb-2">TICKET</div>
+            <div class="text-sm">Date: 29/05/2024</div>
+            <div class="text-sm">Ticket No: TI/12345</div>
+          </div>
         </div>
-        <div class="text-[#061f77]">
-            <div class="font-bold text-xl mb-2">INVOICE</div>
-            <div class="text-sm">Date: 01/05/2023</div>
-            <div class="text-sm">Invoice #: INV12345</div>
+        <div class="border-b-2 border-gray-300 pb-8 mb-8 text-[0.825rem] md:text-[1rem]">
+          <h2 class="text-[1rem] font-bold mb-4 text-[#061f77]">Bill To:</h2>
+          <div class="text-[#061f77] mb-2">John Doe</div>
+          <div class="text-[#061f77] mb-2">Kampala</div>
+          <div class="text-[#061f77]">johndoe@example.com</div>
         </div>
-    </div>
-    <div class="border-b-2 border-gray-300 pb-8 mb-8">
-        <h2 class="text-2xl font-bold mb-4 text-[#061f77]">Bill To:</h2>
-        <div class="text-[#061f77] mb-2">John Doe</div>
-        <div class="text-[#061f77] mb-2">123 Main St.</div>
-        <div class="text-[#061f77] mb-2">Anytown, USA 12345</div>
-        <div class="text-[#061f77]">johndoe@example.com</div>
-    </div>
-    <table class="w-full text-left mb-8">
-        <thead>
-            <tr>
-                <th class="text-[#061f77] font-bold uppercase py-2">Description</th>
-                <th class="text-[#061f77] font-bold uppercase py-2">Quantity</th>
-                <th class="text-[#061f77] font-bold uppercase py-2">Price</th>
-                <th class="text-[#061f77] font-bold uppercase py-2">Total</th>
+        <div class="border-b-2 border-gray-300 pb-8 mb-8 text-[0.825rem] md:text-[1rem]">
+          <h2 class="text-[1rem] font-bold mb-4 text-[#061f77]">
+            Journey Details:
+          </h2>
+          <div class="text-[#061f77] mb-2">From: Kampala</div>
+          <div class="text-[#061f77] mb-2">To: KABALE</div>
+          <div class="text-[#061f77] mb-2">Departure: 29/05/2024, 08:00 AM</div>
+          <div class="text-[#061f77] mb-2">Arrival: 29/05/2024, 05:00 PM</div>
+          <div class="text-[#061f77] mb-2">Bus Service: Global Bus</div>
+          <div class="text-[#061f77] mb-2">Bus Number: UBG 1114H</div>
+        </div>
+        <table class="w-full text-left mb-8">
+          <thead>
+            <tr className="text-[0.8rem] md:text-[1rem]">
+              <th class="text-[#061f77] font-bold uppercase py-2">Passenger</th>
+              <th class="text-[#061f77] font-bold uppercase py-2">
+                Seats Booked{" "}
+              </th>
+              <th class="text-[#061f77] font-bold uppercase py-2">
+                Price/Seat{" "}
+              </th>
+              <th class="text-[#061f77] font-bold uppercase py-2 text-right">
+                Total
+              </th>
             </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="py-4 text-[#061f77]">Passenger 1</td>
-                <td class="py-4 text-[#061f77]">1</td>
-                <td class="py-4 text-[#061f77]">$100.00</td>
-                <td class="py-4 text-[#061f77]">$100.00</td>
+          </thead>
+          <tbody>
+            <tr className="text-[0.825rem] md:text-[1rem]">
+              <td class="py-4 text-[#061f77]">John Doe</td>
+              <td class="py-4 text-[#061f77]">12A, 12B, 12C</td>
+              <td class="py-4 text-[#061f77]">UGX.50000</td>
+              <td class="py-4 text-[#061f77] text-right">UGX.150000</td>
             </tr>
-            <tr>
-                <td class="py-4 text-[#061f77]">Passenger 2</td>
-                <td class="py-4 text-[#061f77]">2</td>
-                <td class="py-4 text-[#061f77]">$50.00</td>
-                <td class="py-4 text-[#061f77]">$100.00</td>
-            </tr>
-            <tr>
-                <td class="py-4 text-[#061f77]">Passenger 3</td>
-                <td class="py-4 text-[#061f77]">3</td>
-                <td class="py-4 text-[#061f77]">$75.00</td>
-                <td class="py-4 text-[#061f77]">$225.00</td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="flex justify-end mb-8">
-        <div class="text-[#061f77] mr-2">Subtotal:</div>
-        <div class="text-[#061f77]">$425.00</div>
+          </tbody>
+        </table>
+        <div class="flex justify-end mb-8 text-[0.825rem] md:text-[1rem]">
+          <div class="text-[#061f77] mr-4 font-semibold">Subtotal:</div>
+          <div class="text-[#061f77]">UGX.150000</div>
+        </div>
+        <div class="flex justify-end mb-8">
+          <div class="text-[#061f77] mr-4 font-semibold">Tax:</div>
+          <div class="text-[#061f77]">UGX.7500</div>
+        </div>
+        <div class="flex justify-end mb-8 text-[0.825rem] md:text-[1rem]">
+          <div class="text-[#061f77] mr-4 font-semibold">Total:</div>
+          <div class="text-[#061f77] font-bold">UGX.157500</div>
+        </div>
+        <div class="border-t-2 border-gray-300 pt-8">
+          <div class="text-[#061f77] mb-4 text-center">
+            Please complete your cash payment when booking your ticket.
+          </div>
+          <div class="text-[#061f77] mb-4 text-center">
+            *** Always carry ticket print outs and your ID while traveling ***
+          </div>
+          <div class="text-[#061f77] mb-4 text-center">Kampala, Uganda</div>
+          <div class="text-[#061f77] mb-4 text-center">
+            Note: This is an e-ticket and does not require a physical signature.
+          </div>
+        </div>
+        <div class="flex justify-center text-right mt-4">
+          <button
+            type="button"
+            class="flex items-center justify-center bg-[#061f77] text-white px-4 py-2 rounded-lg w-full md:w-[50%]"
+          >
+            <i class="bx bx-printer pr-2"></i>Print & Download
+          </button>
+        </div>
+      </div>
+      <Footer />
     </div>
-    <div class="text-right mb-8">
-        <div class="text-[#061f77] mr-2">Tax:</div>
-        <div class="text-[#061f77]">$25.50</div>
-
-    </div>
-    <div class="flex justify-end mb-8">
-        <div class="text-[#061f77] mr-2">Total:</div>
-        <div class="text-[#061f77] font-bold text-xl">$450.50</div>
-    </div>
-    <div class="border-t-2 border-gray-300 pt-8 mb-8">
-        <div class="text-[#061f77] mb-2">Payment is due within 30 days. Late payments are subject to fees.</div>
-        <div class="text-[#061f77] mb-2">Please make checks payable to Your Company Name and mail to:</div>
-        <div class="text-[#061f77]">123 Main St., Anytown, USA 12345</div>
-    </div>
-</div>
-  )
+  );
 }
 
 export default TicketPage;
