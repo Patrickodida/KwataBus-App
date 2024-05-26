@@ -102,7 +102,7 @@ function Help() {
         </div>
       </div>
 
-      <div className="faq-section w-[80%] sm:w-[70%] m-auto">
+      <div className="faq-section w-[80%] sm:w-[70%] m-auto mt-20 text-[#061f77]">
         <h1 className="text-center p-2 text-[#061f77] font-bold text-2xl w-full">
           FREQUENTLY ASKED QUESTIONS (FAQS)
         </h1>
