@@ -16,6 +16,7 @@ import PageNotFound from './pages/PageNotFound'
 import TicketPage from './pages/TicketPage'
 import InvoicePage from './pages/InvoicePage'
 import PaymentsPage from './pages/PaymentsPage'
+import PaymentMethods from './pages/PaymentMethods'
 
 function Layout({children}){
     return (
@@ -43,6 +44,7 @@ function App(){
                 <Route path="/TicketPage" element={<TicketPage />} />
                 <Route path="/InvoicePage" element={<InvoicePage />} />
                 <Route path="/PaymentsPage" element={<PaymentsPage />} />
+                <Route path="/PaymentMethods" element={<PaymentMethods />} />
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
     )
