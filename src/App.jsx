@@ -15,6 +15,7 @@ import ContactPage from './pages/ContactPage'
 import PageNotFound from './pages/PageNotFound'
 import TicketPage from './pages/TicketPage'
 import InvoicePage from './pages/InvoicePage'
+import PaymentsPage from './pages/PaymentsPage'
 
 function Layout({children}){
     return (
@@ -41,6 +42,7 @@ function App(){
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/TicketPage" element={<TicketPage />} />
                 <Route path="/InvoicePage" element={<InvoicePage />} />
+                <Route path="/PaymentsPage" element={<PaymentsPage />} />
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
     )
