@@ -22,7 +22,7 @@ function PaymentsPage() {
         <div class="border-b-2 border-gray-300 pb-8 mb-8 text-[0.825rem] md:text-[1rem]">
           <h2 class="text-[1rem] font-bold mb-4 text-[#061f77]">User Details:</h2>
           <div class="text-[#061f77] mb-2">John Doe</div>
-          <div class="text-[#061f77] mb-2">Kampala</div>
+          <div class="text-[#061f77] mb-2">075122222</div>
           <div class="text-[#061f77]">johndoe@example.com</div>
         </div>
         <div class="border-b-2 border-gray-300 pb-8 mb-8 text-[0.825rem] md:text-[1rem]">

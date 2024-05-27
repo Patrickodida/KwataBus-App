@@ -21,9 +21,9 @@ function TicketPage() {
           </div>
         </div>
         <div class="border-b-2 border-gray-300 pb-8 mb-8 text-[0.825rem] md:text-[1rem]">
-          <h2 class="text-[1rem] font-bold mb-4 text-[#061f77]">Bill To:</h2>
+          <h2 class="text-[1rem] font-bold mb-4 text-[#061f77]">User Details:</h2>
           <div class="text-[#061f77] mb-2">John Doe</div>
-          <div class="text-[#061f77] mb-2">Kampala</div>
+          <div class="text-[#061f77] mb-2">075122222</div>
           <div class="text-[#061f77]">johndoe@example.com</div>
         </div>
         <div class="border-b-2 border-gray-300 pb-8 mb-8 text-[0.825rem] md:text-[1rem]">
@@ -33,9 +33,7 @@ function TicketPage() {
           <div class="text-[#061f77] mb-2">From: Kampala</div>
           <div class="text-[#061f77] mb-2">To: KABALE</div>
           <div class="text-[#061f77] mb-2">Departure: 29/05/2024, 08:00 AM</div>
-          <div class="text-[#061f77] mb-2">Arrival: 29/05/2024, 05:00 PM</div>
           <div class="text-[#061f77] mb-2">Bus Service: Global Bus</div>
-          <div class="text-[#061f77] mb-2">Bus Number: UBG 1114H</div>
         </div>
         <table class="w-full text-left mb-8">
           <thead>
@@ -65,25 +63,11 @@ function TicketPage() {
           <div class="text-[#061f77] mr-4 font-semibold">Subtotal:</div>
           <div class="text-[#061f77]">UGX.150000</div>
         </div>
-        <div class="flex justify-end mb-8">
-          <div class="text-[#061f77] mr-4 font-semibold">Tax:</div>
-          <div class="text-[#061f77]">UGX.7500</div>
-        </div>
         <div class="flex justify-end mb-8 text-[0.825rem] md:text-[1rem]">
           <div class="text-[#061f77] mr-4 font-semibold">Total:</div>
-          <div class="text-[#061f77] font-bold">UGX.157500</div>
+          <div class="text-[#061f77] font-bold">UGX.150000</div>
         </div>
         <div class="border-t-2 border-gray-300 pt-8">
-          <div class="text-[#061f77] mb-4 text-center">
-            Please complete your cash payment when booking your ticket.
-          </div>
-          <div class="text-[#061f77] mb-4 text-center">
-            *** Always carry ticket print outs and your ID while traveling ***
-          </div>
-          <div class="text-[#061f77] mb-4 text-center">Kampala, Uganda</div>
-          <div class="text-[#061f77] mb-4 text-center">
-            Note: This is an e-ticket and does not require a physical signature.
-          </div>
         </div>
         <div class="flex justify-center text-right mt-4">
           <button
