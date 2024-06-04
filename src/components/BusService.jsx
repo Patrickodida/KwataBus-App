@@ -15,7 +15,6 @@ function BusService(props) {
       },
     });
   };
-
   return (
     <div className="m-auto w-full text-[#061f77] mb-10">
       <section className="flex md:justify-center flex-col md:flex-row bg-slate-100 p-4 rounded-lg text-center">

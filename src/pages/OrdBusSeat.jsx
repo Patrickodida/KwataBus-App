@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
+import axios from 'axios';
 
 function OrdBusSeat() {
   const { id } = useParams();
@@ -13,10 +14,12 @@ function OrdBusSeat() {
   const specialSeats = ["S", "Driver"];
 
   useEffect(() => {
-    fetch(`https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes/${id}`)
+    fetch/* (`https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes/${id}`) */
+    (`http://localhost:1337/api/bus-routes/${id}?populate=*`)
       .then((response) => response.json())
       .then((data) => {
         setBusService(data.data.attributes);
+        console.log(data.data.attributes)
         setLoading(false);
       })
       .catch((error) => {
@@ -56,7 +59,22 @@ function OrdBusSeat() {
       selectedSeats: selectedSeats,
     };
     console.log(journeyDetails);
+    axios
+      .post(
+        /* "https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes", */
+        /* "https://kwatabus-backend.onrender.com/api/bus-routes", */
+        "http://localhost:1337/api/bus-routes?populate=*",
+        journeyDetails
+      )
+      .then((response) => {
+        navigate("/PaymentsPage");
+      })
+      .catch((error) => {
+        setError("Booking not Successfull, Try again!");
+        console.log(error);
+      });
   };
+  console.log('busService',busService)
 
   const renderSeat = (seatNumber, index) => (
     <div
@@ -128,11 +146,11 @@ function OrdBusSeat() {
             </div>
 
             <div className="relative flex flex-col flex-start mb-4">
-              <label htmlFor="busCategory">Bus Category</label>
+              <label htmlFor="busCategory">Bus Service</label>
               <input
                 type="text"
                 id="busCategory"
-                value={busService.BusCompany}
+                value={busService.bus_services.data[0].attributes.Name}
                 readOnly
                 className="rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
               />

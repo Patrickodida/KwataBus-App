@@ -44,7 +44,9 @@ function Booking() {
   }, []);
 
   function fetchData() {
-    fetch("https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes")
+    fetch/* ("https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes") */
+    /* ("https://kwatabus-backend.onrender.com/api/bus-routes") */
+    ("http://localhost:1337/api/bus-routes?populate=*")
       .then((response) => response.json())
       .then((dataObject) => {
         let routeData = dataObject.data;
@@ -116,9 +118,12 @@ function Booking() {
 
     if (filters.busCategory.length > 0) {
       filtered = filtered.filter((item) =>
-        filters.busCategory.includes(item.attributes.BusCompany)
+        filters.busCategory.includes(item.attributes.bus_services.data[0].attributes.Name)
+
       );
+      
     }
+    console.log('filtered', route)
 
     if (filters.departureTime.length > 0) {
       filtered = filtered.filter((item) => {
@@ -128,6 +133,7 @@ function Booking() {
         }`;
         return filters.departureTime.includes(formattedTime);
       });
+    
     }
 
     setFilteredRoute(filtered);
@@ -219,7 +225,7 @@ function Booking() {
                     className="mb-4"
                     type="checkbox"
                     onChange={(e) =>
-                      handleFilterChange("busCategory", "Nile Star")
+                      handleFilterChange("busCategory", "Nile Star Bus")
                     }
                   />
                   <label>Nile Star</label>
@@ -229,7 +235,7 @@ function Booking() {
                     className="mb-4"
                     type="checkbox"
                     onChange={(e) =>
-                      handleFilterChange("busCategory", "Global")
+                      handleFilterChange("busCategory", "Global Bus")
                     }
                   />
                   <label>Global</label>
@@ -271,7 +277,7 @@ function Booking() {
                   className=""
                   key={row.id}
                   id={row.id}
-                  busCompany={row.attributes.BusCompany}
+                  busCompany={row.attributes.bus_services.data[0].attributes.Name}
                   departureTown={row.attributes.DepartureTown}
                   arrivalTown={row.attributes.ArrivalTown}
                   departureTime={row.attributes.DepartureTime}
