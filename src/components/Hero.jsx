@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Hero() {
@@ -10,39 +10,44 @@ function Hero() {
     from: "",
     to: "",
   });
+  const [from, setFrom] = useState([]);
+  const [to, setTo] = useState([]);
   const navigate = useNavigate();
-
-  function validateFrom(from) {
-    if (!from.trim()) {
-      setError((prevError) => ({
-        ...prevError,
-        from: "Please enter a valid location",
-      }));
-      return false;
-    }
-    setError((prevError) => ({ ...prevError, from: "" }));
-    return true;
-  }
-
-  function validateTo(to) {
-    if (!to.trim()) {
-      setError((prevError) => ({
-        ...prevError,
-        to: "Please enter a valid location",
-      }));
-      return false;
-    }
-    setError((prevError) => ({ ...prevError, to: "" }));
-    return true;
-  }
 
   function handleTicketSubmission(e) {
     e.preventDefault();
-    if (validateFrom(input.from) && validateTo(input.to)) {
-      localStorage.setItem("ticketData", JSON.stringify(input));
-      navigate("/booking");
+    if (!input.from || !input.to) {
+      setError({
+        from: !input.from ? "Please select a location from the list" : "",
+        to: !input.to ? "Please select a location from the list" : "",
+      });
+      return;
     }
+    localStorage.setItem("ticketData", JSON.stringify(input));
+    navigate("/booking");
   }
+
+  useEffect(() => {
+    fetchLocations();
+  }, []);
+
+  const fetchLocations = () => {
+    setTimeout(() => {
+      const fetchedFromOptions = ["Kampala"];
+      const fetchedToOptions = [
+        "Mbarara",
+        "Kitgum",
+        "Mbale",
+        "Gulu",
+        "Arua",
+        "Soroti",
+        "Kabale",
+      ];
+
+      setFrom(fetchedFromOptions);
+      setTo(fetchedToOptions);
+    }, 1000);
+  };
 
   return (
     <div>
@@ -61,29 +66,37 @@ function Hero() {
               className="p-5 form-center bg-white rounded-lg"
             >
               <div className="form-row sm:w-full">
-                <input
+                <select
                   id="from"
-                  type="text"
-                  placeholder="From"
                   className="mb-[24px] text-blue-900 rounded w-[50%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none"
-                  onChange={(e) => {
-                    setInput({ ...input, from: e.target.value });
-                  }}
+                  onChange={(e) =>
+                    setInput({ ...input, from: e.target.value })
+                  }
                   value={input.from}
-                />
+                >
+                  <option value="">Select From</option>
+                  {from.map((location, index) => (
+                    <option key={index} value={location}>
+                      {location}
+                    </option>
+                  ))}
+                </select>
                 {error.from && (
                   <p className="text-center text-red-500">{error.from}</p>
                 )}
-                <input
+                <select
                   id="to"
-                  type="text"
-                  placeholder="To"
                   className="mb-[24px] text-blue-900 rounded w-[50%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none"
-                  onChange={(e) => {
-                    setInput({ ...input, to: e.target.value });
-                  }}
+                  onChange={(e) => setInput({ ...input, to: e.target.value })}
                   value={input.to}
-                />
+                >
+                  <option value="">Select To</option>
+                  {to.map((location, index) => (
+                    <option key={index} value={location}>
+                      {location}
+                    </option>
+                  ))}
+                </select>
                 {error.to && (
                   <p className="text-center text-red-500 w-full">{error.to}</p>
                 )}
