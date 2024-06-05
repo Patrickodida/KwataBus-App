@@ -10,6 +10,8 @@ export const storeUser = (data) => {
     "user",
     JSON.stringify({
       username: data.user.username,
+      phone: data.user.MobileNumber,
+      email: data.user.email,
       jwt: data.jwt,
     })
   );
