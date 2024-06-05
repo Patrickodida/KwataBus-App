@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
-import axios from 'axios';
+import axios from "axios";
 
 function OrdBusSeat() {
   const { id } = useParams();
@@ -14,12 +14,11 @@ function OrdBusSeat() {
   const specialSeats = ["S", "Driver"];
 
   useEffect(() => {
-    fetch/* (`https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes/${id}`) */
-    (`http://localhost:1337/api/bus-routes/${id}?populate=*`)
+    fetch(`http://localhost:1337/api/bus-routes/${id}?populate=*`)
       .then((response) => response.json())
       .then((data) => {
         setBusService(data.data.attributes);
-        console.log(data.data.attributes)
+        console.log(data.data.attributes);
         setLoading(false);
       })
       .catch((error) => {
@@ -60,12 +59,7 @@ function OrdBusSeat() {
     };
     console.log(journeyDetails);
     axios
-      .post(
-        /* "https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes", */
-        /* "https://kwatabus-backend.onrender.com/api/bus-routes", */
-        "http://localhost:1337/api/bus-routes?populate=*",
-        journeyDetails
-      )
+      .post("http://localhost:1337/api/bus-routes?populate=*", journeyDetails)
       .then((response) => {
         navigate("/PaymentsPage");
       })
@@ -74,7 +68,7 @@ function OrdBusSeat() {
         console.log(error);
       });
   };
-  console.log('busService',busService)
+  console.log("busService", busService);
 
   const renderSeat = (seatNumber, index) => (
     <div
@@ -101,7 +95,7 @@ function OrdBusSeat() {
       <div className="flex justify-center flex-col md:flex-row gap-[10%] m-auto w-[80%] mt-[2em] mb-[2em]">
         <section className="text-[#061f77] font-bold text-[1.25rem] md:w-full md:m-auto mb-[4em]">
           <form
-            className="border border-gray-300 shadow-md p-16"
+            className="shadow-2xl p-16"
             onSubmit={handleSubmit}
           >
             <div className="relative flex flex-col flex-start mb-4">
@@ -113,9 +107,7 @@ function OrdBusSeat() {
                 id="date"
                 className="rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
               />
-              <span className="absolute top-[80%] transform -translate-y-1/2 left-[5%] text-[#061f77] text-[16px] ">
-                {/* <i className="bx bxs-calendar"></i> */}
-              </span>
+              <span className="absolute top-[80%] transform -translate-y-1/2 left-[5%] text-[#061f77] text-[16px] "></span>
             </div>
             <div className="relative flex flex-col flex-start mb-4">
               <label htmlFor="from">From</label>
@@ -126,9 +118,7 @@ function OrdBusSeat() {
                 readOnly
                 className="rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
               />
-              <span className="absolute top-[80%] transform -translate-y-1/2 right-[5%] text-[#061f77] text-[16px] ">
-                {/* <i className="bx bxs-down-arrow text-[#061f77]"></i> */}
-              </span>
+              <span className="absolute top-[80%] transform -translate-y-1/2 right-[5%] text-[#061f77] text-[16px] "></span>
             </div>
 
             <div className="relative flex flex-col flex-start mb-4">
@@ -140,9 +130,7 @@ function OrdBusSeat() {
                 readOnly
                 className="rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
               />
-              <span className="absolute top-[80%] transform -translate-y-1/2 right-[5%] text-[#061f77] text-[16px] ">
-                {/* <i className="bx bxs-down-arrow"></i> */}
-              </span>
+              <span className="absolute top-[80%] transform -translate-y-1/2 right-[5%] text-[#061f77] text-[16px] "></span>
             </div>
 
             <div className="relative flex flex-col flex-start mb-4">
@@ -154,9 +142,7 @@ function OrdBusSeat() {
                 readOnly
                 className="rounded p-2 mt-4 placeholder-[#061f77] border border-gray-300 text-[#061f77] focus:outline-none"
               />
-              <span className="absolute top-[80%] transform -translate-y-1/2 right-[5%] text-[#061f77] text-[16px] ">
-                {/* <i className="bx bxs-down-arrow"></i> */}
-              </span>
+              <span className="absolute top-[80%] transform -translate-y-1/2 right-[5%] text-[#061f77] text-[16px] "></span>
             </div>
             <div className="block">
               <button
@@ -173,7 +159,7 @@ function OrdBusSeat() {
           <h1 className="font-bold text-[1.25rem] text-center mb-4 text-[#061f77]">
             Click on Seat to select or deselect
           </h1>
-          <div className="seat-section border border-gray-300 shadow-md p-6">
+          <div className="seat-section shadow-2xl p-6">
             <div className="flex justify-center gap-10 text-[text] text-[#061f77] text-[1.25rem] ">
               <div className="left-row">
                 {[

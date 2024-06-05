@@ -33,7 +33,16 @@ function Hero() {
 
   const fetchLocations = () => {
     setTimeout(() => {
-      const fetchedFromOptions = ["Kampala"];
+      const fetchedFromOptions = [
+        "Kampala",
+        "Kabale",
+        "Soroti",
+        "Arua",
+        "Gulu",
+        "Mbale",
+        "Kitgum",
+        "Mbarara",
+      ];
       const fetchedToOptions = [
         "Mbarara",
         "Kitgum",
@@ -42,6 +51,7 @@ function Hero() {
         "Arua",
         "Soroti",
         "Kabale",
+        "Kampala",
       ];
 
       setFrom(fetchedFromOptions);
@@ -69,9 +79,7 @@ function Hero() {
                 <select
                   id="from"
                   className="mb-[24px] text-blue-900 rounded w-[50%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none"
-                  onChange={(e) =>
-                    setInput({ ...input, from: e.target.value })
-                  }
+                  onChange={(e) => setInput({ ...input, from: e.target.value })}
                   value={input.from}
                 >
                   <option value="">Select From</option>

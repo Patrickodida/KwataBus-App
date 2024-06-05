@@ -135,7 +135,15 @@ function Booking() {
                     className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
                     onChange={(e) => setInput({ ...input, from: e.target.value })}
                   >
+                    <option value="">Select Location</option>
                     <option value="Kampala">Kampala</option>
+                    <option value="Kabale">Kabale</option>
+                    <option value="Soroti">Soroti</option>
+                    <option value="Arua">Arua</option>
+                    <option value="Gulu">Gulu</option>
+                    <option value="Mbale">Mbale</option>
+                    <option value="Kitgum">Kitgum</option>
+                    <option value="Mbarara">Mbarara</option>
                   </select>
                 </div>
                 {error.from && (
@@ -157,6 +165,7 @@ function Booking() {
                     <option value="Arua">Arua</option>
                     <option value="Soroti">Soroti</option>
                     <option value="Kabale">Kabale</option>
+                    <option value="Kampala">Kampala</option>
                   </select>
                 </div>
                 {error.to && (
