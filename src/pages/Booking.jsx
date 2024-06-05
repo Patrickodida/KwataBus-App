@@ -16,7 +16,7 @@ function Booking() {
   }
 
   const [input, setInput] = useState({
-    from: "",
+    from: "Kampala",
     to: "",
   });
 
@@ -44,9 +44,7 @@ function Booking() {
   }, []);
 
   function fetchData() {
-    fetch/* ("https://big-chicken-57890d4fdf.strapiapp.com/api/bus-routes") */
-    /* ("https://kwatabus-backend.onrender.com/api/bus-routes") */
-    ("http://localhost:1337/api/bus-routes?populate=*")
+    fetch("http://localhost:1337/api/bus-routes?populate=*")
       .then((response) => response.json())
       .then((dataObject) => {
         let routeData = dataObject.data;
@@ -60,47 +58,27 @@ function Booking() {
       });
   }
 
-  function validateFrom(from) {
-    if (from.length < 4) {
-      setError((prevError) => ({ ...prevError, from: "Invalid input" }));
-      return false;
-    }
-    setError((prevError) => ({ ...prevError, from: "" }));
-    return true;
-  }
-
-  function validateTo(to) {
-    if (to.length < 4) {
-      setError((prevError) => ({ ...prevError, to: "Invalid input" }));
-      return false;
-    }
-    setError((prevError) => ({ ...prevError, to: "" }));
-    return true;
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateFrom(input.from) && validateTo(input.to)) {
-      let filtered = route;
+    let filtered = route;
 
-      if (input.from) {
-        filtered = filtered.filter((item) =>
-          item.attributes.DepartureTown.toLowerCase().includes(
-            input.from.toLowerCase()
-          )
-        );
-      }
-
-      if (input.to) {
-        filtered = filtered.filter((item) =>
-          item.attributes.ArrivalTown.toLowerCase().includes(
-            input.to.toLowerCase()
-          )
-        );
-      }
-
-      setFilteredRoute(filtered);
+    if (input.from) {
+      filtered = filtered.filter((item) =>
+        item.attributes.DepartureTown.toLowerCase().includes(
+          input.from.toLowerCase()
+        )
+      );
     }
+
+    if (input.to) {
+      filtered = filtered.filter((item) =>
+        item.attributes.ArrivalTown.toLowerCase().includes(
+          input.to.toLowerCase()
+        )
+      );
+    }
+
+    setFilteredRoute(filtered);
   };
 
   const handleFilterChange = (filterType, value) => {
@@ -119,11 +97,8 @@ function Booking() {
     if (filters.busCategory.length > 0) {
       filtered = filtered.filter((item) =>
         filters.busCategory.includes(item.attributes.bus_services.data[0].attributes.Name)
-
       );
-      
     }
-    console.log('filtered', route)
 
     if (filters.departureTime.length > 0) {
       filtered = filtered.filter((item) => {
@@ -133,7 +108,6 @@ function Booking() {
         }`;
         return filters.departureTime.includes(formattedTime);
       });
-    
     }
 
     setFilteredRoute(filtered);
@@ -155,34 +129,35 @@ function Booking() {
                   <label className="text-[#061f77] font-bold" id="firstLabel">
                     From
                   </label>
-                  <input
-                    type="text"
+                  <select
                     id="from"
                     value={input.from}
-                    placeholder="Kampala"
                     className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
-                    onChange={(e) => {
-                      setInput({ ...input, from: e.target.value });
-                      validateFrom(e.target.value);
-                    }}
-                  />
+                    onChange={(e) => setInput({ ...input, from: e.target.value })}
+                  >
+                    <option value="Kampala">Kampala</option>
+                  </select>
                 </div>
                 {error.from && (
                   <p className="text-center text-red-500">{error.from}</p>
                 )}
                 <div className="to flex">
                   <label className="text-[#061f77] font-bold">To</label>
-                  <input
-                    type="text"
+                  <select
                     id="to"
                     value={input.to}
-                    placeholder="Arua"
                     className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
-                    onChange={(e) => {
-                      setInput({ ...input, to: e.target.value });
-                      validateTo(e.target.value);
-                    }}
-                  />
+                    onChange={(e) => setInput({ ...input, to: e.target.value })}
+                  >
+                    <option value="">Select Destination</option>
+                    <option value="Mbarara">Mbarara</option>
+                    <option value="Kitgum">Kitgum</option>
+                    <option value="Mbale">Mbale</option>
+                    <option value="Gulu">Gulu</option>
+                    <option value="Arua">Arua</option>
+                    <option value="Soroti">Soroti</option>
+                    <option value="Kabale">Kabale</option>
+                  </select>
                 </div>
                 {error.to && (
                   <p className="text-center text-red-500">{error.to}</p>
