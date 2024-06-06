@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { userData } from "../UserHelper";
@@ -98,12 +98,12 @@ function PaymentsPage() {
           </div>
         </div>
         <div className="flex justify-center text-right mt-4">
-          <button
+          <Link to="/PaymentMethods"
             type="button"
             className="flex items-center justify-center bg-[#061f77] text-white px-4 py-2 rounded-lg w-full md:w-[50%]"
           >
             Proceed To Payment
-          </button>
+          </Link>
         </div>
       </div>
       <Footer />

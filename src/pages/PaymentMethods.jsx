@@ -11,7 +11,7 @@ function PaymentMethods() {
   return (
     <div>
       <Navbar />
-      <Banner />
+      <Banner title={"Payment Methods"} />
       <section className="flex gap-[10%] w-[80%] m-auto mt-20">
         <div className="py-4 px-4 shadow-2xl text-center">
           <div>
