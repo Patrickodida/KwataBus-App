@@ -78,7 +78,7 @@ function Hero() {
               <div className="form-row sm:w-full">
                 <select
                   id="from"
-                  className="mb-[24px] text-blue-900 rounded w-[50%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none"
+                  className="mb-[24px] mr-4 text-blue-900 rounded w-[50%] p-[0.425em] border border-gray-300 text-[#061f77] focus:outline-none"
                   onChange={(e) => setInput({ ...input, from: e.target.value })}
                   value={input.from}
                 >

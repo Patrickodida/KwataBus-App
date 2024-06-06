@@ -124,15 +124,15 @@ function Booking() {
               onSubmit={handleSubmit}
               className="form-center bg-white rounded-lg"
             >
-              <div className="form-row flex flex-col md:flex-row gap-5 items-center justify-center w-full">
+              <div className="form-row flex flex-col md:flex-row gap-4 justify-center w-full">
                 <div className="from flex">
-                  <label className="text-[#061f77] font-bold" id="firstLabel">
+                  <label className="text-[#061f77] text-center font-bold" id="firstLabel">
                     From
                   </label>
                   <select
                     id="from"
                     value={input.from}
-                    className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
+                    className="mb-[24px] text-[#061f77] rounded w-full md:w-auto p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
                     onChange={(e) => setInput({ ...input, from: e.target.value })}
                   >
                     <option value="">Select Location</option>
@@ -154,7 +154,7 @@ function Booking() {
                   <select
                     id="to"
                     value={input.to}
-                    className="mb-[24px] text-[#061f77] rounded w-[100%] p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
+                    className="mb-[24px] text-[#061f77] rounded w-full md:w-auto p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
                     onChange={(e) => setInput({ ...input, to: e.target.value })}
                   >
                     <option value="">Select Destination</option>
@@ -174,7 +174,7 @@ function Booking() {
                 <div className="ticket flex">
                   <button
                     type="submit"
-                    className="ml-4 mb-[24px] bg-[#061f77] rounded-lg text-white py-2 px-10 text-center"
+                    className="m-0 md:ml-4 md:mb-[24px] bg-[#061f77] rounded-lg text-white py-2 px-10 text-center"
                     style={{ whiteSpace: "nowrap", width: "100%" }}
                   >
                     Find Ticket
