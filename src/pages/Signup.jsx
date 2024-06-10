@@ -106,8 +106,6 @@ function Signup() {
     e.preventDefault();
     axios
       .post(
-        /* "https://big-chicken-57890d4fdf.strapiapp.com/api/auth/local/register", */
-        /* "https://kwatabus-backend.onrender.com/api/auth/local/register", */
         "http://localhost:1337/api/auth/local/register",
         input
       )

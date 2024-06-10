@@ -51,8 +51,6 @@ function Login() {
 
     try {
       const response = await axios.post(
-        /* "https://big-chicken-57890d4fdf.strapiapp.com/api/auth/local", */
-        /* "https://kwatabus-backend.onrender.com/api/auth/local", */
         "http://localhost:1337/api/auth/local?populate=*",
         input
       );
