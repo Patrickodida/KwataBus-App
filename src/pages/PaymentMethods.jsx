@@ -12,7 +12,7 @@ function PaymentMethods() {
     <div>
       <Navbar />
       <Banner title={"Payment Methods"} />
-      <section className="md:flex  gap-[10%] w-[80%] m-auto mt-20">
+      <section className="md:flex  md:gap-[10%] w-[80%] m-auto mt-20">
         <div className="py-4 px-4 mb-8 shadow-2xl text-center">
           <div>
             <img src={FlutterwaveImage} alt="" className="w-full h-full" />
@@ -25,7 +25,6 @@ function PaymentMethods() {
           <div>
             <img src={MtnImage} alt="" className="w-full h-full" />
           </div>
-
           <div>
             <button className="w-full">Pay Now</button>
           </div>
