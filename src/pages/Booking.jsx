@@ -122,9 +122,9 @@ function Booking() {
           <div>
             <form
               onSubmit={handleSubmit}
-              className="form-center bg-white rounded-lg"
+              className="bg-white rounded-lg"
             >
-              <div className="form-row flex flex-col md:flex-row gap-4 justify-center w-full">
+              <div className="form-row flex flex-col md:flex-row gap-2 justify-center w-full">
                 <div className="from flex">
                   <label className="text-[#061f77] text-center font-bold" id="firstLabel">
                     From
@@ -132,7 +132,7 @@ function Booking() {
                   <select
                     id="from"
                     value={input.from}
-                    className="mb-[24px] text-[#061f77] rounded w-full md:w-auto p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
+                    className="mb-[24px] text-[#061f77] rounded w-full md:w-auto  p-[0.325em] border border-gray-300 text-[#061f77] focus:outline-none"
                     onChange={(e) => setInput({ ...input, from: e.target.value })}
                   >
                     <option value="">Select Location</option>
@@ -174,7 +174,7 @@ function Booking() {
                 <div className="ticket flex">
                   <button
                     type="submit"
-                    className="m-0 md:ml-4 md:mb-[24px] bg-[#061f77] rounded-lg text-white py-2 px-10 text-center"
+                    className="m-0 md:ml-4 md:mb-[24px] bg-[#061f77] rounded-lg text-white py-2 px-10 text-center w-full md:w-[50%]"
                     style={{ whiteSpace: "nowrap", width: "100%" }}
                   >
                     Find Ticket
@@ -185,7 +185,7 @@ function Booking() {
           </div>
         </section>
         <div className="md:flex md:justify-center items-start flex-col md:flex-row">
-          <section className="bg-slate-100 text-[#061f77] rounded-lg p-4 md:mr-10 md:mb-20 mt-60 mb-10 text-center w-20% md:mt-0">
+          <section className="bg-slate-100 text-[#061f77] rounded-lg p-4 md:mr-10 md:mb-20 mt-20 mb-10 text-center w-20% md:mt-0">
             <div className="flex mb-8 justify-center">
               <div className="font-bold">
                 <h1>FILTER</h1>
